@@ -79,45 +79,45 @@
 #   "ratio": "function=ratio : to | the ratio : to | the ratio : to"  # verbosity of name:glue pairs
 #
 - IntentMappings: {
-    "binomial": "infix=binomial; choose; end binomial",
+    "binomial": "infix=kombinačné číslo; nad; koniec kombinačného čísla",
 
     ### Functions and Inverses
     # Interval intents (open-/closed-interval, etc.) are handled by rules due to special cases involving ∞.
-    "inverse":"function=inverse || postfix=inverse", 
+    "inverse":"function=inverzná funkcia || postfix=inverzná",
 
-    "domain": "function= ; domain",
-    "codomain": "function= ; codomain",
+    "domain": "function= ; definičný obor",
+    "codomain": "function= ; obor hodnôt",
 
-    "image":"function=image", 
+    "image":"function=obraz",
     #"fraction":"function=fraction; over; end fraction", # NOTE: Fails
-    "mixed-fraction":"infix=and", # NOTE: in website says function, but follow infix speech pattern.
-    "quotient":"function=integer part: divided by",
-    "evaluated-at":"infix=evaluated at",
-    "remainder":"function=the remainder: divided by",
+    "mixed-fraction":"infix=a", # NOTE: in website says function, but follow infix speech pattern.
+    "quotient":"function=celá časť: deleno",
+    "evaluated-at":"infix=vyčíslené v",
+    "remainder":"function=zvyšok: po delení",
 
-    "max":"function=max",
-    "min":"function=min",
+    "max":"function=maximum",
+    "min":"function=minimum",
 
-    "power":"infix=to the power",
-    "root":"function=root",
+    "power":"infix=na",
+    "root":"function=odmocnina",
 
-    "greatest-common-divisor": "function=gcd| the gcd| the greatest common divisor",
-    "least-common-multiple":"function=lcm| the lcm| the least common multiple", # In webpage typo "lest common"
+    "greatest-common-divisor": "function=NSD| NSD| najväčší spoločný deliteľ",
+    "least-common-multiple":"function=NSN| NSN| najmenší spoločný násobok", # In webpage typo "lest common"
 
-    "absolute-value": "function= ; absolute value| the absolute value| the absolute value; end absolute value",
-    "complex-conjugate":"function=complex conjugate",
-    "complex-arg":"function=arg",
-    "real-part": "function=the real part",
-    "imaginary-part": "function=imaginary part| the imaginary part| the imaginary part",
+    "absolute-value": "function= ; absolútna hodnota| absolútna hodnota| absolútna hodnota; koniec absolútnej hodnoty",
+    "complex-conjugate":"function=komplexne združené číslo",
+    "complex-arg":"function=argument",
+    "real-part": "function=reálna časť",
+    "imaginary-part": "function=imaginárna časť| imaginárna časť| imaginárna časť",
 
-    "polar-coordinate":"function=polar coordinate",
-    "spherical-coordinate":"function=spherical coordinate",
-    "cartesian-coordinate":"function=cartesian coordinate",
-    "coordinate":"function=coordinate",
-    "floor":"function=floor",
-    "ceiling":"function=ceiling",
-    "round":"function=rounded-value",
-    "fractional-part":"function=fractional part",
+    "polar-coordinate":"function=polárne súradnice",
+    "spherical-coordinate":"function=sférické súradnice",
+    "cartesian-coordinate":"function=karteziánske súradnice",
+    "coordinate":"function=súradnice",
+    "floor":"function=dolná celá časť",
+    "ceiling":"function=horná celá časť",
+    "round":"function=zaokrúhlená hodnota",
+    "fractional-part":"function=necelá časť",
 
 
     ### Calculus
@@ -125,260 +125,261 @@
     # "derivative":"function=the derivative; with respect to", # Property ???
     # "partial-derivative":"function=partial", ## Note, included with infix, but separately under calculus tab has ??? for functionality
 
-    "limit": "prefix=limit as|the limit as",
-    "tends-to":"infix=tends to",
-    "tends-to-from-above":"infix=tends to from above",
-    "tends-to-from-below":"infix=tends to from below",
+    "limit": "prefix=limita pre|limita pre",
+    "tends-to":"infix=idúce k",
+    "tends-to-from-above":"infix=idúce zhora k",
+    "tends-to-from-below":"infix=idúce zdola k",
 
 
     ### Sets
-    "set": "function= ; set| the set",
-    "set-difference":"function=set difference: and || infix=minus",
-    "complement":"function=complement",
-    "empty-set":"nofix=empty set",
-    "cardinality":"function=cardinality", # NOTE: does not have a defined speech template in website
-    "list":"function=list",
-    "tuple": "function= ; tuple| the tuple",
+    "set": "function= ; množina| množina",
+    "set-difference":"function=rozdiel množín: a || infix=mínus",
+    "complement":"function=doplnok",
+    "empty-set":"nofix=prázdna množina",
+    "cardinality":"function=mohutnosť", # NOTE: does not have a defined speech template in website
+    "list":"function=zoznam",
+    "tuple": "function= ; n-tica| n-tica",
 
 
     ### Sequence and Series
-    "sum": "function=sum: over: from,to",
-    "product": "function=product: over: from,to",
+    "sum": "function=súčet: cez: od,po",
+    "product": "function=súčin: cez: od,po",
 
 
     ### Elementary classical functions
-    "sine":"function=sin | sine",
-    "cosine":"function=cos | cosine",
-    "tangent":"function=tan | tangent",
-    "secant":"function=seech | secant",
-    "cosecant":"function=co-seech | cosecant",
-    "cotangent":"function=co-tan | cotangent",
+    "sine":"function=sínus",
+    "cosine":"function=kosínus",
+    "tangent":"function=tangens",
+    "secant":"function=sekans",
+    "cosecant":"function=kosekans",
+    "cotangent":"function=kotangens",
 
-    "arcsine":"function=arcsine",
-    "arccosine":"function=arccosine",
-    "arctangent":"function=arctangent",
-    "arcsecant":"function=arcsecant",
-    "arccosecant":"function=arc-cosecant",
-    "arccotangent":"function=arc-cotangent",
+    "arcsine":"function=arkussínus",
+    "arccosine":"function=arkuskosínus",
+    "arctangent":"function=arkustangens",
+    "arcsecant":"function=arkussekans",
+    "arccosecant":"function=arkuskosekans",
+    "arccotangent":"function=arkuskotangens",
 
-    "hyperbolic-sine":"function=shine",
-    "hyperbolic-cosine":"function=cosh",
-    "hyperbolic-tangent":"function=tanch",
-    "hyperbolic-secant":"function=sech",
-    "hyperbolic-cosecant":"function=cosech",
-    "hyperbolic-cotangent":"function=coth",
+    "hyperbolic-sine":"function=hyperbolický sínus",
+    "hyperbolic-cosine":"function=hyperbolický kosínus",
+    "hyperbolic-tangent":"function=hyperbolický tangens",
+    "hyperbolic-secant":"function=hyperbolický sekans",
+    "hyperbolic-cosecant":"function=hyperbolický kosekans",
+    "hyperbolic-cotangent":"function=hyperbolický kotangens",
 
-    "arc-hyperbolic-sine":"function=arc shine",
-    "arc-hyperbolic-cosine":"function=arc cosh",
-    "arc-hyperbolic-tangent":"function=arc tanch",
-    "arc-hyperbolic-secant":"function=arc sech",
-    "arc-hyperbolic-cosecant":"function=arc cosech",
-    "arc-hyperbolic-cotangent":"function=arc coth",
+    "arc-hyperbolic-sine":"function=argument hyperbolického sínusu",
+    "arc-hyperbolic-cosine":"function=argument hyperbolického kosínusu",
+    "arc-hyperbolic-tangent":"function=argument hyperbolického tangensu",
+    "arc-hyperbolic-secant":"function=argument hyperbolického sekansu",
+    "arc-hyperbolic-cosecant":"function=argument hyperbolického kosekansu",
+    "arc-hyperbolic-cotangent":"function=argument hyperbolického kotangensu",
 
-    "exponential":"function=exponential",
-    "natural-logarithm": "function=l n| natural log| natural log",
-    "logarithm":"function=log", ##Check arity 2 
+    "exponential":"function=exponenciála",
+    "natural-logarithm": "function=l n| prirodzený logaritmus| prirodzený logaritmus",
+    "logarithm":"function=logaritmus", ##Check arity 2
 
 
     ### Statistics and Probability
-    "mean":"function=mean", 
-    "standard-deviation":"function=standard deviation",
-    "variance":"function=variance",
-    "median":"function=median",
-    "mode":"function=mode",
+    "mean":"function=priemer",
+    "standard-deviation":"function=smerodajná odchýlka",
+    "variance":"function=rozptyl",
+    "median":"function=medián",
+    "mode":"function=modus",
 
-    "conditional-probability":"function=probability: given", 
+    "conditional-probability":"function=pravdepodobnosť: za podmienky",
 
 
     ### Linear Algebra
-    "vector": "function= ; vector || prefix=vector", # prefix not tested, also prefix not on webpage
-    "matrix":"function=matrix", # NOTE: Failing test, recheck
+    "vector": "function= ; vektor || prefix=vektor", # prefix not tested, also prefix not on webpage
+    "matrix":"function=matica", # NOTE: Failing test, recheck
     "determinant":"function=determinant",
-    "adjugate":"function=adjugate",
-    "magnitude":"function=magnitude",
-    "norm": "function=; norm| norm| norm; end norm",
-    "span":"function=span",
+    "adjugate":"function=adjungovaná matica",
+    "magnitude":"function=veľkosť",
+    "norm": "function=; norma| norma| norma; koniec normy",
+    "span":"function=lineárny obal",
 
-    "unit-vector":"prefix=unit vector",
+    "unit-vector":"prefix=jednotkový vektor",
 
-    "identity-matrix":"nofix=identity matrix", # NOTE: no function specified
-    "transpose":"postfix=transpose || function=transpose",
-    "dimensional-product":"infix=by", # INFIX
+    "identity-matrix":"nofix=jednotková matica", # NOTE: no function specified
+    "transpose":"postfix=transponovaná || function=transponovaná",
+    "dimensional-product":"infix=krát", # INFIX
 
 
     ### Constants and Sets
-    "set-of-integers":"nofix=ℤ| set of all integers",
-    "set-of-reals":"nofix=ℝ| set of all real numbers",
-    "set-of-rationals":"nofix=ℚ| set of all rational numbers",
-    "set-of-natural-numbers":"nofix=ℕ| set of all natural numbers",
-    "set-of-complex-numbers":"nofix=ℂ| set of all complex numbers",
-    "set-of-primes":"nofix=ℙ| set of all prime numbers",
+    "set-of-integers":"nofix=ℤ| množina všetkých celých čísel",
+    "set-of-reals":"nofix=ℝ| množina všetkých reálnych čísel",
+    "set-of-rationals":"nofix=ℚ| množina všetkých racionálnych čísel",
+    "set-of-natural-numbers":"nofix=ℕ| množina všetkých prirodzených čísel",
+    "set-of-complex-numbers":"nofix=ℂ| množina všetkých komplexných čísel",
+    "set-of-primes":"nofix=ℙ| množina všetkých prvočísel",
 
-    
+
     ### Geometry
-    "line-segment":"prefix=line segment",
-    "directed-line-segment":"prefix=directed line segment", 
-    "line":"prefix=line",
-    "ray":"prefix=ray",
-    "arc":"prefix=arc",
+    "line-segment":"prefix=úsečka",
+    "directed-line-segment":"prefix=orientovaná úsečka",
+    "line":"prefix=priamka",
+    "ray":"prefix=polpriamka",
+    "arc":"prefix=oblúk",
 
-    "length":"function=length",
-    "area":"function=area",
+    "length":"function=dĺžka",
+    "area":"function=obsah",
 
-    "point":"prefix=point",  ## NOTE: Has ??? for property in site. Should it be prefix? Or something else.
+    "point":"prefix=bod",  ## NOTE: Has ??? for property in site. Should it be prefix? Or something else.
 
     ### Separators
     "time-separator":"infix=",
 
-    ### General Concepts 
+    ### General Concepts
     "fenced-group":"function=fenced-group", # appears both under general concepts and grouping
      # NOTE: in site mentions "the pair x and y", due to being defined as function, needs the "of" keyword
-    "ordered-pair": "function=the pair: and", # Needs to be tested
+    "ordered-pair": "function=usporiadaná dvojica: a", # Needs to be tested
     # Simple last arg: "x sub k". Complex: "… end sub" (terse/medium) / "end subscript" (verbose) via infix-intent.
-    "indexed-by": "infix= ; sub; end sub| end sub| end subscript",
-    
-    "highlight":"postfix=highlighted",
-    "least-common-denominator":"function=least common denominator",
-    "rate":"infix=per",
-    "translation":"function=translation by",
-    "constraint":"infix= ; with constraint; ", 
-    
-    "binomial-coefficient":"infix=choose",
-    "pochhammer":"function=permutation",
-    "permutation-cycle":"function=permutation cycle",
-    "embellished-name":"infix=with annotation",
+    "indexed-by": "infix= ; index; koniec indexu| koniec indexu| koniec indexu",
+
+    "highlight":"postfix=zvýraznené",
+    "least-common-denominator":"function=najmenší spoločný menovateľ",
+    "rate":"infix=za",
+    "translation":"function=posunutie o",
+    "constraint":"infix= ; s podmienkou; ",
+
+    "binomial-coefficient":"infix=nad",
+    "pochhammer":"function=permutácia",
+    "permutation-cycle":"function=permutačný cyklus",
+    "embellished-name":"infix=s anotáciou",
 
     ### Grouping
-    "annotation":"infix= ; which is ;",              # NOTE: Follows the same order as indexed-by, in site listed as function. Should it be infix?
-    "braced-group":"function=grouped; end grouped",  # NOTE: not tested, site is missing "of" keyword function introduces
+    "annotation":"infix= ; čo je ;",              # NOTE: Follows the same order as indexed-by, in site listed as function. Should it be infix?
+    "braced-group":"function=skupina; koniec skupiny",  # NOTE: not tested, site is missing "of" keyword function introduces
     #"repeating-decimal":"function=repeating decimal", # NOTE: BREAKS TEST. Check again. Site is missing "of" keyword function introduces.
 
 
     ### Other
     ## Default fixity function
-    "curl": "function=curl",
-    "divergence": "function=div|divergence",
-    "gradient": "function=del|gradient",
-    "laplacian": "function=laplacian",
+    "curl": "function=rotácia",
+    "divergence": "function=div|divergencia",
+    "gradient": "function=grad|gradient",
+    "laplacian": "function=laplacián",
 
     ## Default fixity prefix
-    "angle": "prefix=angle",
-    "angle-measure": "prefix=angle measure",
-    "change": "prefix=change in",
-    "for-all": "prefix=for all",
-    "measured-angle": "prefix=measured angle",
-    "not": "prefix=not",
-    "number-of": "prefix=number of",
-    "partial-derivative": "prefix=partial",
-    "right-angle": "prefix=right angle",
-    "square-root-of": "prefix=square root of",
-    "there-does-not-exist": "prefix=there does not exist",
-    "there-exists": "prefix=there exists",
+    "angle": "prefix=uhol",
+    "angle-measure": "prefix=veľkosť uhla",
+    "change": "prefix=zmena",
+    "for-all": "prefix=pre všetky",
+    "measured-angle": "prefix=meraný uhol",
+    "not": "prefix=nie",
+    "number-of": "prefix=počet",
+    "partial-derivative": "prefix=parciálne",
+    "right-angle": "prefix=pravý uhol",
+    "square-root-of": "prefix=druhá odmocnina z",
+    "there-does-not-exist": "prefix=neexistuje",
+    "there-exists": "prefix=existuje",
 
 
     ## Default fixity infix
-    "and": "infix=and",
-    "applied-to": "infix=applied to",
-    "approximately": "infix=approximately",
-    "congruent": "infix=congruent to",
-    "cartesian-product": "infix=cartesian product",
-    "composed-with": "infix=composed with",
-    "cross-product": "infix=cross| cross product| cross product",
-    "defined-as": "infix=defined as",
-    "divided-by": "infix=divided by",
-    "divides": "infix=divides",
-    "does-not-belong-to": "infix=does not belong to",
-    "does-not-divide": "infix=does not divide",
-    "dot-product": "infix=dot product",
-    "downwards-diagonal-ellipsis": "infix=downwards diagonal ellipsis",
-    "direct-product": "infix=direct product",
-    "element-of": "infix=element of",
-    "ellipsis": "infix=ellipsis",
-    "equals": "infix=equals",
-    "equivalent-to": "infix=equivalent to",
-    "evaluates-to": "infix=evaluates to",
-    "given": "infix=given",
-    "greater-than": "infix=greater than",
-    "greater-than-or-equal-to": "infix=greater than or equal to",
-    "identically-equals": "infix=identically equals",
-    "if-and-only-if": "infix=if and only if",
-    "implies": "infix=implies",
-    "inner-product": "infix=inner product",
-    "intersection": "infix=intersection",
-    "less-than": "infix=less than",
-    "less-than-or-equal-to": "infix=less than or equal to",
-    "list-separator": "infix=comma",
-    "maps-to": "infix=maps to",
-    "member-of": "infix=member of",
-    "minus-or-plus": "infix=minus or plus",
-    "not-subset": "infix=not subset of",
-    "not-superset": "infix=not superset of",
-    "not-equal-to": "infix=not equal to",
-    "not-member-of": "infix=not member of",
-    "not-parallel-to": "infix=not parallel to",
-    "obtained-from": "infix=obtained from",
-    "or": "infix=or",
-    "outer-product": "infix=outer product",
-    "parallel-to": "infix=parallel to",
-    "perpendicular": "infix=perpendicular to",
-    "plus": "infix=plus || prefix=positive", # Prefix not tested
-    "minus": "infix=minus || prefix=negative", # Prefix not tested
-    "plus-or-minus": "infix=plus or minus",
-    "precedes": "infix=precedes",
-    "proportional": "infix=proportional to",
-    "range-separator": "infix=through",
-    "ratio": "function=ratio : to | the ratio : to",
-    "similar": "infix=similar to",
-    "subset": "infix=subset of",
-    "subset-or-equal": "infix=subset or equal to",
-    "succeeds": "infix=succeeds",
-    "such-that": "infix=such that",
-    "superset": "infix=superset of",
-    "superset-or-equal": "infix=superset or equal to",
-    "tilde": "infix=tilde",
-    "times": "infix=times",
-    "union": "infix=union",
-    "upwards-diagonal-ellipsis": "infix=upwards diagonal ellipsis",
-    "vertical-ellipsis": "infix=vertical ellipsis",
-    "xor": "infix=exclusive or",
+    "and": "infix=a",
+    "applied-to": "infix=aplikované na",
+    "approximately": "infix=približne",
+    "congruent": "infix=je zhodné s",
+    "cartesian-product": "infix=karteziánsky súčin",
+    "composed-with": "infix=zložené s",
+    "cross-product": "infix=krížik| vektorový súčin| vektorový súčin",
+    "defined-as": "infix=je definované ako",
+    "divided-by": "infix=deleno",
+    "divides": "infix=delí",
+    "does-not-belong-to": "infix=nepatrí do",
+    "does-not-divide": "infix=nedelí",
+    "dot-product": "infix=skalárny súčin",
+    "downwards-diagonal-ellipsis": "infix=diagonálne bodky nadol",
+    "direct-product": "infix=priamy súčin",
+    "element-of": "infix=je prvkom",
+    "ellipsis": "infix=tri bodky",
+    "equals": "infix=sa rovná",
+    "equivalent-to": "infix=je ekvivalentné s",
+    "evaluates-to": "infix=sa vyhodnotí na",
+    "given": "infix=za podmienky",
+    "greater-than": "infix=je väčší ako",
+    "greater-than-or-equal-to": "infix=je väčší alebo rovný",
+    "identically-equals": "infix=je identicky rovné",
+    "if-and-only-if": "infix=práve vtedy, keď",
+    "implies": "infix=implikuje",
+    "inner-product": "infix=skalárny súčin",
+    "intersection": "infix=prienik",
+    "less-than": "infix=je menší ako",
+    "less-than-or-equal-to": "infix=je menší alebo rovný",
+    "list-separator": "infix=čiarka",
+    "maps-to": "infix=sa zobrazí na",
+    "member-of": "infix=je prvkom",
+    "minus-or-plus": "infix=mínus plus",
+    "not-subset": "infix=nie je podmnožinou",
+    "not-superset": "infix=nie je nadmnožinou",
+    "not-equal-to": "infix=sa nerovná",
+    "not-member-of": "infix=nie je prvkom",
+    "not-parallel-to": "infix=nie je rovnobežná s",
+    "obtained-from": "infix=získané z",
+    "or": "infix=alebo",
+    "outer-product": "infix=vonkajší súčin",
+    "parallel-to": "infix=je rovnobežná s",
+    "perpendicular": "infix=je kolmá na",
+    "plus": "infix=plus || prefix=plus", # Prefix not tested
+    "minus": "infix=mínus || prefix=mínus", # Prefix not tested
+    "plus-or-minus": "infix=plus mínus",
+    "precedes": "infix=predchádza",
+    "proportional": "infix=je úmerné",
+    "range-separator": "infix=až",
+    "ratio": "function=pomer : ku | pomer : ku",
+    "similar": "infix=je podobný",
+    "subset": "infix=je podmnožinou",
+    "subset-or-equal": "infix=je podmnožinou alebo sa rovná",
+    "succeeds": "infix=nasleduje po",
+    "such-that": "infix=také, že",
+    "superset": "infix=je nadmnožinou",
+    "superset-or-equal": "infix=je nadmnožinou alebo sa rovná",
+    "tilde": "infix=vlnovka",
+    "times": "infix=krát",
+    "union": "infix=zjednotenie",
+    "upwards-diagonal-ellipsis": "infix=diagonálne bodky nahor",
+    "vertical-ellipsis": "infix=zvislé bodky",
+    "xor": "infix=vylučovacie alebo",
 
     ## Default fixity postfix
-    "factorial": "postfix=factorial",
+    "factorial": "postfix=faktoriál",
     "percent": "postfix=percent",
 
     ## Default fixity nofix
-    "diameter":"nofix=d| diameter",
-    "distance":"nofix=d; D| distance",
-    "probability":"nofix=P| probability || function=probability",
-    "radius":"nofix=r| radius",
-    "volume":"nofix=V| volume || function=volume",
+    "diameter":"nofix=d| priemer",
+    "distance":"nofix=d; D| vzdialenosť",
+    "probability":"nofix=P| pravdepodobnosť || function=pravdepodobnosť",
+    "radius":"nofix=r| polomer",
+    "volume":"nofix=V| objem || function=objem",
     "exponential-e":"nofix=e",
     "imaginary-i":"nofix=i",
     "differential-d":"nofix=d",
-    "golden-ratio":"nofix=golden ratio",
-    
+    "golden-ratio":"nofix=zlatý rez",
+
 
     ## Other : Not tested, don't appear in https://w3c.github.io/mathml-docs/intent-core-concepts/
     "modified-variable": "silent= ",
-    "say-super": "infix=super| superscript| superscript",   # used with 'mo' for superscripts (e.g, "<")
+    "say-super": "infix=horný index| horný index| horný index",   # used with 'mo' for superscripts (e.g, "<")
     "skip-super": "silent=",   # used with 'mo' for superscripts (e.g, "*")
     # "large-op": "infix=over || other=from,to",
-    "lim-sup": "prefix=lim sup as| the limit superior as| the limit superior as",
-    "lim-inf": "prefix=lim inf as| the limit inferior as| the limit inferior as",
-    "logarithm-with-base": "prefix=log base| the log base| the log base",
+    "lim-sup": "prefix=lim sup pre| limes superior pre| limes superior pre",
+    "lim-inf": "prefix=lim inf pre| limes inferior pre| limes inferior pre",
+    "logarithm-with-base": "prefix=logaritmus so základom| logaritmus so základom| logaritmus so základom",
     # "pochhammer": "infix=permutations of",  # arguments are in reverse order, so can't work here
-    "trace": "function= ; trace| trace| the trace; end trace",
-    "dimension": "function=; dimension| dimension| the dimension; end dimension",
-    "homomorphism": "function= ; homomorphism| homomorphism| the homomorphism; end homomorphism",
-    "kernel": "function= ; kernel| kernel| the kernel; end kernel",
-    
-    "chemistry-concentration": "function= ; concentration| concentration of| the concentration of; end concentration",
+    "trace": "function= ; stopa| stopa| stopa; koniec stopy",
+    "dimension": "function=; dimenzia| dimenzia| dimenzia; koniec dimenzie",
+    "homomorphism": "function= ; homomorfizmus| homomorfizmus| homomorfizmus; koniec homomorfizmu",
+    "kernel": "function= ; jadro| jadro| jadro; koniec jadra",
+
+    "chemistry-concentration": "function= ; koncentrácia| koncentrácia| koncentrácia; koniec koncentrácie",
   }
 
   # The connector word to say for functional 'IntentMappings' (in English, "of")
   # This is likely the word used for U+2061 in unicode.yaml, but for technical reasons needs to be defined here
   # vector of length=1 because scalars not supported
-- FunctionApplicationWord: ["of"]
+  # Slovak: "z" (absolútna hodnota z x); U+2061 in unicode.yaml uses "od" (f od x)
+- FunctionApplicationWord: ["z"]
 
   # Names of functions that in terse mode don't say "of" (or it's equivalent in other languages)
 - TerseFunctionNames: {
@@ -731,78 +732,89 @@
 # The definitions for the "ones" should extend until a regular pattern begins
 #   The minimum length is 10.
 
-# For English, a regular pattern starts at twenty
+# Slovak: the same ordinal lists serve powers and roots (druhá odmocnina, na druhú)
+# and fraction denominators. ToOrdinal uses the "Plural" lists only for fractions,
+# so they hold the plural nouns (tretiny, desatiny, stotiny). The singular ordinal
+# lists hold the feminine nominative adjective (druhá, tretia), as in "druhá mocnina".
+# The fractional lists cover 0-19 so that small denominators get nouns (tretina).
+# Genitive plural after 5+ (päť pätín) and the accusative for powers (na druhú)
+# are handled in the fractions and powers topics.
 - NumbersOnes: [
-        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-        "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
-        "seventeen", "eighteen", "nineteen"
+        "nula", "jeden", "dva", "tri", "štyri", "päť", "šesť", "sedem", "osem", "deväť",
+        "desať", "jedenásť", "dvanásť", "trinásť", "štrnásť", "pätnásť", "šestnásť",
+        "sedemnásť", "osemnásť", "devätnásť"
     ]
 
 - NumbersOrdinalOnes: [
-        "zeroth", "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth",
-        "tenth", "eleventh", "twelfth", "thirteenth", "fourteenth", "fifteenth", "sixteenth",
-        "seventeenth", "eighteenth", "nineteenth"
+        "nultá", "prvá", "druhá", "tretia", "štvrtá", "piata", "šiesta", "siedma", "ôsma", "deviata",
+        "desiata", "jedenásta", "dvanásta", "trinásta", "štrnásta", "pätnásta", "šestnásta",
+        "sedemnásta", "osemnásta", "devätnásta"
     ]
 
 - NumbersOrdinalPluralOnes: [
-        "zeroth", "first", "seconds", "thirds", "fourths", "fifths", "sixths", "sevenths", "eighths", "ninths",
-        "tenths", "elevenths", "twelfths", "thirteenths", "fourteenths", "fifteenths", "sixteenths",
-        "seventeenths", "eighteenths", "nineteenths"
+        "nuly", "celky", "polovice", "tretiny", "štvrtiny", "pätiny", "šestiny", "sedminy", "osminy", "devätiny",
+        "desatiny", "jedenástiny", "dvanástiny", "trinástiny", "štrnástiny", "pätnástiny", "šestnástiny",
+        "sedemnástiny", "osemnástiny", "devätnástiny"
     ]
 
     # stop when regularity begins
 - NumbersOrdinalFractionalOnes: [
-        "zero", "first", "half"
+        "nula", "celok", "polovica", "tretina", "štvrtina", "pätina", "šestina", "sedmina", "osmina", "devätina",
+        "desatina", "jedenástina", "dvanástina", "trinástina", "štrnástina", "pätnástina", "šestnástina",
+        "sedemnástina", "osemnástina", "devätnástina"
     ]
 
     # stop when regularity begins
 - NumbersOrdinalFractionalPluralOnes: [
-        "zeros", "firsts", "halves"
+        "nuly", "celky", "polovice", "tretiny", "štvrtiny", "pätiny", "šestiny", "sedminy", "osminy", "devätiny",
+        "desatiny", "jedenástiny", "dvanástiny", "trinástiny", "štrnástiny", "pätnástiny", "šestnástiny",
+        "sedemnástiny", "osemnástiny", "devätnástiny"
     ]
 
 
     # What to use for multiples of 10
 - NumbersTens: [
-        "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"
+        "", "desať", "dvadsať", "tridsať", "štyridsať", "päťdesiat", "šesťdesiat", "sedemdesiat", "osemdesiat", "deväťdesiat"
     ]
 
 - NumbersOrdinalTens: [
-        "", "tenth", "twentieth", "thirtieth", "fortieth", "fiftieth", "sixtieth", "seventieth", "eightieth", "ninetieth"
+        "", "desiata", "dvadsiata", "tridsiata", "štyridsiata", "päťdesiata", "šesťdesiata", "sedemdesiata", "osemdesiata", "deväťdesiata"
     ]
 
 - NumbersOrdinalPluralTens: [
-        "", "tenths", "twentieths", "thirtieths", "fortieths", "fiftieths", "sixtieths", "seventieths", "eightieths", "ninetieths"
+        "", "desatiny", "dvadsatiny", "tridsatiny", "štyridsatiny", "päťdesiatiny", "šesťdesiatiny", "sedemdesiatiny", "osemdesiatiny", "deväťdesiatiny"
     ]
 
 
 - NumbersHundreds: [
-      "", "one hundred", "two hundred", "three hundred", "four hundred", "five hundred",
-        "six hundred", "seven hundred", "eight hundred", "nine hundred"
+      "", "sto", "dvesto", "tristo", "štyristo", "päťsto",
+        "šesťsto", "sedemsto", "osemsto", "deväťsto"
     ]
 
 - NumbersOrdinalHundreds: [
-      "", "one hundredth", "two hundredth", "three hundredth", "four hundredth", "five hundredth",
-        "six hundredth", "seven hundredth", "eight hundredth", "nine hundredth"
+      "", "stá", "dvojstá", "trojstá", "štvorstá", "päťstá",
+        "šesťstá", "sedemstá", "osemstá", "deväťstá"
     ]
 
 - NumbersOrdinalPluralHundreds: [
-      "", "one hundredths", "two hundredths", "three hundredths", "four hundredths", "five hundredths",
-        "six hundredths", "seven hundredths", "eight hundredths", "nine hundredths"
+      "", "stotiny", "dvestotiny", "tristotiny", "štyristotiny", "päťstotiny",
+        "šesťstotiny", "sedemstotiny", "osemstotiny", "deväťstotiny"
     ]
-      
+
 
     # At this point, hopefully the language is regular. If not, code needs to be written
+    # Slovak uses the long scale: miliarda = 10^9, bilión = 10^12
 - NumbersLarge: [
-        "", "thousand", "million", "billion", "trillion", "quadrillion",
-        "quintillion", "sextillion", "septillion", "octillion", "nonillion",
+        "", "tisíc", "milión", "miliarda", "bilión", "biliarda",
+        "trilión", "triliarda", "kvadrilión", "kvadriliarda", "kvintilión",
     ]
-      
+
 - NumbersOrdinalLarge: [
-        "", "thousandth", "millionth", "billionth", "trillionth", "quadrillionth",
-        "quintillionth", "sextillionth", "septillionth", "octillionth", "nonillionth"
+        "", "tisíca", "milióntá", "miliardtá", "bilióntá", "biliardtá",
+        "trilióntá", "triliardtá", "kvadrilióntá", "kvadriliardtá", "kvintilióntá"
     ]
-      
+
 - NumbersOrdinalPluralLarge: [
-        "", "thousandths", "millionths", "billionths", "trillionths", "quadrillionths",
-        "quintillionths", "sextillionths", "septillionths", "octillionths", "nonillionths"
+        "", "tisíciny", "milióntiny", "miliardtiny", "bilióntiny", "biliardtiny",
+        "trilióntiny", "triliardtiny", "kvadrilióntiny", "kvadriliardtiny", "kvintilióntiny"
     ]

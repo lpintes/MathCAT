@@ -166,6 +166,10 @@ report the same grammar errors in every package.
   `review-package`), tried on `docs/sk/review/fractions.yaml` and on a scratch
   file covering approved, changed and new items and invalid MathML.
   Phase 1 complete; next is phase 2 (vocabulary).
+- Phase 2 drafts (lowercase `t:`, unreviewed): `unicode.yaml` complete;
+  `definitions.yaml` IntentMappings, `FunctionApplicationWord` ("z") and the
+  number lists. Units, `NavigationParts` and `KnownWords` are still English
+  (units topic and phase 4). Next: glossary package `docs/sk/review/vocabulary.yaml`.
 
 ## Findings and dead ends
 
@@ -185,3 +189,17 @@ report the same grammar errors in every package.
   "dot" is not spoken. Probably the same separator logic; not yet verified.
 - The copied test files lose CRLF when edited with Git Bash `sed -i`; the repo
   has `*.rs`/`*.yaml text eol=crlf`, so restore with `unix2dos` after such edits.
+- `ToOrdinal` (`src/xpath_functions.rs`) uses the same `NumbersOrdinal*` lists
+  for powers/roots and for fraction denominators. The `Plural` lists are only
+  used for fractions, so in sk they hold plural nouns (tretiny); the singular
+  lists hold the feminine nominative adjective (tretia). The `Fractional` lists
+  are filled for 0-19 so small denominators get nouns (tretina). Only a binary
+  singular/plural choice exists; Slovak 2-4 vs 5+ (tri tretiny, päť tretín) and
+  the accusative after "na" (na tretiu) need rule work in the fractions and
+  powers topics.
+- IntentMappings strings in `definitions.yaml` have no `t:`/`T:` marker, so their
+  review status lives only in the review YAML files.
+- `FunctionApplicationWord` (named functions: "absolútna hodnota z x") and the
+  U+2061 word in `unicode.yaml` (f od x) are separate; `log` with a base uses
+  U+2061, giving "logaritmus so základom b, od x". A question for the glossary.
+- `TerseFunctionNames` lists intent names, not spoken text; leave it unchanged.
