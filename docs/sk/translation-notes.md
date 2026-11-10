@@ -54,9 +54,15 @@ Other decisions (2026-11-10):
 - Review happens by email in the user's group, not by upstream PRs per phase.
   Each phase therefore ends with a review package (see below). An upstream
   PR comes only at the end.
-- No known Slovak source for spoken-math conventions or symbol names.
-  Terminology is proposed here, reviewed by the group, and recorded in
-  "Terminology decisions".
+- No authoritative Slovak source for reading whole expressions aloud exists
+  (web research 2026-11-10, details and URLs in `docs/sk/terminology-sources.md`).
+  For single symbol names the 2021 Slovak Braille rules (SKN Levoča,
+  ISBN 978-80-18-10144-5) are authoritative; NVDA's Slovak `symbols.dic` adds
+  more but has errors. Structure readings (powers, roots, fractions,
+  dy/dx, definite integral) are backed by school/university pages and a 2009
+  thesis on the Slovak Lambda editor; limits, sums, absolute value, f(x), f′
+  and subscripts are unsourced. Terminology is proposed from these, reviewed
+  by the group, and recorded in "Terminology decisions".
 
 ## Review package for the email group
 
