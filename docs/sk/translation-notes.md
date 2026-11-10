@@ -34,7 +34,10 @@ Branch: `sk` (based on `main`).
   untranslated or unverified; uppercase (`T:` ...) means verified by a human.
   Machine drafts stay lowercase until the user has approved them.
 - Never demote `T:` back to `t:` unless asked.
-- Do not change test goldens unless the user says so.
+- Test goldens: in `tests/Languages/sk/` the user has given standing permission
+  (2026-11-10) to replace the expected strings with readings approved by the
+  review group. Approved means listed as approved in a review YAML file.
+  Goldens of other languages stay untouched.
 - Rust: explicit `return` in functions; do not run `cargo fmt`.
 - No git commands unless the user asks.
 
@@ -66,15 +69,32 @@ Other decisions (2026-11-10):
 
 ## Review package for the email group
 
-For each phase, produce one HTML file (e.g. `docs/sk/review/phase-N.html`)
-that lists, per example: the rendered MathML (so a sighted reviewer sees the
-formula and an NVDA user can read it with MathCAT), the Slovak speech in
-ClearSpeak and SimpleSpeak, and the English speech for comparison. Reviewers
-reply with the item number and their proposal.
+Decided (2026-11-10). Main principle: once the group approves a reading, it is
+never reviewed again unless the output changes.
 
-`PythonScripts/rust-test-to-html.py` already extracts MathML from Rust tests
-but writes it as escaped text without the expected speech; it can serve as a
-starting point for a small generator.
+- Items are hand-written YAML, one file per topic, e.g.
+  `docs/sk/review/fractions.yaml`. Items may be copied from the tests as a
+  starting point. Each item has a stable ID (`frac-003`), the MathML, an optional
+  note for reviewers and, after review, the approved Slovak text per style.
+- A generator (new bin `review-package`, own `[[bin]]` in `Cargo.toml`; leave
+  `src/bin/mathml2text.rs` unchanged) loads the rules once. It speaks each item in
+  sk and en, ClearSpeak and SimpleSpeak, and writes one HTML file. Per item the HTML
+  shows the rendered MathML (a sighted reviewer sees the formula, an NVDA user
+  reads it with MathCAT), sk speech in both styles and en speech for comparison.
+- The generator compares the current output with the approved text. Only new
+  and changed items go into the package; changed ones show old and new text.
+  Approved, unchanged items are left out, or listed collapsed at the end.
+- The package header has a "Known issues, do not report" section for defects
+  already known but not fixed yet.
+- Packages are small (about 30-60 items) and have a reply deadline. The reply
+  format is: item ID, then "OK" or a proposal. When reviewers disagree, the
+  user decides; the decision and its reason go to "Terminology decisions".
+- After review: fix, send a short follow-up package if outputs changed, write
+  the approved texts into the YAML and into the sk test goldens, commit.
+  From then on `cargo test` guards approved readings against regressions.
+
+`PythonScripts/rust-test-to-html.py` extracts MathML from Rust tests (as
+escaped text, without speech); useful for seeding item YAML from tests.
 
 ## Slovak grammar issues to expect
 
@@ -92,31 +112,38 @@ Record each settled term here: English phrase, Slovak phrase, reason/source.
 
 (none yet)
 
-## Work plan (each phase is one reviewable unit)
+## Work plan (each step is one review package)
+
+Revised 2026-11-10: packages are organised by topic, not by rules file. Each
+topic covers ClearSpeak and SimpleSpeak together and touches whichever files it
+needs (`definitions.yaml`, `unicode.yaml`, `SharedRules/*`, `*_Rules.yaml`).
+Grammar (case after prepositions, plural after numbers, numeral gender) is
+handled within each topic, not in a separate late phase, so reviewers do not
+report the same grammar errors in every package.
 
 1. Skeleton: copy rules and tests, register `lang-sk`, build and run tests
-   (failures expected). No translation yet. Also create the review-package
-   generator, so that every later phase can be sent out the same way.
-2. Vocabulary: `definitions.yaml` (ordinals, fraction denominators, function
-   names) and `unicode.yaml` (Latin and Greek letters, digits, common
-   operators and relations).
-3. Core structures: `SharedRules/general.yaml` and `default.yaml` (fractions,
-   roots, powers, scripts, fences, tables) with the corresponding tests.
-4. ClearSpeak: `ClearSpeak_Rules.yaml` and its tests, including preferences.
-5. SimpleSpeak: `SimpleSpeak_Rules.yaml` and its tests.
-6. Topic rules: `calculus.yaml`, `geometry.yaml`, `linear-algebra.yaml`.
-7. Grammar agreement: units and plural forms, case after prepositions;
-   new Slovak-specific tests.
-8. Navigation and overview: `navigate.yaml`, `overview.yaml`.
-9. `unicode-full.yaml`: recognisable symbols only.
-10. Review: mathematician review, user testing with NVDA, final audit,
-    upstream pull request.
+   (failures expected). No translation yet. Then build the `review-package`
+   generator and the item YAML format.
+2. Vocabulary only, no expressions: Latin and Greek letters, digits, common
+   operators and relations (`unicode.yaml`), ordinals, fraction denominators,
+   function names (`definitions.yaml`). A glossary list, quick to review; the
+   results go to "Terminology decisions" and the words move from `t:` to `T:`.
+3. Topic packages, in roughly this order: fractions; powers, roots and
+   scripts; fences and absolute value; functions and f(x), f′; sums, products and
+   limits; calculus (derivatives, integrals); sets and logic; geometry;
+   linear algebra (matrices, determinants, tables); units and numbers
+   (plural forms, decimal comma); ClearSpeak preferences.
+4. Navigation and overview: `navigate.yaml`, `overview.yaml`.
+5. `unicode-full.yaml`: recognisable symbols only.
+6. Final: user testing with NVDA, final audit, upstream pull request.
 
 ## Status
 
 - Phase 1: skeleton done (rules and tests copied from `en`, `lang-sk`
   registered). 593 of 600 copied tests pass; the 7 failures are the
-  decimal-comma difference described below. Review-package generator: to do.
+  decimal-comma difference described below.
+- Review strategy and revised work plan decided (2026-11-10).
+  Review-package generator: to do.
 
 ## Findings and dead ends
 
