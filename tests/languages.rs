@@ -27,4 +27,5 @@ mod Languages {
         mod units;
     }
     mod es;
+    mod sk;
 }
