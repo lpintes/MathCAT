@@ -169,7 +169,10 @@ report the same grammar errors in every package.
 - Phase 2 drafts (lowercase `t:`, unreviewed): `unicode.yaml` complete;
   `definitions.yaml` IntentMappings, `FunctionApplicationWord` ("z") and the
   number lists. Units, `NavigationParts` and `KnownWords` are still English
-  (units topic and phase 4). Next: glossary package `docs/sk/review/vocabulary.yaml`.
+  (units topic and phase 4). `SharedRules/general.yaml`: number sets, real and
+  imaginary part, trigonometric and hyperbolic names, exp, Cov, log/ln drafted;
+  the rest of that file is still English.
+- Glossary package `docs/sk/review/vocabulary.yaml` (58 items) built; to be sent.
 
 ## Findings and dead ends
 
@@ -203,3 +206,15 @@ report the same grammar errors in every package.
   U+2061 word in `unicode.yaml` (f od x) are separate; `log` with a base uses
   U+2061, giving "logaritmus so základom b, od x". A question for the glossary.
 - `TerseFunctionNames` lists intent names, not spoken text; leave it unchanged.
+- Vocabulary is not only in `unicode.yaml` and `definitions.yaml`: `SharedRules/general.yaml`
+  speaks number sets (ℝ alone is "reálne čísla", not the letter from `unicode.yaml`) and
+  the trig/hyperbolic/log names for `mi` elements.
+- Review items: binary operators grouped with `mspace` in one item get confusing pauses
+  ("a sa rovná, b a sa nerovná b"); give each operator its own item. Letters group well.
+  A function name without U+2061 and an argument gets "od" appended.
+- Still English after phase 2 (for the topic packages): implied "times" and "the empty
+  set", "such that" (`ClearSpeak_Rules.yaml`, `SimpleSpeak_Rules.yaml`); ClearSpeak "log"
+  and "natural log"; "absolute value of"; "the cube root of"; "of" in "pomer of 3 ku 4"
+  (`SharedRules/default.yaml`); `unicode-full.yaml` (∼ "varies with", ⌊⌈ floor/ceiling);
+  arcsin/arctg are spoken as letters; gcd/lcm are not recognised as "NSD"/"NSN"; Slovak
+  "cotg" is not matched by the cot rule in `general.yaml`.

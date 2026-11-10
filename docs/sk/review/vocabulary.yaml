@@ -1,0 +1,208 @@
+# Review items for phase 2 (vocabulary). Format: see src/bin/review_package.rs.
+# Build the package:
+#   MATHCAT_IGNORE_USER_PREFS=1 cargo run --bin review-package -- docs/sk/review/vocabulary.yaml --deadline <date>
+# Items are single symbols, short groups of letters separated by spaces (mspace), or the
+# smallest expression in which a word is used. Binary operators get one item each, because
+# grouping them produces confusing pauses.
+topic: Vocabulary (letters, symbols, function names)
+known_issues:
+  - Only single words are reviewed here. Grammar in longer expressions (case after
+    prepositions, plural after numbers, "x na druhú") comes in the topic packages.
+  - Some expressions still contain English words (times, such that, the empty set,
+    absolute value, roots, floor and ceiling, ratio). They are translated in the topic
+    packages, so such expressions are not in this package.
+  - Units, currency names and navigation words are still English.
+  - Numbers are spoken by the speech synthesizer, not by MathCAT; they are not reviewed here.
+items:
+  # Letters
+  - id: voc-001
+    note: Small and capital Latin letters. Capitals are marked with "veľké" (as in NVDA).
+    mathml: <math><mi>a</mi><mspace width="1em"/><mi>x</mi><mspace width="1em"/><mi>A</mi><mspace width="1em"/><mi>X</mi></math>
+  - id: voc-002
+    note: Small Greek letters, alpha to mu.
+    mathml: <math><mi>α</mi><mspace width="1em"/><mi>β</mi><mspace width="1em"/><mi>γ</mi><mspace width="1em"/><mi>δ</mi><mspace width="1em"/><mi>ε</mi><mspace width="1em"/><mi>ζ</mi><mspace width="1em"/><mi>η</mi><mspace width="1em"/><mi>θ</mi><mspace width="1em"/><mi>ι</mi><mspace width="1em"/><mi>κ</mi><mspace width="1em"/><mi>λ</mi><mspace width="1em"/><mi>μ</mi></math>
+  - id: voc-003
+    note: Small Greek letters, nu to omega.
+    mathml: <math><mi>ν</mi><mspace width="1em"/><mi>ξ</mi><mspace width="1em"/><mi>ο</mi><mspace width="1em"/><mi>π</mi><mspace width="1em"/><mi>ρ</mi><mspace width="1em"/><mi>σ</mi><mspace width="1em"/><mi>τ</mi><mspace width="1em"/><mi>υ</mi><mspace width="1em"/><mi>φ</mi><mspace width="1em"/><mi>χ</mi><mspace width="1em"/><mi>ψ</mi><mspace width="1em"/><mi>ω</mi></math>
+  - id: voc-004
+    note: Variant Greek letters (phi, pi, epsilon) and final sigma. The source SABP has the long form "písmeno sigma na konci slova" for the final sigma.
+    mathml: <math><mi>ϕ</mi><mspace width="1em"/><mi>ϖ</mi><mspace width="1em"/><mi>ϵ</mi><mspace width="1em"/><mi>ς</mi></math>
+  - id: voc-005
+    note: Capital Greek letters.
+    mathml: <math><mi>Γ</mi><mspace width="1em"/><mi>Δ</mi><mspace width="1em"/><mi>Σ</mi><mspace width="1em"/><mi>Ω</mi></math>
+  - id: voc-006
+    note: Letters for number sets, each on its own. MathCAT reads them as the name of the set.
+    mathml: <math><mi>ℕ</mi><mspace width="1em"/><mi>ℤ</mi><mspace width="1em"/><mi>ℚ</mi><mspace width="1em"/><mi>ℝ</mi><mspace width="1em"/><mi>ℂ</mi></math>
+  - id: voc-007
+    note: Positive and negative number sets (a plus or minus sign as superscript).
+    mathml: <math><msup><mi>ℝ</mi><mo>+</mo></msup><mspace width="1em"/><msup><mi>ℤ</mi><mo>-</mo></msup></math>
+  - id: voc-008
+    note: Script letters (H, R, l) and fraktur R. "písané" and "fraktúrové" are proposals without a source.
+    mathml: <math><mi>ℋ</mi><mspace width="1em"/><mi>ℛ</mi><mspace width="1em"/><mi>ℓ</mi><mspace width="1em"/><mi>ℜ</mi></math>
+  - id: voc-009
+    note: Double-struck italic d, e, i (used for the differential, Euler's number and the imaginary unit). Proposal "dvojité kurzívne" without a source.
+    mathml: <math><mi>ⅆ</mi><mspace width="1em"/><mi>ⅇ</mi><mspace width="1em"/><mi>ⅈ</mi></math>
+
+  # Arithmetic operators
+  - id: voc-010
+    note: Plus.
+    mathml: <math><mi>a</mi><mo>+</mo><mi>b</mi></math>
+  - id: voc-011
+    note: Minus.
+    mathml: <math><mi>a</mi><mo>-</mo><mi>b</mi></math>
+  - id: voc-012
+    note: Plus or minus.
+    mathml: <math><mi>a</mi><mo>±</mo><mi>b</mi></math>
+  - id: voc-013
+    note: Multiplication cross.
+    mathml: <math><mi>a</mi><mo>×</mo><mi>b</mi></math>
+  - id: voc-014
+    note: Multiplication dot. SimpleSpeak reads the dot itself, as in English.
+    mathml: <math><mi>a</mi><mo>·</mo><mi>b</mi></math>
+  - id: voc-015
+    note: Asterisk.
+    mathml: <math><mi>a</mi><mo>*</mo><mi>b</mi></math>
+  - id: voc-016
+    note: Division sign.
+    mathml: <math><mi>a</mi><mo>÷</mo><mi>b</mi></math>
+  - id: voc-017
+    note: Slash between letters.
+    mathml: <math><mi>a</mi><mo>/</mo><mi>b</mi></math>
+  - id: voc-018
+    note: Colon between letters.
+    mathml: <math><mi>a</mi><mo>:</mo><mi>b</mi></math>
+  - id: voc-019
+    note: Square root sign on its own (the full root comes in the roots package). The English "the" is dropped.
+    mathml: <math><mo>√</mo></math>
+  - id: voc-020
+    note: Factorial.
+    mathml: <math><mi>n</mi><mo>!</mo></math>
+
+  # Relations
+  - id: voc-021
+    note: Equals. "sa rovná" in both verbosities.
+    mathml: <math><mi>a</mi><mo>=</mo><mi>b</mi></math>
+  - id: voc-022
+    note: Not equal.
+    mathml: <math><mi>a</mi><mo>≠</mo><mi>b</mi></math>
+  - id: voc-023
+    note: Less than. SABP uses the masculine "menší ako"; the alternative is the neuter "menšie ako". The same choice applies to voc-024 to voc-026.
+    mathml: <math><mi>a</mi><mo>&lt;</mo><mi>b</mi></math>
+  - id: voc-024
+    note: Greater than.
+    mathml: <math><mi>a</mi><mo>&gt;</mo><mi>b</mi></math>
+  - id: voc-025
+    note: Less than or equal.
+    mathml: <math><mi>a</mi><mo>≤</mo><mi>b</mi></math>
+  - id: voc-026
+    note: Greater than or equal.
+    mathml: <math><mi>a</mi><mo>≥</mo><mi>b</mi></math>
+  - id: voc-027
+    note: Identical to. "totožné" and "úmerné" (voc-028) are neuter, while voc-023 to voc-026 are masculine; one gender should be chosen for all relations.
+    mathml: <math><mi>a</mi><mo>≡</mo><mi>b</mi></math>
+  - id: voc-028
+    note: Proportional to.
+    mathml: <math><mi>a</mi><mo>∝</mo><mi>b</mi></math>
+  - id: voc-029
+    note: Parallel. "rovnobežná s" is feminine (priamka).
+    mathml: <math><mi>p</mi><mo>∥</mo><mi>q</mi></math>
+  - id: voc-030
+    note: Not parallel.
+    mathml: <math><mi>p</mi><mo>∦</mo><mi>q</mi></math>
+  - id: voc-031
+    note: Vertical bar as "divides". SABP has "delí".
+    mathml: <math><mn>3</mn><mo>|</mo><mn>6</mn></math>
+
+  # Sets
+  - id: voc-032
+    note: Element of.
+    mathml: <math><mi>x</mi><mo>∈</mo><mi>A</mi></math>
+  - id: voc-033
+    note: Not an element of.
+    mathml: <math><mi>x</mi><mo>∉</mo><mi>A</mi></math>
+  - id: voc-034
+    note: Subset.
+    mathml: <math><mi>A</mi><mo>⊂</mo><mi>B</mi></math>
+  - id: voc-035
+    note: Superset.
+    mathml: <math><mi>A</mi><mo>⊃</mo><mi>B</mi></math>
+  - id: voc-036
+    note: Subset or equal.
+    mathml: <math><mi>A</mi><mo>⊆</mo><mi>B</mi></math>
+  - id: voc-037
+    note: Superset or equal.
+    mathml: <math><mi>A</mi><mo>⊇</mo><mi>B</mi></math>
+  - id: voc-038
+    note: Not a subset.
+    mathml: <math><mi>A</mi><mo>⊄</mo><mi>B</mi></math>
+  - id: voc-039
+    note: Not a superset.
+    mathml: <math><mi>A</mi><mo>⊅</mo><mi>B</mi></math>
+
+  # Fences
+  - id: voc-040
+    note: Parentheses around a sum. ClearSpeak and SimpleSpeak use "otvorená/zatvorená zátvorka"; other verbosities use other words.
+    mathml: <math><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>-</mo><mi>c</mi></math>
+  - id: voc-041
+    note: Square brackets on their own.
+    mathml: <math><mo>[</mo><mspace width="1em"/><mo>]</mo></math>
+
+  # Arrows and logic
+  - id: voc-042
+    note: Arrows left, up, down.
+    mathml: <math><mo>←</mo><mspace width="1em"/><mo>↑</mo><mspace width="1em"/><mo>↓</mo></math>
+  - id: voc-043
+    note: Arrow to the right.
+    mathml: <math><mi>a</mi><mo>→</mo><mi>b</mi></math>
+  - id: voc-044
+    note: Double arrow to the right (implies).
+    mathml: <math><mi>a</mi><mo>⇒</mo><mi>b</mi></math>
+  - id: voc-045
+    note: Negation.
+    mathml: <math><mo>¬</mo><mi>p</mi></math>
+
+  # Other symbols
+  - id: voc-046
+    note: Partial derivative sign, Laplace operator, ellipsis. "laplacián z" ends with "z" because it is followed by its argument.
+    mathml: <math><mo>∂</mo><mspace width="1em"/><mo>∆</mo><mspace width="1em"/><mo>…</mo></math>
+  - id: voc-047
+    note: Degree and percent. The plural forms (stupne, stupňov, percent) come in the units package.
+    mathml: <math><mn>30</mn><mo>°</mo><mspace width="1em"/><mn>5</mn><mo>%</mo></math>
+  - id: voc-048
+    note: Degree Celsius.
+    mathml: <math><mn>20</mn><mo>℃</mo></math>
+  - id: voc-049
+    note: Comma and semicolon. The English source had "comma" marked as verified; the Slovak "čiarka" is a new proposal.
+    mathml: <math><mi>a</mi><mo>,</mo><mi>b</mi><mo>;</mo><mi>c</mi></math>
+  - id: voc-050
+    note: Other ASCII characters spoken as words.
+    mathml: <math><mo>#</mo><mspace width="1em"/><mo>&amp;</mo><mspace width="1em"/><mo>@</mo><mspace width="1em"/><mo>?</mo><mspace width="1em"/><mo>\</mo><mspace width="1em"/><mo>_</mo></math>
+
+  # Function names
+  - id: voc-051
+    note: Sine of x. Question for reviewers - the word between a function and its argument. ClearSpeak says nothing, SimpleSpeak says "od" (no source; alternatives "z" or nothing).
+    mathml: <math><mi>sin</mi><mo>&#x2061;</mo><mi>x</mi></math>
+  - id: voc-052
+    note: Other trigonometric functions. Slovak does not read abbreviations (cos, tg), so the full name is used in every verbosity.
+    mathml: <math><mi>cos</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>tg</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>cot</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>sec</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>csc</mi><mo>&#x2061;</mo><mi>x</mi></math>
+  - id: voc-053
+    note: Hyperbolic functions.
+    mathml: <math><mi>sinh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>cosh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>tanh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>coth</mi><mo>&#x2061;</mo><mi>x</mi></math>
+  - id: voc-054
+    note: Logarithm, natural logarithm, logarithm with a base. Only SimpleSpeak here; ClearSpeak has its own logarithm rules (functions package). With a base, the word "od" before x is the same question as in voc-051.
+    styles: [SimpleSpeak]
+    mathml: <math><mi>log</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>ln</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><msub><mi>log</mi><mi>b</mi></msub><mo>&#x2061;</mo><mi>x</mi></math>
+  - id: voc-055
+    note: Exponential function and covariance.
+    mathml: <math><mi>exp</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>Cov</mi><mo>&#x2061;</mo><mo>(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo>)</mo></math>
+  - id: voc-056
+    note: Real and imaginary part.
+    mathml: <math><mi>Re</mi><mo>&#x2061;</mo><mi>z</mi><mspace width="1em"/><mi>Im</mi><mo>&#x2061;</mo><mi>z</mi></math>
+
+  # Fraction words
+  - id: voc-057
+    note: Fractions with small denominators, the singular nouns (polovica, tretina, štvrtina).
+    mathml: <math><mfrac><mn>1</mn><mn>2</mn></mfrac><mspace width="1em"/><mfrac><mn>1</mn><mn>3</mn></mfrac><mspace width="1em"/><mfrac><mn>1</mn><mn>4</mn></mfrac></math>
+  - id: voc-058
+    note: Plural fraction nouns. "polovica" (NVDA, standard) or "polovina" (Pohodová matematika)?
+    mathml: <math><mfrac><mn>3</mn><mn>2</mn></mfrac><mspace width="1em"/><mfrac><mn>2</mn><mn>3</mn></mfrac><mspace width="1em"/><mfrac><mn>3</mn><mn>10</mn></mfrac></math>
