@@ -96,6 +96,25 @@ never reviewed again unless the output changes.
 `PythonScripts/rust-test-to-html.py` extracts MathML from Rust tests (as
 escaped text, without speech); useful for seeding item YAML from tests.
 
+### Generator usage
+
+- Item files: `docs/sk/review/<topic>.yaml`; the format is described in the
+  header comment of `src/bin/review_package.rs` (keys `topic`, `known_issues`,
+  `items` with `id`, `mathml`, optional `note`, `styles`, `prefs`, `approved`).
+  `docs/sk/review/fractions.yaml` is the first, still unapproved, trial file.
+- Build a package:
+  `MATHCAT_IGNORE_USER_PREFS=1 cargo run --bin review-package -- docs/sk/review/fractions.yaml --deadline 2026-11-24`.
+  Output goes to `target/review/<topic file stem>.html` unless `-o` is given.
+  The environment variable is needed for the same reason as in the tests; the
+  bin does not set it itself because `std::env::set_var` is `unsafe` in Rust 2024.
+- Base preferences are the same as in `tests/common/mod.rs` (Verbosity Medium,
+  MathRate 100, ...), so the package shows what the goldens check. Per-item
+  `prefs` are restored after each item.
+- Comparison with `approved` collapses runs of spaces, like the tests do.
+- Invalid MathML in an item stops the generator with the item ID, because the
+  MathML is copied into the HTML unchanged.
+- Approved texts are written into the YAML by hand (no write-back yet).
+
 ## Slovak grammar issues to expect
 
 - Plural forms after numbers: 1 meter, 2-4 metre, 5+ metrov (units, "krát").
@@ -143,7 +162,10 @@ report the same grammar errors in every package.
   registered). 593 of 600 copied tests pass; the 7 failures are the
   decimal-comma difference described below.
 - Review strategy and revised work plan decided (2026-11-10).
-  Review-package generator: to do.
+- Review-package generator done (`src/bin/review_package.rs`, bin
+  `review-package`), tried on `docs/sk/review/fractions.yaml` and on a scratch
+  file covering approved, changed and new items and invalid MathML.
+  Phase 1 complete; next is phase 2 (vocabulary).
 
 ## Findings and dead ends
 

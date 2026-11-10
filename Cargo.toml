@@ -108,6 +108,10 @@ path = "src/bin/mathml2text.rs"
 name = "package-rules"
 path = "src/bin/package_rules.rs"
 
+[[bin]]
+name = "review-package"
+path = "src/bin/review_package.rs"
+
 [lints.rust]
 unexpected_cfgs = { level = "allow", check-cfg = ['cfg(coverage)', 'cfg(coverage_nightly)'] }
 
