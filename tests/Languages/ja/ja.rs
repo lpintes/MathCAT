@@ -325,7 +325,7 @@ fn overview_short_forms() -> Result<()> {
 #[test]
 fn subscript() -> Result<()> {
     let expr = "<math><msub><mi>x</mi><mn>1</mn></msub></math>";
-    test("ja", "SimpleSpeak", expr, "x サブ 1")?;
+    test("ja", "SimpleSpeak", expr, "x 下付き 1")?;
     return Ok(());
 }
 
@@ -758,6 +758,34 @@ fn summation_lower_limit_only() -> Result<()> {
     return Ok(());
 }
 
+/// When the argument is not simple, an intent ends with an end word. It is 〇〇終了, as in 分数終了,
+/// or 〇〇 閉じ for the bars of an absolute value or a norm, as in 丸カッコ閉じ.
+/// 端次元 was read ハシジゲン, and 絶対値終了 written as one word is read ゼッタイネ.
+/// A subscript says 下付き … 下付き終了 as the msub rules do; it was サブ … 末尾サブ (マツビサブ).
+#[test]
+fn intent_end_words() -> Result<()> {
+    for (name, expected) in [
+        ("trace", "トレース オブ エー プラス b トレース終了; イコール 3"),
+        ("dimension", "次元 オブ エー プラス b 次元終了; イコール 3"),
+        ("homomorphism", "準同型 オブ エー プラス b 準同型終了; イコール 3"),
+        ("kernel", "カーネル オブ エー プラス b カーネル終了; イコール 3"),
+        ("chemistry-concentration", "濃度 オブ エー プラス b 濃度終了; イコール 3"),
+        ("norm", "ノルム オブ エー プラス b ノルム閉じ; イコール 3"),
+        ("absolute-value", "絶対値 オブ エー プラス b 絶対値 閉じ; イコール 3"),
+    ] {
+        let expr = format!(r#"<math><mrow intent="{name}($x)"><mo>(</mo><mrow arg="x"><mi>a</mi><mo>+</mo><mi>b</mi></mrow><mo>)</mo></mrow><mo>=</mo><mn>3</mn></math>"#);
+        test("ja", "SimpleSpeak", &expr, expected)?;
+    }
+    let expr = "<math><mrow><mo>|</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>|</mo></mrow><mo>=</mo><mn>3</mn></math>";
+    test("ja", "SimpleSpeak", expr, "絶対値 オブ エー プラス b 絶対値 閉じ; イコール 3")?;
+    let expr = r#"<math><mrow intent="binomial($n,$x)"><mi arg="n">n</mi><mo>,</mo><mrow arg="x"><mi>a</mi><mo>+</mo><mi>b</mi></mrow></mrow><mo>=</mo><mn>3</mn></math>"#;
+    test("ja", "SimpleSpeak", expr, "n シー エー プラス b 二項係数終了; イコール 3")?;
+    let expr = "<math><msub><mi>x</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></math>";
+    test("ja", "SimpleSpeak", expr, "x 下付き i プラス 1 下付き終了")?;
+    test_prefs("ja", "SimpleSpeak", vec![("Verbosity", "Verbose")], expr, "x 下付き文字, i プラス 1 下付き文字終了")?;
+    return Ok(());
+}
+
 /// The same shape is used for the other large operators.
 #[test]
 fn product_with_limits() -> Result<()> {
@@ -823,11 +851,61 @@ fn norm_terminology() -> Result<()> {
 }
 
 /// 限界 is a bound or a ceiling and 傾向がある is "has a tendency"; neither is how
-/// x → a is read. The mathematical terms are 極限 and に近づく.
+/// x → a is read. The mathematical terms are 極限 and 近づく. It is 近づく rather
+/// than に近づく, because the に would attach to the x in front of it.
 #[test]
 fn limit_terminology() -> Result<()> {
     let expr = "<math><mrow intent='tends-to($x,$y)'><mi arg='x'>x</mi><mi arg='y'>y</mi></mrow></math>";
-    test("ja", "ClearSpeak", expr, "x に近づく y")?;
+    test("ja", "ClearSpeak", expr, "x 近づく y")?;
+    return Ok(());
+}
+
+/// Japanese puts the object in front of 比例する, 属する or に先行する, but these
+/// words are spoken where the symbol is, so x ≺ y (precedes) came out as
+/// x に先行する y, "the y that precedes x". The symbols and intents now use names
+/// that are read in symbol order, as 先行 for ≺ and 要素オブ for ∈ already are.
+/// maps-to, obtained-from and applied-to have no such name and are spoken in
+/// Japanese order instead (x は y に写る).
+#[test]
+fn relation_words_in_symbol_order() -> Result<()> {
+    for (ch, expected) in [
+        ("&#x221D;", "x 比例 y"),
+        ("&#x2261;", "x 合同 y"),
+        ("&#x2262;", "x ノット 合同 y"),
+        ("&#x225E;", "x 測定によりイコール y"),
+        ("&#x22AD;", "x ノット 真 y"),
+    ] {
+        let expr = format!("<math><mi>x</mi><mo>{ch}</mo><mi>y</mi></math>");
+        test("ja", "SimpleSpeak", &expr, expected)?;
+    }
+    for (ch, expected) in [
+        ("&#x2208;", "集合 すべての x 属する 大文字 エー ただし x 大なり 0"),
+        ("&#x2209;", "集合 すべての x 属さない 大文字 エー ただし x 大なり 0"),
+        ("&#x220A;", "集合 すべての x 属する 大文字 エー ただし x 大なり 0"),
+    ] {
+        let expr = format!("<math><mrow><mo>{{</mo><mrow><mi>x</mi><mo>{ch}</mo><mi>A</mi></mrow><mo>|</mo><mrow><mi>x</mi><mo>&gt;</mo><mn>0</mn></mrow><mo>}}</mo></mrow></math>");
+        test_ClearSpeak("ja", "ClearSpeak_SetMemberSymbol", "Belongs", &expr, expected)?;
+    }
+    for (intent, expected) in [
+        ("precedes", "x 先行 y"),
+        ("succeeds", "x 後続 y"),
+        ("equivalent-to", "x 同等 y"),
+        ("proportional", "x 比例 y"),
+        ("identically-equals", "x 恒等的にイコール y"),
+        ("defined-as", "x とは y"),
+        ("evaluates-to", "x 評価すると y"),
+        ("maps-to", "x は y に写る"),
+        ("obtained-from", "x は y から得られる"),
+        ("applied-to", "x は y に適用される"),
+        ("rate", "x 毎 y"),
+        ("does-not-divide", "x 割り切らない y"),
+        ("evaluated-at", "x 次の点で評価 y"),
+    ] {
+        let expr = format!("<math><mrow intent='{intent}($x,$y)'><mi arg='x'>x</mi><mi arg='y'>y</mi></mrow></math>");
+        test("ja", "ClearSpeak", &expr, expected)?;
+    }
+    let expr = "<math><mrow intent='not($p)'><mi arg='p'>p</mi></mrow></math>";
+    test("ja", "ClearSpeak", expr, "ノット p")?;
     return Ok(());
 }
 
@@ -913,13 +991,13 @@ fn table_lines_are_column_and_row_separators() -> Result<()> {
 
 /// Scripts written before and after a symbol (mmultiscripts) were read with the English
 /// words pre sub, pre super, sub and super. They use the same words as msub, msup and
-/// navigate.yaml now: 前置き下付き, 前置き上付き, 下付き and 上付き, with 文字 added when Verbose.
+/// navigate.yaml now: 前置きの下付き, 前置きの上付き, 下付き and 上付き, with 文字 added when Verbose.
 #[test]
 fn prescripts_and_postscripts_are_japanese_words() -> Result<()> {
     let expr = "<math><mmultiscripts><mi>x</mi><mi>a</mi><mi>b</mi><mprescripts/><mi>c</mi><mi>d</mi></mmultiscripts></math>";
-    test("ja", "ClearSpeak", expr, "x 前置き下付き c および 前置き上付き d, 下付き エー および 上付き b")?;
+    test("ja", "ClearSpeak", expr, "x 前置きの下付き c および 前置きの上付き d, 下付き エー および 上付き b")?;
     test_prefs("ja", "SimpleSpeak", vec![("Verbosity", "Verbose")], expr,
-        "x 前置き下付き文字 c および 前置き上付き文字 d, 下付き文字 エー および 上付き文字 b")?;
+        "x 前置きの下付き文字 c および 前置きの上付き文字 d, 下付き文字 エー および 上付き文字 b")?;
     return Ok(());
 }
 

@@ -79,7 +79,7 @@
 #   "ratio": "function=ratio : to | the ratio : to | the ratio : to"  # verbosity of name:glue pairs
 #
 - IntentMappings: {
-    "binomial": "infix=二項係数; シー; 二項係数終わり",
+    "binomial": "infix=二項係数; シー; 二項係数終了",
 
     ### Functions and Inverses
     # Interval intents (open-/closed-interval, etc.) are handled by rules due to special cases involving ∞.
@@ -92,7 +92,7 @@
     #"fraction":"function=fraction; over; end fraction", # NOTE: Fails
     "mixed-fraction":"infix=と", # NOTE: in website says function, but follow infix speech pattern.
     "quotient":"function=整数部 : 割る",
-    "evaluated-at":"infix=評価される",
+    "evaluated-at":"infix=次の点で評価",
     "remainder":"function=余り : 割る",
 
     "max":"function=マックス",
@@ -104,7 +104,7 @@
     "greatest-common-divisor": "function=ジーシーディー|ジーシーディー|最大公約数",
     "least-common-multiple":"function=エルシーエム|エルシーエム|最小公倍数", # In webpage typo "lest common"
 
-    "absolute-value": "function=;絶対値|絶対値|絶対値;絶対値",
+    "absolute-value": "function=;絶対値|絶対値|絶対値;絶対値 閉じ",
     "complex-conjugate":"function=複素共役",
     "complex-arg":"function=偏角",
     "real-part": "function=実部",
@@ -126,7 +126,7 @@
     # "partial-derivative":"function=partial", ## Note, included with infix, but separately under calculus tab has ??? for functionality
 
     "limit": "prefix=極限|極限",
-    "tends-to":"infix=に近づく",
+    "tends-to":"infix=近づく",
     "tends-to-from-above":"infix=上から近づく",
     "tends-to-from-below":"infix=下から近づく",
 
@@ -235,11 +235,11 @@
      # NOTE: in site mentions "the pair x and y", due to being defined as function, needs the "of" keyword
     "ordered-pair": "function=ペア :", # Needs to be tested
     # Simple last arg: "x sub k". Complex: "… end sub" (terse/medium) / "end subscript" (verbose) via infix-intent.
-    "indexed-by": "infix=; サブ; 末尾サブ| 末尾サブスクリプト",
+    "indexed-by": "infix=; 下付き|下付き|下付き文字; 下付き終了|下付き終了|下付き文字終了",
     
     "highlight":"postfix=ハイライト",
     "least-common-denominator":"function=最小公分母",
-    "rate":"infix=あたり",
+    "rate":"infix=毎",
     "translation":"function=平行移動",
     "constraint":"infix=;制約を使って;", 
     
@@ -267,7 +267,7 @@
     "change": "prefix=変化量",
     "for-all": "prefix=すべての",
     "measured-angle": "prefix=測定角",
-    "not": "prefix=でない",
+    "not": "prefix=ノット",
     "number-of": "prefix=個数",
     "partial-derivative": "prefix=偏微分",
     "right-angle": "prefix=直角",
@@ -284,23 +284,23 @@
     "cartesian-product": "infix=デカルト積",
     "composed-with": "infix=合成",
     "cross-product": "infix=クロス|外積|外積",
-    "defined-as": "infix=定義する",
+    "defined-as": "infix=とは",
     "divided-by": "infix=割る",
     "divides": "infix=割り切る",
     "does-not-belong-to": "infix=属さない",
-    "does-not-divide": "infix=割り切れない",
+    "does-not-divide": "infix=割り切らない",
     "dot-product": "infix=内積",
     "downwards-diagonal-ellipsis": "infix=下向き対角の省略記号",
     "direct-product": "infix=直積",
     "element-of": "infix=要素オブ",
     "ellipsis": "infix=省略記号",
     "equals": "infix=イコール",
-    "equivalent-to": "infix=と同等の",
-    "evaluates-to": "infix=評価する",
+    "equivalent-to": "infix=同等",
+    "evaluates-to": "infix=評価すると",
     "given": "infix=条件は",
     "greater-than": "infix=大なり",
     "greater-than-or-equal-to": "infix=大なり オア イコール",
-    "identically-equals": "infix=恒等的に等しい",
+    "identically-equals": "infix=恒等的にイコール",
     "if-and-only-if": "infix=同値",
     "implies": "infix=ならば",
     "inner-product": "infix=内積",
@@ -324,14 +324,14 @@
     "plus": "infix=プラス || prefix=プラス", # Prefix not tested
     "minus": "infix=マイナス || prefix=マイナス", # Prefix not tested
     "plus-or-minus": "infix=プラスマイナス",
-    "precedes": "infix=に先行する",
-    "proportional": "infix=比例する",
+    "precedes": "infix=先行",
+    "proportional": "infix=比例",
     "range-separator": "infix=から",
     "ratio": "infix=比率 || function=比 : 対",
     "similar": "infix=相似",
     "subset": "infix=部分集合オブ",
     "subset-or-equal": "infix=部分集合オブ オア イコール",
-    "succeeds": "infix=に後続する",
+    "succeeds": "infix=後続",
     "such-that": "infix=ただし",
     "superset": "infix=上位集合オブ",
     "superset-or-equal": "infix=上位集合オブ オア イコール",
@@ -367,12 +367,12 @@
     "lim-inf": "prefix=リム インフ|下極限|下極限",
     "logarithm-with-base": "prefix=ログベース|ログベース|ログベース",
     # "pochhammer": "infix=permutations of",  # arguments are in reverse order, so can't work here
-    "trace": "function=; トレース|トレース|トレース;終了トレース",
-    "dimension": "function=;次元|次元|次元;端次元",
-    "homomorphism": "function=; 準同型| 準同型| 準同型; 準同型終わり",
-    "kernel": "function=; カーネル | カーネル| カーネル; エンドカーネル",
+    "trace": "function=; トレース|トレース|トレース;トレース終了",
+    "dimension": "function=;次元|次元|次元;次元終了",
+    "homomorphism": "function=; 準同型| 準同型| 準同型; 準同型終了",
+    "kernel": "function=; カーネル | カーネル| カーネル; カーネル終了",
     
-    "chemistry-concentration": "function=; 濃度| 濃度| 濃度; 濃度終わり",
+    "chemistry-concentration": "function=; 濃度| 濃度| 濃度; 濃度終了",
   }
 
   # The connector word to say for functional 'IntentMappings' (in English, "of")
@@ -437,9 +437,20 @@
 # PluralSystem (see Rules/definitions.yaml) selects how integers map to one/few/many:
 #   - one_many      — 1 → "one", anything else → "many"   (English default; inherited)
 #   - one_few_many  — 1 → "one"; 2–4 (except 12–14) → "few"; else "many"  (pl, ru, …)
-# UnitNumber(node) returns that value for a unit/currency leaf. It also forces
-# "one" in structural contexts where the word is not counted (after "per"/division,
-# in a fraction denominator, or a non-final factor in a unit product such as m in m/s).
+# UnitNumber(node) returns that value for a unit/currency leaf, then applies compound
+# position from CompoundUnitPlural / NumberlessUnitPlural (Rules/definitions.yaml):
+#   - last (default) — last counted-side factor takes the category (en, …)
+#   - first           — first counted-side factor (es, pt)
+#   - all             — every factor, including the "per" side (fr)
+#   - none            — every factor stays "one" after a numeral (hu with a number)
+# NumberlessUnitPlural is used when there is no mn coefficient (m/s, x ms); "same"
+# (default) reuses CompoundUnitPlural. Hungarian sets NumberlessUnitPlural to last
+# so an uncounted head can be plural while counted forms stay singular. Languages
+# that need per-word exceptions (de/nl) or a different case/form without a number
+# (fi partitive vs nominative; pl/ru genitive vs nominative) stay on the defaults —
+# these two keys alone cannot express those shifts.
+# A real count of one forces every factor to "one". Per-side factors with no local
+# count stay "one" unless the active policy is all.
 # Speech rules typically:
 #   UnitNumber = "one"  → speak the singular base word from the unit/currency map
 #   otherwise           → PluralForms[base word] if listed, else PluralDefaultFromEnding /
