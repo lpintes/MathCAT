@@ -159,6 +159,29 @@ report the same grammar errors in every package.
 5. `unicode-full.yaml`: recognisable symbols only.
 6. Final: user testing with NVDA, final audit, upstream pull request.
 
+## Fork and upstream sync
+
+- Remotes: `origin` is the fork `lpintes/MathCAT` (branch `sk` is pushed and
+  tracks `origin/sk`); `upstream` is `daisy/MathCAT`. The fork's `main` is not
+  maintained; merge straight from `upstream/main`.
+- Upstream is busy (about 4 commits a day in 2026), mostly other languages.
+- Merge, never rebase: `sk` is public and reviewers may refer to its commits.
+  If upstream wants a clean history, squash at the final pull request.
+- When: before building each review package, at the start of each phase, and
+  whenever an upstream fix is needed. That is roughly every 1 to 3 weeks.
+- Procedure:
+  1. `git fetch upstream`
+  2. Relevant changes only:
+     `git log --oneline sk..upstream/main -- Rules/Languages/en src tests/languages.rs Cargo.toml`
+  3. `git merge upstream/main`. Our files outside `sk` directories that can
+     conflict: `Cargo.toml`, `CLAUDE.md`, `src/bin/review_package.rs`,
+     `tests/languages.rs`. Check CRLF in `*.yaml` and `*.rs` afterwards.
+  4. `MATHCAT_IGNORE_USER_PREFS=1 cargo test --test languages Languages::sk`
+     (the pass count must not drop for reasons other than our own changes) and
+     `uv run --project PythonScripts audit-translations sk`.
+  5. Record new English rules reported by the audit as tasks in "Status"
+     below, then `git push`.
+
 ## Status
 
 - Phase 1: skeleton done (rules and tests copied from `en`, `lang-sk`
@@ -176,6 +199,13 @@ report the same grammar errors in every package.
   imaginary part, trigonometric and hyperbolic names, exp, Cov, log/ln drafted;
   the rest of that file is still English.
 - Glossary package `docs/sk/review/vocabulary.yaml` (58 items) built; to be sent.
+- First upstream merge (2026-11-11, up to a4ae93ed): no conflicts, sk tests
+  unchanged (173 pass / 427 fail, English goldens). Task for the units topic:
+  upstream 33c3ed4f reworked units and currency (currency over a unit such as
+  $5/h, `$` now singular "dollar" with plural via unit rules, new
+  `CompoundUnitPlural` / `NumberlessUnitPlural` keys in `Rules/definitions.yaml`).
+  The audit reports one rule missing in `sk` from that change; port it and
+  choose the Slovak compound-plural policy.
 
 ## Findings and dead ends
 
