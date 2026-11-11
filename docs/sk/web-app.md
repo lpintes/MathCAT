@@ -57,6 +57,22 @@ in place, mark items as seen, and continue later where they stopped.
    recommended. GitHub needs accounts and is heavy for ordinary reviewers;
    forms do not map well to individual items.
 
+## Hosting for option 2 (checked 2026-11-11)
+
+The user has a shell account on the VPS that already runs the eurofly game
+server (Go). Findings:
+
+- nginx terminates TLS (certbot) and is configured by the server admin; the
+  user has no sudo. A new site means asking the admin for a vhost and a
+  certificate, which needs a domain first.
+- The eurofly pattern works there: a Go binary as a systemd user service on a
+  local port, nginx `proxy_pass` to it. Go, git and sqlite3 are installed.
+- PHP 8.5 with php-fpm is installed, but only `pdo_mysql`, no SQLite driver.
+  A PHP app would need MariaDB or the admin enabling `pdo_sqlite`, plus a
+  php-fpm setup for the user's site.
+- Preferred stack: Go, single binary, SQLite, deployed like eurofly. It
+  avoids both admin requests above except the vhost.
+
 ## Recommendation
 
 Start with option 1: a small extension of the generator, nothing to operate,
