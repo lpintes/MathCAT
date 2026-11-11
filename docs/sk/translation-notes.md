@@ -117,6 +117,8 @@ escaped text, without speech); useful for seeding item YAML from tests.
 - Invalid MathML in an item stops the generator with the item ID, because the
   MathML is copied into the HTML unchanged.
 - Approved texts are written into the YAML by hand (no write-back yet).
+- Idea on hold, maybe never built: interactive review page with inline
+  comments and per-item status, see `docs/sk/web-app.md`.
 
 ## Slovak grammar issues to expect
 
@@ -198,7 +200,8 @@ report the same grammar errors in every package.
   (units topic and phase 4). `SharedRules/general.yaml`: number sets, real and
   imaginary part, trigonometric and hyperbolic names, exp, Cov, log/ln drafted;
   the rest of that file is still English.
-- Glossary package `docs/sk/review/vocabulary.yaml` (58 items) built; to be sent.
+- Glossary package `docs/sk/review/vocabulary.yaml` (58 items) built and sent
+  to the group (2026-11-11); waiting for replies.
 - First upstream merge (2026-11-11, up to a4ae93ed): no conflicts, sk tests
   unchanged (173 pass / 427 fail, English goldens). Task for the units topic:
   upstream 33c3ed4f reworked units and currency (currency over a unit such as
