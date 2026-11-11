@@ -86,8 +86,11 @@ never reviewed again unless the output changes.
   Approved, unchanged items are left out, or listed collapsed at the end.
 - The package header has a "Known issues, do not report" section for defects
   already known but not fixed yet.
-- Packages are small (about 30-60 items) and have a reply deadline. The reply
-  format is: item ID, then "OK" or a proposal. When reviewers disagree, the
+- Packages are small (about 30-60 items). No reply deadline: the review work
+  is voluntary and nobody is chased (user, 2026-11-11), so build packages
+  without `--deadline`. Reviewers reply only about items they want to
+  change: item ID, the word concerned and a proposal. Items nobody mentions
+  count as approved (user, 2026-11-11). When reviewers disagree, the
   user decides; the decision and its reason go to "Terminology decisions".
 - After review: fix, send a short follow-up package if outputs changed, write
   the approved texts into the YAML and into the sk test goldens, commit.
@@ -103,7 +106,7 @@ escaped text, without speech); useful for seeding item YAML from tests.
   `items` with `id`, `mathml`, optional `note`, `styles`, `prefs`, `approved`).
   `docs/sk/review/fractions.yaml` is the first, still unapproved, trial file.
 - Build a package:
-  `MATHCAT_IGNORE_USER_PREFS=1 cargo run --bin review-package -- docs/sk/review/fractions.yaml --deadline 2026-11-24`.
+  `MATHCAT_IGNORE_USER_PREFS=1 cargo run --bin review-package -- docs/sk/review/fractions.yaml`.
   Output goes to `target/review/<topic file stem>.html` unless `-o` is given.
   The environment variable is needed for the same reason as in the tests; the
   bin does not set it itself because `std::env::set_var` is `unsafe` in Rust 2024.

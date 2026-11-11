@@ -282,8 +282,9 @@ fn build_html(file: &ItemFile, cli: &Options) -> (String, usize, usize) {
     if let Some(deadline) = &cli.deadline {
         let _ = writeln!(html, "<p>Please reply by {}.</p>", esc(deadline));
     }
-    let _ = writeln!(html, "<p>Each item is a level 2 heading with its ID. Reply with one line per item: \
-                            the item ID, then OK or your proposed reading.</p>");
+    let _ = writeln!(html, "<p>Each item is a level 2 heading with its ID. Reply only about items you want \
+                            to change: one line per item with the item ID, the word concerned and your proposal. \
+                            Items you do not mention count as OK.</p>");
     if !file.known_issues.is_empty() {
         let _ = writeln!(html, "<h2>Known issues, do not report</h2>\n<ul>");
         for issue in &file.known_issues {
