@@ -128,6 +128,44 @@ as unsourced suggestions.
   URL: https://www.teiresias.muni.cz/formin/documents/matematika%20final.pdf
   - What it covers: only the tools (BUF, Lambda, BlindMoose). No spoken
     readings.
+- Sources named by the review group in the first feedback round (glossary
+  package, 2026-11-16). Not yet researched in full; use them in the next
+  rounds and check each before relying on it.
+  - NVDA symbols.dic (above), confirmed in the local clone: `*` "hviezda",
+    `(` "zátvorka", `)` "zatvoriť", arrows "šípka vľavo / hore / vpravo /
+    dole". A reviewer says Slovak screen reader users are used to these
+    short forms.
+  - eSpeak NG Slovak dictionary, `dictsource/sk_list` (symbol names) in
+    espeak-ng/espeak-ng.
+    URL: https://github.com/espeak-ng/espeak-ng/blob/master/dictsource/sk_list
+    - What it covers, per reviewers: "hviezda" for `*`. Also relevant as the
+      synthesizer: eSpeak reads "ní" (Greek ν) as "ňí", so spelling choices
+      must be tested with it (other synthesizers may do the same).
+    - Trust: medium, same kind as NVDA (community translation, heard daily).
+  - RHVoice, Slovak language data in RHVoice/RHVoice.
+    URL: https://github.com/RHVoice/RHVoice
+    - What it covers, per reviewers: "hviezda" for `*`. Exact file not yet
+      located.
+    - Trust: medium (community).
+  - Unicode CLDR Slovak annotations, `common/annotations/sk.xml` in
+    unicode-org/cldr (short names for symbols and emoji).
+    URL: https://github.com/unicode-org/cldr/blob/main/common/annotations/sk.xml
+    - What it covers: arrows "šípka doľava / doprava / nahor / nadol". Per a
+      reviewer, U+2B05-U+2B07 (BLACK, filled arrows) and U+2190-U+2193 get
+      the same Slovak names, so CLDR does not tell them apart.
+    - Trust: medium-low for math. Who made the Slovak entries and on what
+      basis is unknown, and the duplicate names lower confidence.
+  - Lambda editor localization files: one or two XML files with the Slovak
+    readings that Martin Horňanský made for his thesis (see Horňanský 2009
+    above). A reviewer says they paid attention to the language side. The
+    files are not public; ask the review group for them.
+    - Trust: medium; the most direct prior Slovak work on spoken math.
+  - Slovak Wikipedia, "Hyperbolická funkcia", confirms the hyperbolic
+    function names.
+    URL: https://sk.wikipedia.org/wiki/Hyperbolick%C3%A1_funkcia
+  - Not a source: one reviewer attached a ChatGPT answer on the arrows. It
+    proposes "plná šípka doľava" for U+2B05 (filled) against "šípka doľava"
+    for U+2190. Treat it as a reviewer's proposal, not as a reference.
 - Checked with no useful result:
   - STN EN ISO 80000-2:2020. The normoff.gov.sk preview (record 130359)
     shows that the Slovak edition contains only the English text, so there
