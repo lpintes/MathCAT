@@ -86,14 +86,14 @@
     "inverse":"function=インバース || postfix=インバース", 
 
     "domain": "function=;ドメイン",
-    "codomain": "function=; 共同ドメイン",
+    "codomain": "function=; しゅう域",
 
     "image":"function=像", 
     #"fraction":"function=fraction; over; end fraction", # NOTE: Fails
     "mixed-fraction":"infix=と", # NOTE: in website says function, but follow infix speech pattern.
-    "quotient":"function=整数部 : 割る",
+    "quotient":"function=整数部 : わる",
     "evaluated-at":"infix=次の点で評価",
-    "remainder":"function=余り : 割る",
+    "remainder":"function=余り : わる",
 
     "max":"function=マックス",
     "min":"function=最小値",
@@ -116,7 +116,7 @@
     "coordinate":"function=座標",
     "floor":"function=床関数",
     "ceiling":"function=天井関数",
-    "round":"function=丸めた値",
+    "round":"function=丸めたあたい",
     "fractional-part":"function=小数部分",
 
 
@@ -135,7 +135,7 @@
     "set": "function=; 集合| 集合",
     "set-difference":"function=差集合 : と || infix=マイナス",
     "complement":"function=補集合",
-    "empty-set":"nofix=空集合",
+    "empty-set":"nofix=くう集合",
     "cardinality":"function=濃度", # NOTE: does not have a defined speech template in website
     "list":"function=リスト",
     "tuple": "function=;タプル|タプル",
@@ -143,30 +143,30 @@
 
     ### Sequence and Series
     "sum": "function=サム : にわたる : から,まで",
-    "product": "function=総積 : にわたる : から,まで",
+    "product": "function=プロダクト : にわたる : から,まで",
 
 
     ### Elementary classical functions
     "sine":"function=サイン| 正弦",
     "cosine":"function=コサイン| 余弦",
     "tangent":"function=タンジェント| 正接",
-    "secant":"function=セカント| 正割",
-    "cosecant":"function=コセカント| 余割",
+    "secant":"function=セカント| せいかつ",
+    "cosecant":"function=コセカント| よかつ",
     "cotangent":"function=コタンジェント| 余接",
 
     "arcsine":"function=アークサイン| 逆正弦",
     "arccosine":"function=アークコサイン| 逆余弦",
     "arctangent":"function=アークタンジェント| 逆正接",
     "arcsecant":"function=アークセカント| 逆正割",
-    "arccosecant":"function=アークコセカント| 逆余割",
+    "arccosecant":"function=アークコセカント| 逆よかつ",
     "arccotangent":"function=アークコタンジェント| 逆余接",
 
     "hyperbolic-sine":"function=ハイパーボリックサイン| 双曲線正弦",
     "hyperbolic-cosine":"function=ハイパーボリックコサイン| 双曲線余弦",
     "hyperbolic-tangent":"function=ハイパーボリックタンジェント| 双曲線正接",
-    "hyperbolic-secant":"function=ハイパーボリックセカント| 双曲線正割",
-    "hyperbolic-cosecant":"function=ハイパーボリックコセカント| 双曲線余割",
-    "hyperbolic-cotangent":"function=ハイパーボリックコタンジェント| 双曲線余接",
+    "hyperbolic-secant":"function=ハイパーボリックセカント| 双曲線せいかつ",
+    "hyperbolic-cosecant":"function=ハイパーボリックコセカント| 双曲線よかつ",
+    "hyperbolic-cotangent":"function=ハイパーボリックコタンジェント| 双曲線よせつ",
 
     "arc-hyperbolic-sine":"function=アークハイパーボリックサイン",
     "arc-hyperbolic-cosine":"function=アークハイパーボリックコサイン",
@@ -197,7 +197,7 @@
     "adjugate":"function=余因子行列",
     "magnitude":"function=大きさ",
     "norm": "function=;ノルム|ノルム|ノルム;ノルム閉じ",
-    "span":"function=線形包",
+    "span":"function=線形ほう",
 
     "unit-vector":"prefix=単位ベクトル",
 
@@ -281,11 +281,11 @@
     "applied-to": "infix=に適用される",
     "approximately": "infix=およそ",
     "congruent": "infix=合同",
-    "cartesian-product": "infix=デカルト積",
+    "cartesian-product": "infix=デカルトせき",
     "composed-with": "infix=合成",
     "cross-product": "infix=クロス|外積|外積",
     "defined-as": "infix=とは",
-    "divided-by": "infix=割る",
+    "divided-by": "infix=わる",
     "divides": "infix=割り切る",
     "does-not-belong-to": "infix=属さない",
     "does-not-divide": "infix=割り切らない",
@@ -309,12 +309,12 @@
     "less-than-or-equal-to": "infix=小なり オア イコール",
     "list-separator": "infix=コンマ",
     "maps-to": "infix=に写る",
-    "member-of": "infix=元オブ",
+    "member-of": "infix=げんオブ",
     "minus-or-plus": "infix=マイナスプラス",
     "not-subset": "infix=ノット 部分集合オブ",
     "not-superset": "infix=ノット 上位集合オブ",
     "not-equal-to": "infix=ノット イコール",
-    "not-member-of": "infix=ノット 元オブ",
+    "not-member-of": "infix=ノット げんオブ",
     "not-parallel-to": "infix=ノット 平行",
     "obtained-from": "infix=から得られる",
     "or": "infix=または",
@@ -438,17 +438,20 @@
 #   - one_many      — 1 → "one", anything else → "many"   (English default; inherited)
 #   - one_few_many  — 1 → "one"; 2–4 (except 12–14) → "few"; else "many"  (pl, ru, …)
 # UnitNumber(node) returns that value for a unit/currency leaf, then applies compound
-# position from CompoundUnitPlural / NumberlessUnitPlural (Rules/definitions.yaml):
+# position from CompoundUnitPlural / NumberlessUnitPlural / VariableBeforeUnitPlural
+# (Rules/definitions.yaml):
 #   - last (default) — last counted-side factor takes the category (en, …)
 #   - first           — first counted-side factor (es, pt)
 #   - all             — every factor, including the "per" side (fr)
 #   - none            — every factor stays "one" after a numeral (hu with a number)
-# NumberlessUnitPlural is used when there is no mn coefficient (m/s, x ms); "same"
-# (default) reuses CompoundUnitPlural. Hungarian sets NumberlessUnitPlural to last
-# so an uncounted head can be plural while counted forms stay singular. Languages
-# that need per-word exceptions (de/nl) or a different case/form without a number
-# (fi partitive vs nominative; pl/ru genitive vs nominative) stay on the defaults —
-# these two keys alone cannot express those shifts.
+# NumberlessUnitPlural is used when there is no coefficient at all (bare m/s); "same"
+# (default) reuses CompoundUnitPlural. VariableBeforeUnitPlural covers an identifier
+# coefficient (x m, x_i kg·m/s); "same" (default) reuses CompoundUnitPlural with
+# category "many". Hungarian sets NumberlessUnitPlural to last so a bare head can be
+# plural while counted forms and "x méter" stay singular (CompoundUnitPlural none).
+# Languages that need per-word exceptions (de/nl) or a different case/form without a
+# number (fi partitive vs nominative; pl/ru genitive vs nominative) stay on the
+# defaults — these keys alone cannot express those shifts.
 # A real count of one forces every factor to "one". Per-side factors with no local
 # count stay "one" unless the active policy is all.
 # Speech rules typically:
@@ -516,7 +519,7 @@
 
 - SIPrefixes: {
     "Q": "クエタ", "R": "ロナ", "Y": "ヨタ", "Z": "ゼタ", "E": "エクサ", "P": "ペタ", "T": "テラ", "G": "ギガ", "M": "メガ", "k": "キロ", "h": "ヘクト", "da": "デカ",
-    "d": "デシ", "c": "センチ", "m": "ミリ", "µ": "マイクロ", "n": "ナノ", "p": "ピコ", "f": "フェムト", "a": "アト", "z": "ゼプト", "y": "ヨクト", "r": "ロント", "q": "クエクト"
+    "d": "デシ", "c": "センチ", "m": "ミリ", "µ": "マイクロ", "μ": "マイクロ", "n": "ナノ", "p": "ピコ", "f": "フェムト", "a": "アト", "z": "ゼプト", "y": "ヨクト", "r": "ロント", "q": "クエクト"
   }
 
 # Units that accept SI prefixes (symbol → spoken singular base word).
@@ -589,10 +592,10 @@
 
     # angles
     "°": "度", "deg": "度", # should only take negative powers
-    "arcmin": "分角",
-    "amin": "分角",
-    "am": "分角",
-    "MOA": "分角",
+    "arcmin": "ふんかく",
+    "amin": "ふんかく",
+    "am": "ふんかく",
+    "MOA": "ふんかく",
     "arcsec": "秒角",
     "asec": "秒角",
 
@@ -631,7 +634,7 @@
 
 # Currency symbol → spoken singular base word. Same UnitNumber / PluralForms path as units.
 - CurrencySymbols: {
-    "$": "ドル", "¢": "セント", "€": "ユーロ", "£": "ポンド", "₡": "コロン", "₤": "リラ", "₨": "ルピー",
+    "$": "ドル", "¢": "セント", "€": "ユーロ", "£": "ポンド", "¥": "円", "₡": "コロン", "₤": "リラ", "₨": "ルピー",
     "₩": "ウォン", "₪": "シェケル", "₱": "ペソ", "₹": "ルピー", "₺": "リラ", "₿": "ビットコイン",
     # could add more currencies...
   }

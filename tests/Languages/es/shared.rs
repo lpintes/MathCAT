@@ -27,6 +27,46 @@ fn modified_vars() -> Result<()> {
 }
 
 #[test]
+fn ordinals() -> Result<()> {
+    // ordinales como llegan desde LaTeX (luamml): la letra marca el género, el plural y el apócope
+    let cases = [
+        // 1\text{.\textsuperscript{o}}
+        ("<math><mn>1</mn><mtext>.o</mtext></math>", "primero"),
+        ("<math><mn>2</mn><mtext>.a</mtext></math>", "segunda"),
+        ("<math><mn>3</mn><mtext>.er</mtext></math>", "tercer"),
+        ("<math><mn>2</mn><mtext>.os</mtext></math>", "segundos"),
+        ("<math><mn>1</mn><mtext>.as</mtext></math>", "primeras"),
+        ("<math><mn>13</mn><mtext>.er</mtext></math>", "decimotercer"),
+        ("<math><mn>21</mn><mtext>.a</mtext></math>", "vigésima primera"),
+        ("<math><mn>30</mn><mtext>.o</mtext></math>", "trigésimo"),
+        ("<math><mn>99</mn><mtext>.o</mtext></math>", "nonagésimo noveno"),
+        // 1.\text{º}, \text{1.\textsuperscript{o}}
+        ("<math><mn>1</mn><mo>.</mo><mtext>º</mtext></math>", "primero"),
+        ("<math><mn>2</mn><mo>.</mo><mtext>ª</mtext></math>", "segunda"),
+        ("<math><mtext>1.o</mtext></math>", "primero"),
+        // 1.^{\text{o}} y 1^{\text{o}}
+        ("<math><mn>1</mn><msup><mo>.</mo><mtext>o</mtext></msup></math>", "primero"),
+        ("<math><mn>3</mn><msup><mo>.</mo><mtext>er</mtext></msup></math>", "tercer"),
+        // sin punto no es ordinal (suele ser un grado mal escrito: 30º)
+        ("<math><mn>1</mn><mtext>º</mtext></math>", "1 ordinal masculino"),
+        // dentro de una fórmula
+        ("<math><msub><mi>a</mi><mrow><mn>1</mn><mtext>.o</mtext></mrow></msub><mo>+</mo><msub><mi>a</mi><mrow><mn>2</mn><mtext>.o</mtext></mrow></msub></math>",
+            "a sub primero fin de sub; más, a sub segundo fin de sub"),
+        ("<math><mtext>el </mtext><mn>1</mn><mtext>.er término es </mtext><msub><mi>a</mi><mn>1</mn></msub></math>",
+            "el primer término es a sub 1"),
+        // no son ordinales
+        ("<math><mn>100</mn><mtext>.o</mtext></math>", "100 .o"),
+        ("<math><mn>2</mn><mo>.</mo><mi>a</mi></math>", "2 punto a"),
+        ("<math><msup><mn>2</mn><mi>a</mi></msup></math>", "2 elevado a a"),
+    ];
+    for (expr, speech) in cases {
+        test("es", "ClearSpeak", expr, speech)?;
+        test("es", "SimpleSpeak", expr, speech)?;
+    }
+    return Ok(());
+}
+
+#[test]
 fn limit() -> Result<()> {
     let expr = "<math>
             <munder>
@@ -85,6 +125,17 @@ fn limit_one_sided_superscript() -> Result<()> {
     return Ok(());
 }
 
+
+#[test]
+fn composed_with() -> Result<()> {
+    // ∘: "f compuesta con g" (función, permutación, relación: femenino)
+    test("es", "ClearSpeak", "<math><mi>f</mi><mo>∘</mo><mi>g</mi></math>", "f compuesta con g")?;
+    test("es", "SimpleSpeak", "<math><mi>f</mi><mo>∘</mo><mi>g</mi><mo>∘</mo><mi>k</mi></math>", "f compuesta con g compuesta con k")?;
+    // ℎ (U+210E) es la h cursiva que llega desde LaTeX: "h", no "constante de Planck"
+    test("es", "ClearSpeak", "<math><mi>f</mi><mo>∘</mo><mi>ℎ</mi></math>", "f compuesta con h")?;
+    test("es", "ClearSpeak", "<math><mi>ℎ</mi><mo>(</mo><mi>x</mi><mo>)</mo></math>", "h de x")?;
+    return Ok(());
+}
 
 #[test]
 fn binomial_mmultiscripts() -> Result<()> {
@@ -523,7 +574,7 @@ fn literal_speak_perpendicular() -> Result<()> {
     </mover>
   </mrow>
  </math>"#; 
-  test("es", "LiteralSpeak", expr, "mayúscula a flecha derecha, perpendicular a, mayúscula b flecha derecha")?;
+  test("es", "LiteralSpeak", expr, "mayúscula a flecha derecha, tachuela hacia arriba, mayúscula b flecha derecha")?;
   return Ok(());
 
 }
@@ -605,7 +656,7 @@ fn literal_intent_property() -> Result<()> {
     </mover>
   </mrow>
  </math>"#; 
-  test("es", "SimpleSpeak", expr, "mayúscula a flecha derecha, perpendicular a, mayúscula b flecha derecha")?;
+  test("es", "SimpleSpeak", expr, "mayúscula a flecha derecha, es perpendicular a, mayúscula b flecha derecha")?;
   return Ok(());
 
 }
