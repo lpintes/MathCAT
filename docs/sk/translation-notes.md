@@ -144,12 +144,15 @@ now `T:` and all 58 items have `approved:` texts.
 - nu (ν): "ný", not "ní". eSpeak reads "ní" as "ňí"; the spelling is phonetic
   on purpose.
 - Relations take the neuter gender (group consensus): "je menšie ako", "je väčšie
-  ako", "je menšie alebo rovné", "je väčšie alebo rovné", "je totožné s", "je
-  úmerné", "je rovnobežné s", "nie je rovnobežné s". For ≤ and ≥ the user chose
-  "menšie alebo rovné" over "menšie alebo sa rovná".
-- "je" before relations stays as it is (dropped only with Verbosity Terse).
-  A reviewer suggested dropping it in SimpleSpeak; revisit in the relations
-  (sets and logic) package.
+  ako", "je menšie alebo sa rovná", "je väčšie alebo sa rovná", "je totožné s", "je
+  úmerné s", "je rovnobežné s", "nie je rovnobežné s". Round 2 (2026-11-17) changed
+  ≤ ≥ from "menšie alebo rovné" to "menšie alebo sa rovná" and added "s" after
+  "úmerné".
+- "je" before relations: ClearSpeak says it; SimpleSpeak and Verbosity Terse drop it
+  (round 2): "a menšie ako b", "a menšie alebo sa rovná b", "a totožné s b",
+  "a úmerné s b", "p rovnobežné s q", and ∦ becomes "p nerovnobežné s q". Applied to
+  < > ≤ ≥ ≡ ∝ ∥ ∦; other relations (∈, ⊂, ...) still follow the old rule and are
+  decided in the relations (sets and logic) package.
 - Fences: ClearSpeak and the other styles say "ľavá/pravá zátvorka", "ľavá/pravá
   hranatá zátvorka", "ľavá/pravá zložená zátvorka". SimpleSpeak and Verbosity Terse
   use the NVDA `symbols.dic` words: "zátvorka" / "zatvoriť", "hranatá zátvorka" /
@@ -162,7 +165,7 @@ now `T:` and all 58 items have `approved:` texts.
   plural forms come with the units topic.
 - Fraktur: the flag word "fraktúra" before the letter, like "veľké" ("fraktúra
   veľké r"). Double-struck: "dvojito prečiarknuté" (reviewer term); for the italic
-  ⅆⅇⅈⅉ "dvojito prečiarknuté kurzívne d". The flag was also changed for ℂℕℚℝℤ
+  ⅆⅇⅈⅉ "dvojito prečiarknuté kurzíva d" (round 2 changed "kurzívne" to "kurzíva"). The flag was also changed for ℂℕℚℝℤ
   (as letters, not as set names) for consistency.
 - Function application: no connector after named functions (trig, hyperbolic,
   log, log with a base, exp, Cov, Re, Im) in any style and with any argument:

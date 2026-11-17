@@ -134,7 +134,7 @@
  - ";": [T: "bodkočiarka"]                         # 0x3b
  - "<":                                          # 0x3c
      - test:
-         if: "$Verbosity!='Terse'"
+         if: "$SpeechStyle != 'SimpleSpeak' and $Verbosity!='Terse'"
          then: [T: "je"]
      - T: "menšie ako"
  - "=":                                           # 0x3d
@@ -145,7 +145,7 @@
 
  - ">":                                          # 0x3e
      - test:
-         if: "$Verbosity!='Terse'"
+         if: "$SpeechStyle != 'SimpleSpeak' and $Verbosity!='Terse'"
          then: [T: "je"]
      - T: "väčšie ako"
  - "?": [T: "otáznik"]                             # 0x3f
@@ -331,7 +331,7 @@
     - spell: "'R'"
 
  - "ⅆⅇⅈⅉ":                                          # 0x2146-9
-    - T: "dvojito prečiarknuté kurzívne"
+    - T: "dvojito prečiarknuté kurzíva"
     - spell: "translate('.', 'ⅆⅇⅈⅉ', 'deij')"
 
  - "←": [T: "šípka doľava"]                    # 0x2190
@@ -376,22 +376,25 @@
          then: [t: "dvojitá zvislá čiara"]
          else:
          - test:
-              if: "$Verbosity!='Terse'"
+              if: "$SpeechStyle != 'SimpleSpeak' and $Verbosity!='Terse'"
               then: [T: "je"]
          - T: "rovnobežné s"
  - "∦":                                           # 0x2226
      # Slovak puts the negation on the verb, so there is no separate "is" here
-     - T: "nie je rovnobežné s"
+     - test:
+         if: "$SpeechStyle != 'SimpleSpeak' and $Verbosity!='Terse'"
+         then: [T: "nie je rovnobežné s"]
+         else: [T: "nerovnobežné s"]
  - "≤":                                          # 0x2264
      - test:
-         if: "$Verbosity!='Terse'"
+         if: "$SpeechStyle != 'SimpleSpeak' and $Verbosity!='Terse'"
          then: [T: "je"]
-     - T: "menšie alebo rovné"
+     - T: "menšie alebo sa rovná"
  - "≥":                                          # 0x2265
      - test:
-         if: "$Verbosity!='Terse'"
+         if: "$SpeechStyle != 'SimpleSpeak' and $Verbosity!='Terse'"
          then: [T: "je"]
-     - T: "väčšie alebo rovné"
+     - T: "väčšie alebo sa rovná"
 
  # --- restored complex short definitions (prefer over unicode-full) ---
  - "…":                                          # 0x2026
@@ -473,9 +476,9 @@
      - T: "druhá odmocnina z"
  - "∝":                                          # 0x221d
      - test:
-         if: "$Verbosity!='Terse'"
+         if: "$SpeechStyle != 'SimpleSpeak' and $Verbosity!='Terse'"
          then: [T: "je"]
-     - T: "úmerné"
+     - T: "úmerné s"
  - "∶":                                          # 0x2236
      # ratio, "a ku b"; Slovak has no "is" here
      - t: "ku"
@@ -489,7 +492,7 @@
      - T: "sa nerovná"
  - "≡":                                          # 0x2261
      - test:
-         if: "$Verbosity!='Terse'"
+         if: "$SpeechStyle != 'SimpleSpeak' and $Verbosity!='Terse'"
          then: [T: "je"]
      - T: "totožné s"
  - "⊂":                                          # 0x2282

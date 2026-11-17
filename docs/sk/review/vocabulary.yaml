@@ -65,8 +65,8 @@ items:
     mathml: <math><mi>ℋ</mi><mspace width="1em"/><mi>ℛ</mi><mspace width="1em"/><mi>ℓ</mi><mspace width="1em"/><mi>ℜ</mi></math>
   - id: voc-009
     approved:
-      ClearSpeak: "dvojito prečiarknuté kurzívne d; dvojito prečiarknuté kurzívne e; dvojito prečiarknuté kurzívne i"
-      SimpleSpeak: "dvojito prečiarknuté kurzívne d; dvojito prečiarknuté kurzívne e; dvojito prečiarknuté kurzívne i"
+      ClearSpeak: "dvojito prečiarknuté kurzíva d; dvojito prečiarknuté kurzíva e; dvojito prečiarknuté kurzíva i"
+      SimpleSpeak: "dvojito prečiarknuté kurzíva d; dvojito prečiarknuté kurzíva e; dvojito prečiarknuté kurzíva i"
     note: Double-struck italic d, e, i (used for the differential, Euler's number and the imaginary unit). Proposal "dvojité kurzívne" without a source.
     mathml: <math><mi>ⅆ</mi><mspace width="1em"/><mi>ⅇ</mi><mspace width="1em"/><mi>ⅈ</mi></math>
 
@@ -154,49 +154,49 @@ items:
   - id: voc-023
     approved:
       ClearSpeak: "a je menšie ako b"
-      SimpleSpeak: "a je menšie ako b"
+      SimpleSpeak: "a menšie ako b"
     note: Less than. SABP uses the masculine "menší ako"; the alternative is the neuter "menšie ako". The same choice applies to voc-024 to voc-026.
     mathml: <math><mi>a</mi><mo>&lt;</mo><mi>b</mi></math>
   - id: voc-024
     approved:
       ClearSpeak: "a je väčšie ako b"
-      SimpleSpeak: "a je väčšie ako b"
+      SimpleSpeak: "a väčšie ako b"
     note: Greater than.
     mathml: <math><mi>a</mi><mo>&gt;</mo><mi>b</mi></math>
   - id: voc-025
     approved:
-      ClearSpeak: "a je menšie alebo rovné b"
-      SimpleSpeak: "a je menšie alebo rovné b"
+      ClearSpeak: "a je menšie alebo sa rovná b"
+      SimpleSpeak: "a menšie alebo sa rovná b"
     note: Less than or equal.
     mathml: <math><mi>a</mi><mo>≤</mo><mi>b</mi></math>
   - id: voc-026
     approved:
-      ClearSpeak: "a je väčšie alebo rovné b"
-      SimpleSpeak: "a je väčšie alebo rovné b"
+      ClearSpeak: "a je väčšie alebo sa rovná b"
+      SimpleSpeak: "a väčšie alebo sa rovná b"
     note: Greater than or equal.
     mathml: <math><mi>a</mi><mo>≥</mo><mi>b</mi></math>
   - id: voc-027
     approved:
       ClearSpeak: "a je totožné s b"
-      SimpleSpeak: "a je totožné s b"
+      SimpleSpeak: "a totožné s b"
     note: Identical to. "totožné" and "úmerné" (voc-028) are neuter, while voc-023 to voc-026 are masculine; one gender should be chosen for all relations.
     mathml: <math><mi>a</mi><mo>≡</mo><mi>b</mi></math>
   - id: voc-028
     approved:
-      ClearSpeak: "a je úmerné b"
-      SimpleSpeak: "a je úmerné b"
+      ClearSpeak: "a je úmerné s b"
+      SimpleSpeak: "a úmerné s b"
     note: Proportional to.
     mathml: <math><mi>a</mi><mo>∝</mo><mi>b</mi></math>
   - id: voc-029
     approved:
       ClearSpeak: "p je rovnobežné s q"
-      SimpleSpeak: "p je rovnobežné s q"
+      SimpleSpeak: "p rovnobežné s q"
     note: Parallel. "rovnobežná s" is feminine (priamka).
     mathml: <math><mi>p</mi><mo>∥</mo><mi>q</mi></math>
   - id: voc-030
     approved:
       ClearSpeak: "p nie je rovnobežné s q"
-      SimpleSpeak: "p nie je rovnobežné s q"
+      SimpleSpeak: "p nerovnobežné s q"
     note: Not parallel.
     mathml: <math><mi>p</mi><mo>∦</mo><mi>q</mi></math>
   - id: voc-031
