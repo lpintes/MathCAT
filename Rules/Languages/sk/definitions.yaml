@@ -751,8 +751,8 @@
 # so they hold the plural nouns (tretiny, desatiny, stotiny). The singular ordinal
 # lists hold the feminine nominative adjective (druhá, tretia), as in "druhá mocnina".
 # The fractional lists cover 0-19 so that small denominators get nouns (tretina).
-# Genitive plural after 5+ (päť pätín) and the accusative for powers (na druhú)
-# are handled in the fractions and powers topics.
+# The genitive plural after 5+ (päť pätín) is FractionGenitivePlural below; the
+# accusative for powers (na druhú) is handled in the powers topic.
 - NumbersOnes: [
         "nula", "jeden", "dva", "tri", "štyri", "päť", "šesť", "sedem", "osem", "deväť",
         "desať", "jedenásť", "dvanásť", "trinásť", "štrnásť", "pätnásť", "šestnásť",
@@ -784,6 +784,16 @@
         "desatiny", "jedenástiny", "dvanástiny", "trinástiny", "štrnástiny", "pätnástiny", "šestnástiny",
         "sedemnástiny", "osemnástiny", "devätnástiny"
     ]
+
+# Slovak: genitive plural of the fraction nouns, used when the numerator is not 1-4
+# (päť tretín, nula polovíc). Keyed by the denominator; ToOrdinal has no such list.
+# Denominators missing here fall back to the nominative plural from ToOrdinal.
+- FractionGenitivePlural: {
+    "2": "polovíc", "3": "tretín", "4": "štvrtín", "5": "pätín", "6": "šestín", "7": "sedmín",
+    "8": "osmín", "9": "devätín", "10": "desatín", "11": "jedenástin", "12": "dvanástin",
+    "13": "trinástin", "14": "štrnástin", "15": "pätnástin", "16": "šestnástin",
+    "17": "sedemnástin", "18": "osemnástin", "19": "devätnástin"
+  }
 
 
     # What to use for multiples of 10

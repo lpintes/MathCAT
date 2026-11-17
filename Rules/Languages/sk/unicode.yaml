@@ -304,18 +304,13 @@
  - "⁡":                                          # 0x2061
     - test:
         # skip saying "of" when Terse and a trig function, when it is a shape (does this happen?), or we are in :literal mode
-        # Slovak (glossary round 1): SimpleSpeak also skips it after named functions (sínus x)
+        # Slovak (glossary round 1): every style skips it after named functions (sínus x),
+        # whatever the argument is
         if: "not(
-              ( $Verbosity='Terse' or ($SpeechStyle = 'ClearSpeak' and IsNode(following-sibling::*[1],'simple')) and
-                preceding-sibling::*[1][IfThenElse($SpeechStyle='ClearSpeak',
-                                                   IsInDefinition(., 'ClearSpeakTrigFunctionNames'),
-                                                   IsInDefinition(., 'TrigFunctionNames') )]
-              ) or
-              ($SpeechStyle = 'SimpleSpeak' and
-                preceding-sibling::*[1][IsInDefinition(., 'TrigFunctionNames') or IsInDefinition(., 'AdditionalFunctionNames') or
-                                        .='Cov' or self::m:real-part or self::m:imaginary-part or
-                                        self::m:logarithm-with-base or self::m:msub[*[1][.='log']]]
-              ) or
+              preceding-sibling::*[1][IsInDefinition(., 'TrigFunctionNames') or IsInDefinition(., 'ClearSpeakTrigFunctionNames') or
+                                      IsInDefinition(., 'AdditionalFunctionNames') or
+                                      .='Cov' or self::m:real-part or self::m:imaginary-part or
+                                      self::m:logarithm-with-base or self::m:msub[*[1][.='log']]] or
               preceding-sibling::*[1][IsInDefinition(., 'GeometryShapes')] or
               (@data-changed='added' and ancestor-or-self::*[contains(@data-intent-property, ':literal:')])
             )"

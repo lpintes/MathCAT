@@ -343,7 +343,7 @@ items:
     mathml: <math><mi>cos</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>tg</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>cot</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>sec</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>csc</mi><mo>&#x2061;</mo><mi>x</mi></math>
   - id: voc-053
     approved:
-      ClearSpeak: "hyperbolický sínus od x; hyperbolický kosínus od x; hyperbolický tangens od x; hyperbolický kotangens od x"
+      ClearSpeak: "hyperbolický sínus, x; hyperbolický kosínus, x; hyperbolický tangens, x; hyperbolický kotangens, x"
       SimpleSpeak: "hyperbolický sínus, x; hyperbolický kosínus, x; hyperbolický tangens, x; hyperbolický kotangens, x"
     note: Hyperbolic functions.
     mathml: <math><mi>sinh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>cosh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>tanh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>coth</mi><mo>&#x2061;</mo><mi>x</mi></math>
@@ -355,13 +355,13 @@ items:
     mathml: <math><mi>log</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>ln</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><msub><mi>log</mi><mi>b</mi></msub><mo>&#x2061;</mo><mi>x</mi></math>
   - id: voc-055
     approved:
-      ClearSpeak: "exponenciála od x; kovariancia od; ľavá zátvorka, veľké x čiarka, veľké y; pravá zátvorka"
+      ClearSpeak: "exponenciála x; kovariancia; ľavá zátvorka, veľké x čiarka, veľké y; pravá zátvorka"
       SimpleSpeak: "exponenciála x; kovariancia; zátvorka, veľké x čiarka, veľké y; zatvoriť"
     note: Exponential function and covariance.
     mathml: <math><mi>exp</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>Cov</mi><mo>&#x2061;</mo><mo>(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo>)</mo></math>
   - id: voc-056
     approved:
-      ClearSpeak: "reálna časť od z, imaginárna časť od z"
+      ClearSpeak: "reálna časť z, imaginárna časť z"
       SimpleSpeak: "reálna časť z, imaginárna časť z"
     note: Real and imaginary part.
     mathml: <math><mi>Re</mi><mo>&#x2061;</mo><mi>z</mi><mspace width="1em"/><mi>Im</mi><mo>&#x2061;</mo><mi>z</mi></math>
@@ -369,13 +369,13 @@ items:
   # Fraction words
   - id: voc-057
     approved:
-      ClearSpeak: "1 polovica 1 tretina 1 štvrtina"
-      SimpleSpeak: "1 polovica 1 tretina 1 štvrtina"
+      ClearSpeak: "jedna polovica jedna tretina jedna štvrtina"
+      SimpleSpeak: "jedna polovica jedna tretina jedna štvrtina"
     note: Fractions with small denominators, the singular nouns (polovica, tretina, štvrtina).
     mathml: <math><mfrac><mn>1</mn><mn>2</mn></mfrac><mspace width="1em"/><mfrac><mn>1</mn><mn>3</mn></mfrac><mspace width="1em"/><mfrac><mn>1</mn><mn>4</mn></mfrac></math>
   - id: voc-058
     approved:
-      ClearSpeak: "3 polovice 2 tretiny 3 desatiny"
-      SimpleSpeak: "3 polovice 2 tretiny 3 desatiny"
+      ClearSpeak: "3 polovice dve tretiny 3 desatiny"
+      SimpleSpeak: "3 polovice dve tretiny 3 desatiny"
     note: Plural fraction nouns. "polovica" (NVDA, standard) or "polovina" (Pohodová matematika)?
     mathml: <math><mfrac><mn>3</mn><mn>2</mn></mfrac><mspace width="1em"/><mfrac><mn>2</mn><mn>3</mn></mfrac><mspace width="1em"/><mfrac><mn>3</mn><mn>10</mn></mfrac></math>

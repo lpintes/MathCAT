@@ -164,10 +164,43 @@ now `T:` and all 58 items have `approved:` texts.
   veľké r"). Double-struck: "dvojito prečiarknuté" (reviewer term); for the italic
   ⅆⅇⅈⅉ "dvojito prečiarknuté kurzívne d". The flag was also changed for ℂℕℚℝℤ
   (as letters, not as set names) for consistency.
-- Function application: SimpleSpeak says no connector after named functions
-  (trig, hyperbolic, log, log with a base, exp, Cov, Re, Im): "sínus x",
-  "logaritmus so základom b; x". All reviewers asked for it; "z" was mentioned but
-  is risky. ClearSpeak still says "od" after multi-word names (functions package).
+- Function application: no connector after named functions (trig, hyperbolic,
+  log, log with a base, exp, Cov, Re, Im) in any style and with any argument:
+  "sínus x", "sínus, ľavá zátvorka, x plus y, pravá zátvorka", "logaritmus so
+  základom b; x". All reviewers asked for it; "z" was mentioned but is risky.
+  At first only SimpleSpeak; the user extended it to ClearSpeak on 2026-11-17
+  (English ClearSpeak keeps "of" there, Slovak has no reason to).
+- "od" is not wanted anywhere (user decision, 2026-11-17). Still left: the
+  general function "f od x" (U+2061 rule in `unicode.yaml`) and any "od" that
+  appears in later topics. Remove it in the functions package; check there
+  that "f x" is not confused with implied multiplication (f krát x), e.g. by
+  a pause. Do not propose "od" again in new rules. ("z" in "absolútna hodnota
+  z x", `FunctionApplicationWord`, is a different word and not covered.)
+- Fraction numerators (2026-11-17, user): the nouns are feminine, so 1 and 2 are
+  spoken as words "jedna", "dve" (some synthesizers read "1" as "jeden", giving
+  "jeden polovica"); other numerators stay digits. Numerators 1-4 take the
+  nominative (dve tretiny), the others the genitive plural (päť tretín, nula
+  polovíc) from `FractionGenitivePlural` in `definitions.yaml` (denominators
+  2-19). Rules: `common-fraction` (both styles), `common-fraction-mixed-number`
+  (SimpleSpeak).
+- Fraction nouns for denominators of 20 and more are broken; fix them first in the
+  fractions package (user, 2026-11-17: "dvadsaťpäť stotín" is common, e.g.
+  25/100 when simplifying fractions). They are reached with
+  ClearSpeak_Fractions Ordinal and with SimpleSpeak mixed numbers (any
+  denominator). `ToOrdinal` composes them the English way, word by word, and
+  with the wrong lists. Output on 2026-11-17: 1/20 "jedna dvadsiata", 1/25
+  "jedna dvadsať piata", 1/100 "jedna stá", 1/1000 "jedna jeden tisíca",
+  3/21 "3 dvadsať celky", 3/22 "3 dvadsať polovice", 25/100 "25 stotiny".
+  Planned fix, in the rules only (no Rust change): stop using `ToOrdinal` for
+  fraction denominators. Three dictionaries in `definitions.yaml` keyed by the
+  denominator (singular, nominative plural, genitive plural): 2-19, the tens
+  20-90, 100, 1000, 1000000 (dvadsatina/dvadsatiny/dvadsatín,
+  stotina/stotiny/stotín, tisícina/tisíciny/tisícin, milióntina/milióntiny/
+  milióntin). The fraction rules match only denominators found there; others
+  fall through to the "lomeno" reading. Compounds (21-99, e.g. dvadsaťpätina,
+  and 22 with "dvojina"?) only from a source, see `terminology-sources.md`.
+  Genitive length (stotín but tisícin, pätnástin) follows the rhythmic law, so
+  write the forms out, do not derive them.
 - Script letters "písané", "koncová sigma", "polovica", number set names and the
   remaining symbol names: approved as drafted.
 - ± (voc-012): "plus alebo mínus" (reviewer proposal), because "a plus mínus b"
@@ -312,12 +345,12 @@ report the same grammar errors in every package.
   (`SharedRules/default.yaml`); `unicode-full.yaml` (∼ "varies with", ⌊⌈ floor/ceiling);
   arcsin/arctg are spoken as letters; gcd/lcm are not recognised as "NSD"/"NSN"; Slovak
   "cotg" is not matched by the cot rule in `general.yaml`.
-- Without "od", SimpleSpeak puts a pause after multi-word function names
+- Without "od", both styles put a pause after multi-word function names
   ("hyperbolický sínus, x", "prirodzený logaritmus, x") but not after one-word
   names ("sínus x"). The pause is not in the rules; probably the automatic pause
   length. The approved texts in voc-053/054 contain it; look at it in the
   functions package.
-- The "od" skip for SimpleSpeak is in the U+2061 rule in `unicode.yaml`. Cov, Re, Im
+- The "od" skip is in the U+2061 rule in `unicode.yaml`. Cov, Re, Im
   and log with a base need their own tests there because canonicalization turns them
   into `real-part` / `imaginary-part` / `msub` nodes and Cov is in no function list.
 - A YAML comment inside a multi-line double-quoted XPath string is part of the
