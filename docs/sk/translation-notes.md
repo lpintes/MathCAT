@@ -219,7 +219,9 @@ report the same grammar errors in every package.
   4. `MATHCAT_IGNORE_USER_PREFS=1 cargo test --test languages Languages::sk`
      (the pass count must not drop for reasons other than our own changes) and
      `uv run --project PythonScripts audit-translations sk`.
-  5. Record new English rules reported by the audit as tasks in "Status"
+  5. Port the `en` rule changes the audit reports into `sk` right away
+     (`git diff <last merge base> upstream/main -- Rules/Languages/en` shows
+     them); keep new words as `t:`. Record open translation tasks in "Status"
      below, then `git push`.
 
 ## Status
@@ -253,6 +255,18 @@ report the same grammar errors in every package.
   `CompoundUnitPlural` / `NumberlessUnitPlural` keys in `Rules/definitions.yaml`).
   The audit reports one rule missing in `sk` from that change; port it and
   choose the Slovak compound-plural policy.
+- Second upstream merge (2026-11-17, up to c274aa13, merge 24a534d6): no
+  conflicts, sk tests unchanged (173 / 427). All `en` rule changes since the
+  skeleton (71612e4c) are now ported to `sk`; the audit shows the same rule
+  counts in every file. Ported: currency over a unit in `per-fraction`
+  (ClearSpeak, SimpleSpeak), `unit-grouping-paren`, `currency-symbol`, the
+  reworked `currency` rule and the `CurrencySymbols` branch of `unit`
+  (`general.yaml`), `:literal:` and `SpeakIntentName` in `default-text`
+  (`default.yaml`), the `DEBUG` removal in `navigate.yaml`, `μ` (U+03BC) in
+  `SIPrefixes` and the plural-policy comment (`definitions.yaml`). New words
+  are still English `t:`. Still open for the units topic: the Slovak values of
+  `CompoundUnitPlural`, `NumberlessUnitPlural` and `VariableBeforeUnitPlural`
+  (Slovak needs case forms after numerals, which these keys alone cannot express).
 
 ## Findings and dead ends
 
