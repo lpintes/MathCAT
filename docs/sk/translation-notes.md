@@ -212,6 +212,19 @@ now `T:` and all 58 items have `approved:` texts.
   to the "over" reading (still English, translated in the fractions package).
   The nested-fraction `EndFrac` test in ClearSpeak `fraction-over-simple` still
   replicates the old match without the dictionary check (edge case, left as in en).
+- Fraction words (2026-11-17, proposal, all `t:` until the group approves): "over"
+  is "lomeno" everywhere (Pohodová matematika: "tri lomeno päťdesiatosem"); the
+  SimpleSpeak and literal frame is "zlomok ... lomeno ... koniec zlomku", ClearSpeak
+  FracOver "zlomok a lomeno b", EndFrac "koniec zlomku" (Lambda: "zložený zlomok
+  ... zlomková čiara ... koniec zlomku"; ask the group whether "zlomková čiara" or
+  "zložený zlomok" is preferred over "lomeno"/"zlomok"). ClearSpeak general
+  fraction: "zlomok s čitateľom ...; a menovateľom ..." (part names from
+  sk.wikipedia, the phrase is ours). The article "the" before these is dropped.
+  "per" in units is "za" (same as "/" between units in `unicode.yaml`).
+  Also `overview.yaml`, `SharedRules/default.yaml` literal mfrac, and in
+  `unicode-full.yaml` ⅟ "jedna lomeno" and ∕ "lomka"/"za"/"deleno".
+  Not done: "over" in `general.yaml` `bigop-under` (large operators, later package).
+  14 sk tests that passed only because sk said the English "over" now fail (159/441).
 - Script letters "písané", "koncová sigma", "polovica", number set names and the
   remaining symbol names: approved as drafted.
 - ± (voc-012): "plus alebo mínus" (reviewer proposal), because "a plus mínus b"

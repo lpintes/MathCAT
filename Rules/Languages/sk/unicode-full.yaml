@@ -478,7 +478,7 @@
  - "⅜": [t: "three eighths"]                       # 0x215c
  - "⅝": [t: "five eighths"]                        # 0x215d
  - "⅞": [t: "seven eighths"]                       # 0x215e
- - "⅟": [t: "one over"]                            # 0x215f
+ - "⅟": [t: "jedna lomeno"]                          # 0x215f
  - "Ⅰ": [t: "I"]                                   # 0x2160
  - "Ⅱ": [t: "I I"]                                 # 0x2161
  - "Ⅲ": [t: "I I I"]                               # 0x2162
@@ -651,10 +651,10 @@
  - "∕":                                           # 0x2215
     - test:
         - if: "ancestor-or-self::*[contains(@data-intent-property, ':literal:')]"
-          then: [t: "slash"]
+          then: [t: "lomka"]
         - else_if: "parent::*[contains(@data-intent-property, ':unit:')] or preceding-sibling::*[1][self::m:unit or contains(@data-intent-property, ':unit:')] or following-sibling::*[1][self::m:unit or contains(@data-intent-property, ':unit:')]"
-          then: [t: "per"]
-          else: [t: "divided by"]
+          then: [t: "za"]
+          else: [t: "deleno"]
  - "∖": [t: "set minus"]                           # 0x2216
  - "∗": [t: "times"]                               # 0x2217
  - "∘": [t: "composed with"]                       # 0x2218

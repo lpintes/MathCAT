@@ -21,10 +21,10 @@
       if: "IsNode(*[1], 'simple') and IsNode(*[2], 'simple')"
       then:
       - x: "*[1]"
-      - t: "over"
+      - t: "lomeno"
       - x: "*[2]"
       else:
-      - t: "fraction"
+      - t: "zlomok"
 
 - name: overview-default
   tag: [msqrt, "square-root"]

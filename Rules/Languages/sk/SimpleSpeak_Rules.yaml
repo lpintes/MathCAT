@@ -137,7 +137,7 @@
   - "BaseNode(*[2])[contains(@data-intent-property, ':unit')] "
   replace:
   - x: "*[1]"
-  - t: "per"      # phrase('5 meters 'per' second)
+  - t: "za"      # phrase('5 meters 'per' second)
   - x: "*[2]"
 
 - name: simple
@@ -150,7 +150,7 @@
   - "not(ancestor::*[name() != 'mrow'][1]/self::m:fraction)" # FIX: can't test for mrow -- what should be used???
   replace:
   - x: "*[1]"
-  - t: "over"      # phrase(the fraction 3 'over' 4)
+  - t: "lomeno"      # phrase(the fraction 3 'over' 4)
   - x: "*[2]"
   - pause: short
 
@@ -160,13 +160,13 @@
   replace:
   - test:
       if: "$Impairment = 'Blindness'"
-      then: [t: "fraction"]      # phrase(the 'fraction' 3 over 4)
+      then: [t: "zlomok"]      # phrase(the 'fraction' 3 over 4)
   - pause: short
   - x: "*[1]"
   - test:
       if: "not(IsNode(*[1],'leaf'))"
       then: [pause: short]
-  - t: "over"      # phrase(the fraction 3 'over' 4)
+  - t: "lomeno"      # phrase(the fraction 3 'over' 4)
   - test:
       if: "not(IsNode(*[2],'leaf'))"
       then: [pause: short]
@@ -174,7 +174,7 @@
   - pause: short
   - test:
       if: "$Impairment = 'Blindness'"
-      then: [t: "end fraction"]      # phrase(start 7 over 8 'end of fraction')
+      then: [t: "koniec zlomku"]      # phrase(start 7 over 8 'end of fraction')
   - pause: medium
 
 # rules for functions raised to a power

@@ -141,7 +141,7 @@
   - " BaseNode(*[2])[contains(@data-intent-property, ':unit')] )"
   replace:
   - x: "*[1]"
-  - t: "per"      # phrase('5 meters 'per' second)
+  - t: "za"      # phrase('5 meters 'per' second)
   - x: "*[2]"
 
 - name: common-fraction
@@ -177,20 +177,17 @@
   replace:
   - test:
       if: "$ClearSpeak_Fractions='FracOver'"
-      then:
-      - test:
-          if: "$Verbosity!='Terse'"
-          then: [ot: "the"]
-      - t: "fraction"      # phrase(the 'fraction' with 3 over 4)
+      # Slovak: no article ("the")
+      then: [t: "zlomok"]      # phrase(the 'fraction' with 3 over 4)
   - x: "*[1]"
-  - t: "over"      # phrase(the fraction 3 'over' 4)
+  - t: "lomeno"      # phrase(the fraction 3 'over' 4)
   - x: "*[2]"
   - test:
       # very ugly!!! -- replicate nested ordinal fraction as they are an exception
       if: "$ClearSpeak_Fractions='OverEndFrac' or ($ClearSpeak_Fractions='EndFrac' and not( ($ClearSpeak_Fractions='Auto' or $ClearSpeak_Fractions='Ordinal' or $ClearSpeak_Fractions='EndFrac') and *[1][*[1][self::m:mn][not(contains(., '.')) and ($ClearSpeak_Fractions='Ordinal' or text()<20)]   and *[2][self::m:mn][not(contains(., '.')) and ($ClearSpeak_Fractions='Ordinal' or (2<= text() and text()<=10))] ] and *[2][*[1][self::m:mn][not(contains(., '.')) and ($ClearSpeak_Fractions='Ordinal' or text()<20)]   and *[2][self::m:mn][not(contains(., '.')) and ($ClearSpeak_Fractions='Ordinal' or (2<= text() and text()<=10))] ] ) )"
       then:
       - pause: short
-      - t: "end fraction"      # phrase(7 over 8 'end fraction')
+      - t: "koniec zlomku"      # phrase(7 over 8 'end fraction')
       - pause: short
 
 - # fraction with text or numbers followed by text in both numerator and denominator
@@ -212,34 +209,34 @@
   - ")"
   replace:
   - x: "*[1]"
-  - t: "over"      # phrase(the fraction 3 'over' 4)
+  - t: "lomeno"      # phrase(the fraction 3 'over' 4)
   - x: "*[2]"
   - test:
       if: "$ClearSpeak_Fractions='EndFrac' or $ClearSpeak_Fractions='OverEndFrac'"
       then:
       - pause: short
-      - t: "end fraction"      # phrase(7 over 8 'end fraction')
+      - t: "koniec zlomku"      # phrase(7 over 8 'end fraction')
       - pause: short
 
 - name: default
   tag: fraction
   match: "."
   replace:
-  - ot: "the"      # phrase(5 is 'the' square toot of 25)
-  - t: "fraction with numerator"      # phrase(the 'fraction with numerator' 6)
+  # Slovak: no article ("the")
+  - t: "zlomok s čitateľom"      # phrase(the 'fraction with numerator' 6)
   - test:
       if: "not(IsNode(*[1], 'simple'))"
       then: [pause: medium]
   - x: "*[1]"
   - pause: medium
-  - t: "and denominator"      # phrase(the fraction with numerator 5 'and denominator' 8)
+  - t: "a menovateľom"      # phrase(the fraction with numerator 5 'and denominator' 8)
   - x: "*[2]"
   - pause: long
   - test:
       if: "$ClearSpeak_Fractions='EndFrac' or $ClearSpeak_Fractions='GeneralEndFrac'"
       then:
       - pause: short
-      - t: "end fraction"      # phrase(the fraction with 3 over 4 'end fraction')
+      - t: "koniec zlomku"      # phrase(the fraction with 3 over 4 'end fraction')
       - pause: short
 
 # rules for functions raised to a power

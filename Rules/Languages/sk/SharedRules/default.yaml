@@ -90,7 +90,7 @@
   - "not(ancestor::*[name() != 'mrow'][1]/self::m:fraction)" # FIX: can't test for mrow -- what should be used???
   replace:
   - x: "*[1]"
-  - t: "over"               # phrase("the fraction x 'over' y")
+  - t: "lomeno"               # phrase("the fraction x 'over' y")
   - x: "*[2]"
   - pause: short
 
@@ -98,13 +98,13 @@
   tag: mfrac
   match: "."
   replace:
-  - t: "start"              # phrase("'start'  fraction x over y end of fraction")
+  - t: "zlomok"              # phrase("'start'  fraction x over y end of fraction")
   - pause: short
   - x: "*[1]"
   - test:
       if: "not(IsNode(*[1],'leaf'))"
       then: [pause: short]
-  - t: "over"               # phrase("the fraction x 'over' y")
+  - t: "lomeno"               # phrase("the fraction x 'over' y")
   - test:
       if: "not(IsNode(*[2],'leaf'))"
       then: [pause: short]
@@ -112,7 +112,7 @@
   - pause: short
   - test:
       if: "$Impairment = 'Blindness'"
-      then: [t: "end"]          # phrase("start of fraction x over y 'end over'")
+      then: [t: "koniec zlomku"]          # phrase("start of fraction x over y 'end over'")
   - pause: medium
 
 
