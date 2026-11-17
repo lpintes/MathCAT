@@ -751,8 +751,9 @@
 # so they hold the plural nouns (tretiny, desatiny, stotiny). The singular ordinal
 # lists hold the feminine nominative adjective (druhá, tretia), as in "druhá mocnina".
 # The fractional lists cover 0-19 so that small denominators get nouns (tretina).
-# The genitive plural after 5+ (päť pätín) is FractionGenitivePlural below; the
-# accusative for powers (na druhú) is handled in the powers topic.
+# The common-fraction rules no longer use ToOrdinal for denominators; they take the
+# Fraction* dictionaries below. The accusative for powers (na druhú) is handled in the
+# powers topic.
 - NumbersOnes: [
         "nula", "jeden", "dva", "tri", "štyri", "päť", "šesť", "sedem", "osem", "deväť",
         "desať", "jedenásť", "dvanásť", "trinásť", "štrnásť", "pätnásť", "šestnásť",
@@ -785,14 +786,44 @@
         "sedemnástiny", "osemnástiny", "devätnástiny"
     ]
 
-# Slovak: genitive plural of the fraction nouns, used when the numerator is not 1-4
-# (päť tretín, nula polovíc). Keyed by the denominator; ToOrdinal has no such list.
-# Denominators missing here fall back to the nominative plural from ToOrdinal.
+# Slovak: fraction nouns keyed by the denominator, used by the common-fraction rules
+# instead of ToOrdinal (which composes 20 and more the English way). Numerator 1 takes
+# FractionSingular (jedna tretina), 2-4 FractionNominativePlural (dve tretiny), the rest
+# FractionGenitivePlural (päť tretín, nula polovíc). The fraction rules match only
+# denominators listed here; others (compounds such as 21 or 58) are read with "lomeno".
+# The genitive length follows the rhythmic law (stotín but päťdesiatin, tisícin), so the
+# forms are written out, not derived.
+- FractionSingular: {
+    "1": "celok", "2": "polovica", "3": "tretina", "4": "štvrtina", "5": "pätina",
+    "6": "šestina", "7": "sedmina", "8": "osmina", "9": "devätina", "10": "desatina",
+    "11": "jedenástina", "12": "dvanástina", "13": "trinástina", "14": "štrnástina",
+    "15": "pätnástina", "16": "šestnástina", "17": "sedemnástina", "18": "osemnástina",
+    "19": "devätnástina", "20": "dvadsatina", "30": "tridsatina", "40": "štyridsatina",
+    "50": "päťdesiatina", "60": "šesťdesiatina", "70": "sedemdesiatina",
+    "80": "osemdesiatina", "90": "deväťdesiatina", "100": "stotina", "1000": "tisícina",
+    "1000000": "milióntina"
+  }
+
+- FractionNominativePlural: {
+    "1": "celky", "2": "polovice", "3": "tretiny", "4": "štvrtiny", "5": "pätiny",
+    "6": "šestiny", "7": "sedminy", "8": "osminy", "9": "devätiny", "10": "desatiny",
+    "11": "jedenástiny", "12": "dvanástiny", "13": "trinástiny", "14": "štrnástiny",
+    "15": "pätnástiny", "16": "šestnástiny", "17": "sedemnástiny", "18": "osemnástiny",
+    "19": "devätnástiny", "20": "dvadsatiny", "30": "tridsatiny", "40": "štyridsatiny",
+    "50": "päťdesiatiny", "60": "šesťdesiatiny", "70": "sedemdesiatiny",
+    "80": "osemdesiatiny", "90": "deväťdesiatiny", "100": "stotiny", "1000": "tisíciny",
+    "1000000": "milióntiny"
+  }
+
 - FractionGenitivePlural: {
-    "2": "polovíc", "3": "tretín", "4": "štvrtín", "5": "pätín", "6": "šestín", "7": "sedmín",
-    "8": "osmín", "9": "devätín", "10": "desatín", "11": "jedenástin", "12": "dvanástin",
-    "13": "trinástin", "14": "štrnástin", "15": "pätnástin", "16": "šestnástin",
-    "17": "sedemnástin", "18": "osemnástin", "19": "devätnástin"
+    "1": "celkov", "2": "polovíc", "3": "tretín", "4": "štvrtín", "5": "pätín",
+    "6": "šestín", "7": "sedmín", "8": "osmín", "9": "devätín", "10": "desatín",
+    "11": "jedenástin", "12": "dvanástin", "13": "trinástin", "14": "štrnástin",
+    "15": "pätnástin", "16": "šestnástin", "17": "sedemnástin", "18": "osemnástin",
+    "19": "devätnástin", "20": "dvadsatín", "30": "tridsatín", "40": "štyridsatín",
+    "50": "päťdesiatin", "60": "šesťdesiatin", "70": "sedemdesiatin",
+    "80": "osemdesiatin", "90": "deväťdesiatin", "100": "stotín", "1000": "tisícin",
+    "1000000": "milióntin"
   }
 
 

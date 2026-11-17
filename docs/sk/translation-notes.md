@@ -204,6 +204,14 @@ now `T:` and all 58 items have `approved:` texts.
   and 22 with "dvojina"?) only from a source, see `terminology-sources.md`.
   Genitive length (stotín but tisícin, pätnástin) follows the rhythmic law, so
   write the forms out, do not derive them.
+  Done 2026-11-17 as planned: `FractionSingular`, `FractionNominativePlural`,
+  `FractionGenitivePlural` in `definitions.yaml` (keys 1-19, 20-90 by tens, 100,
+  1000, 1000000; 0 is left out, so 2/0 is read with "lomeno"). Output now: 1/20
+  "jedna dvadsatina", 25/100 "25 stotín", 7/50 "7 päťdesiatin", 3/1000000
+  "3 milióntiny", 5/1 "5 celkov" (check with the group); 3/21 and 1/125 fall through
+  to the "over" reading (still English, translated in the fractions package).
+  The nested-fraction `EndFrac` test in ClearSpeak `fraction-over-simple` still
+  replicates the old match without the dictionary check (edge case, left as in en).
 - Script letters "písané", "koncová sigma", "polovica", number set names and the
   remaining symbol names: approved as drafted.
 - ± (voc-012): "plus alebo mínus" (reviewer proposal), because "a plus mínus b"
