@@ -2,23 +2,143 @@
 # Build the package: cargo run --bin review-package -- docs/sk/review/fractions.yaml
 topic: Fractions
 known_issues:
-  - Nothing is translated yet; this is a trial of the package format.
+  - Units (m/s, km/h) are still English; they come in a separate package.
+  - Binomial coefficients (n choose k) are still English; they come later.
+  - Function names inside fractions, f(x), are reviewed in the functions package.
 items:
+  # Common fractions: numbers read as "jedna polovica", "dve tretiny".
   - id: frac-001
-    note: Common fraction one half.
+    note: One half.
     mathml: <math><mfrac><mn>1</mn><mn>2</mn></mfrac></math>
   - id: frac-002
-    note: Common fraction two thirds.
+    note: Two thirds. The numerators 1 and 2 are words (jedna, dve), other numerators are digits.
     mathml: <math><mfrac><mn>2</mn><mn>3</mn></mfrac></math>
   - id: frac-003
-    note: Seventeen tenths, read as an ordinal fraction.
+    note: Three quarters (numerators 2 to 4 take the nominative plural).
+    mathml: <math><mfrac><mn>3</mn><mn>4</mn></mfrac></math>
+  - id: frac-004
+    note: Five sixths (numerators from 5 take the genitive plural).
+    mathml: <math><mfrac><mn>5</mn><mn>6</mn></mfrac></math>
+  - id: frac-005
+    note: Seventeen tenths.
+    mathml: <math><mfrac><mn>17</mn><mn>10</mn></mfrac></math>
+  - id: frac-006
+    note: Large numerator. In ClearSpeak (default setting) and SimpleSpeak it is read with "lomeno".
+    mathml: <math><mfrac><mn>89</mn><mn>10</mn></mfrac></math>
+  - id: frac-007
+    note: Large numerator, ClearSpeak with the setting "Ordinal" (always read with fraction nouns).
     styles: [ClearSpeak]
     prefs:
       ClearSpeak_Fractions: Ordinal
-    mathml: <math><mfrac><mn>17</mn><mn>10</mn></mfrac></math>
-  - id: frac-004
-    note: Fraction with letters.
+    mathml: <math><mfrac><mn>89</mn><mn>10</mn></mfrac></math>
+  - id: frac-008
+    note: Denominators 20, 50, 100, 1000 and one million, ClearSpeak "Ordinal".
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: Ordinal
+    mathml: <math><mfrac><mn>1</mn><mn>20</mn></mfrac><mo>,</mo><mfrac><mn>7</mn><mn>50</mn></mfrac><mo>,</mo><mfrac><mn>25</mn><mn>100</mn></mfrac><mo>,</mo><mfrac><mn>3</mn><mn>1000</mn></mfrac><mo>,</mo><mfrac><mn>2</mn><mn>1000000</mn></mfrac></math>
+  - id: frac-009
+    note: Denominator 1, ClearSpeak "Ordinal". Is "5 celkov" right, or should it be read "5 lomeno 1"?
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: Ordinal
+    mathml: <math><mfrac><mn>5</mn><mn>1</mn></mfrac></math>
+  - id: frac-010
+    note: Denominators like 21 or 58 have no fraction noun yet, so they are read with "lomeno". Do you use words like "dvadsaťjednina"? Please give a source if you know one.
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: Ordinal
+    mathml: <math><mfrac><mn>3</mn><mn>21</mn></mfrac><mo>,</mo><mfrac><mn>3</mn><mn>58</mn></mfrac></math>
+
+  # Mixed numbers.
+  - id: frac-011
+    note: Mixed number three and a half.
+    mathml: <math><mn>3</mn><mfrac><mn>1</mn><mn>2</mn></mfrac></math>
+  - id: frac-012
+    note: Mixed number marked explicitly with an invisible plus.
+    mathml: <math><mn>3</mn><mo>&#x2064;</mo><mfrac><mn>1</mn><mn>8</mn></mfrac></math>
+  - id: frac-013
+    note: Mixed number with a large denominator.
+    mathml: <math><mn>3</mn><mfrac><mn>7</mn><mn>83</mn></mfrac></math>
+  - id: frac-014
+    note: Mixed numbers with denominators 20 and 100.
+    mathml: <math><mn>2</mn><mfrac><mn>1</mn><mn>20</mn></mfrac><mo>,</mo><mn>3</mn><mfrac><mn>25</mn><mn>100</mn></mfrac></math>
+
+  # Fractions with letters and expressions.
+  - id: frac-015
+    note: Letters only.
     mathml: <math><mfrac><mi>a</mi><mi>b</mi></mfrac></math>
-  - id: frac-005
-    note: Fraction with a sum in the numerator.
-    mathml: <math><mfrac><mrow><mi>x</mi><mo>+</mo><mn>1</mn></mrow><mrow><mi>x</mi><mo>-</mo><mn>1</mn></mrow></mfrac></math>
+  - id: frac-016
+    note: Sums in the numerator and the denominator, default settings.
+    mathml: <math><mfrac><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>
+  - id: frac-017
+    note: Simple numerator, sum in the denominator.
+    mathml: <math><mfrac><mi>x</mi><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>
+  - id: frac-018
+    note: Sum in the numerator, simple denominator.
+    mathml: <math><mfrac><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow><mi>x</mi></mfrac></math>
+  - id: frac-019
+    note: Fraction inside the numerator of another fraction.
+    mathml: <math><mfrac><mrow><mi>x</mi><mo>+</mo><mfrac><mn>1</mn><mi>y</mi></mfrac></mrow><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>
+  - id: frac-020
+    note: A common fraction times x, over 6.
+    mathml: <math><mfrac><mrow><mfrac><mn>2</mn><mn>3</mn></mfrac><mi>x</mi></mrow><mn>6</mn></mfrac></math>
+  - id: frac-021
+    note: Two common fractions, one over the other, default settings.
+    mathml: <math><mfrac><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mn>2</mn><mn>3</mn></mfrac></mfrac></math>
+  - id: frac-022
+    note: Fractions with letters, one over the other.
+    mathml: <math><mfrac><mfrac><mn>10</mn><mi>n</mi></mfrac><mfrac><mn>2</mn><mi>n</mi></mfrac></mfrac></math>
+  - id: frac-023
+    note: Fraction with a sum, over a simple fraction.
+    mathml: <math><mfrac><mfrac><mrow><mi>n</mi><mo>+</mo><mn>10</mn></mrow><mi>n</mi></mfrac><mfrac><mn>2</mn><mi>n</mi></mfrac></mfrac></math>
+  - id: frac-024
+    note: Default settings, verbosity "Verbose" (adds the end of the fraction).
+    styles: [ClearSpeak, SimpleSpeak]
+    prefs:
+      Verbosity: Verbose
+    mathml: <math><mfrac><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>
+
+  # ClearSpeak settings for fractions (ClearSpeak_Fractions). Each item shows one setting.
+  - id: frac-025
+    note: ClearSpeak setting "Over".
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: Over
+    mathml: <math><mfrac><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>
+  - id: frac-026
+    note: ClearSpeak setting "FracOver".
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: FracOver
+    mathml: <math><mfrac><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>
+  - id: frac-027
+    note: ClearSpeak setting "General".
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: General
+    mathml: <math><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>+</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>
+  - id: frac-028
+    note: ClearSpeak setting "EndFrac".
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: EndFrac
+    mathml: <math><mfrac><mi>a</mi><mi>b</mi></mfrac><mo>+</mo><mfrac><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>
+  - id: frac-029
+    note: ClearSpeak setting "GeneralEndFrac".
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: GeneralEndFrac
+    mathml: <math><mfrac><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mn>2</mn><mn>3</mn></mfrac></mfrac></math>
+  - id: frac-030
+    note: ClearSpeak setting "OverEndFrac".
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: OverEndFrac
+    mathml: <math><mfrac><mfrac><mn>1</mn><mn>2</mn></mfrac><mfrac><mn>2</mn><mn>3</mn></mfrac></mfrac></math>
+  - id: frac-031
+    note: ClearSpeak setting "Per".
+    styles: [ClearSpeak]
+    prefs:
+      ClearSpeak_Fractions: Per
+    mathml: <math><mfrac><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mrow><mi>x</mi><mo>-</mo><mi>y</mi></mrow></mfrac></math>

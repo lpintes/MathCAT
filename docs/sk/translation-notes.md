@@ -104,7 +104,9 @@ escaped text, without speech); useful for seeding item YAML from tests.
 - Item files: `docs/sk/review/<topic>.yaml`; the format is described in the
   header comment of `src/bin/review_package.rs` (keys `topic`, `known_issues`,
   `items` with `id`, `mathml`, optional `note`, `styles`, `prefs`, `approved`).
-  `docs/sk/review/fractions.yaml` is the first, still unapproved, trial file.
+  `docs/sk/review/fractions.yaml` is the first topic package (31 items, seeded
+  from the sk `mfrac.rs` tests; units, binomials and f(x) left out as known
+  issues). Not sent yet (2026-11-17).
 - Build a package:
   `MATHCAT_IGNORE_USER_PREFS=1 cargo run --bin review-package -- docs/sk/review/fractions.yaml`.
   Output goes to `target/review/<topic file stem>.html` unless `-o` is given.
