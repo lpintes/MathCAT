@@ -12,20 +12,20 @@
   - bookmark: "*[2]/@id"
   - test:
     - if: "*[2][.='+']"
-      then: [t: "kladné"]      # phrase(set of all 'positive' integers less than 10)
-      else: [t: "záporné"]      # phrase(set of all 'negative' integers less than minus 10)
+      then: [T: "kladné"]      # phrase(set of all 'positive' integers less than 10)
+      else: [T: "záporné"]      # phrase(set of all 'negative' integers less than minus 10)
   - bookmark: "*[1]/@id"
   - test:
     - if: "*[1][.='ℂ']"
-      then: [t: "komplexné čísla"]      # phrase('complex numbers' consist of two parts)
+      then: [T: "komplexné čísla"]      # phrase('complex numbers' consist of two parts)
     - else_if: "*[1][.='ℕ']"
-      then: [t: "prirodzené čísla"]      # phrase('natural numbers' are numbers from 1 to infinity)
+      then: [T: "prirodzené čísla"]      # phrase('natural numbers' are numbers from 1 to infinity)
     - else_if: "*[1][.='ℚ']"
-      then: [t: "racionálne čísla"]      # phrase('rational numbers' are the fraction of 2 integers)
+      then: [T: "racionálne čísla"]      # phrase('rational numbers' are the fraction of 2 integers)
     - else_if: "*[1][.='ℝ']"
-      then: [t: "reálne čísla"]      # phrase('real numbers' can be both positive and negative)
+      then: [T: "reálne čísla"]      # phrase('real numbers' can be both positive and negative)
     - else_if: "*[1][.='ℤ']"
-      then: [t: "celé čísla"]      # phrase(positive 'integers' are natural numbers above 0)
+      then: [T: "celé čísla"]      # phrase(positive 'integers' are natural numbers above 0)
       else: [x: "*[1][text()]"] # shouldn't happen
 
 - name: dimension-number-sets
@@ -57,15 +57,15 @@
   - bookmark: "@id"
   - test:
     - if: ".='ℂ'"
-      then: [t: "komplexné čísla"]      # phrase('the complex numbers' include 2 parts)
+      then: [T: "komplexné čísla"]      # phrase('the complex numbers' include 2 parts)
     - else_if: ".='ℕ'"
-      then: [t: "prirodzené čísla"]      # phrase('the natural numbers' begin at 1)
+      then: [T: "prirodzené čísla"]      # phrase('the natural numbers' begin at 1)
     - else_if: ".='ℚ'"
-      then: [t: "racionálne čísla"]      # phrase('the rational numbers' are the fraction of 2 integers)
+      then: [T: "racionálne čísla"]      # phrase('the rational numbers' are the fraction of 2 integers)
     - else_if: ".='ℝ'"
-      then: [t: "reálne čísla"]      # phrase('the real numbers' can be both positive and negative)
+      then: [T: "reálne čísla"]      # phrase('the real numbers' can be both positive and negative)
     - else_if: ".='ℤ'"
-      then: [t: "celé čísla"]      # phrase('the integers' are natural numbers above 0)
+      then: [T: "celé čísla"]      # phrase('the integers' are natural numbers above 0)
       else: [x: "text()"] # shouldn't happen
 
 - name: real-part
@@ -73,14 +73,14 @@
   match: "count(*)=0"
   replace:
   - bookmark: "@id"
-  - t: "reálna časť"      # phrase('the real part' of a complex number does not include the imaginary part)
+  - T: "reálna časť"      # phrase('the real part' of a complex number does not include the imaginary part)
 
 - name: imaginary-part
   tag: imaginary-part
   match: "count(*)=0"
   replace:
   - bookmark: "@id"
-  - t: "imaginárna časť"      # phrase('the imaginary part' is part of a complex number)
+  - T: "imaginárna časť"      # phrase('the imaginary part' is part of a complex number)
 
 # rules on scripted vertical bars ('evaluated at')
 - name: evaluated-at-2
@@ -337,7 +337,7 @@
   match: ".='sin'"
   replace:
   - bookmark: "@id"
-  - t: "sínus"      # phrase(the 'sine' of the angle)
+  - T: "sínus"      # phrase(the 'sine' of the angle)
 - name: cos
   tag: mi
   match: ".='cos'"
@@ -345,8 +345,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "kosínus"]      # phrase('cos' is the abbreviation for cosine)
-      else: [t: "kosínus"]      # phrase(find the 'cosine' in a right-angle triangle)
+      then: [T: "kosínus"]      # phrase('cos' is the abbreviation for cosine)
+      else: [T: "kosínus"]      # phrase(find the 'cosine' in a right-angle triangle)
 - name: tan
   tag: mi
   match: ".='tan' or .='tg'"
@@ -354,8 +354,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "tangens"]      # phrase(the 'tan' is the ratio of the opposite to the adjacent side of a right-angled triangle)
-      else: [t: "tangens"]      # phrase(a 'tangent' is a straight line that touches a curve)
+      then: [T: "tangens"]      # phrase(the 'tan' is the ratio of the opposite to the adjacent side of a right-angled triangle)
+      else: [T: "tangens"]      # phrase(a 'tangent' is a straight line that touches a curve)
 - name: sec
   tag: mi
   match: ".='sec'"
@@ -363,8 +363,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "sekans"]      # phrase(to 'seek' a solution)
-      else: [t: "sekans"]      # phrase(a 'secant' intersects a curve at two or more points)
+      then: [T: "sekans"]      # phrase(to 'seek' a solution)
+      else: [T: "sekans"]      # phrase(a 'secant' intersects a curve at two or more points)
 - name: csc
   tag: mi
   match: ".='csc'"
@@ -372,8 +372,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "kosekans"]      # phrase(we will 'cosecant' a solution)
-      else: [t: "kosekans"]      # phrase(the 'cosecant' is the reciprocal of the secant)
+      then: [T: "kosekans"]      # phrase(we will 'cosecant' a solution)
+      else: [T: "kosekans"]      # phrase(the 'cosecant' is the reciprocal of the secant)
 - name: cot
   tag: mi
   match: ".='cot'"
@@ -381,8 +381,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "kotangens"]      # phrase(find the 'cotangent' in a right-angle triangle)
-      else: [t: "kotangens"]      # phrase(the 'cotangent' is the reciprocal of the tangent)
+      then: [T: "kotangens"]      # phrase(find the 'cotangent' in a right-angle triangle)
+      else: [T: "kotangens"]      # phrase(the 'cotangent' is the reciprocal of the tangent)
 
 - name: sinh
   tag: mi
@@ -391,8 +391,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "hyperbolický sínus"]      # phrase(the word 'sinch' is an abbreviation for hyperbolic sine)
-      else: [t: "hyperbolický sínus"]      # phrase(the 'hyperbolic sine' is used in mathematics)
+      then: [T: "hyperbolický sínus"]      # phrase(the word 'sinch' is an abbreviation for hyperbolic sine)
+      else: [T: "hyperbolický sínus"]      # phrase(the 'hyperbolic sine' is used in mathematics)
 - name: cosh
   tag: mi
   match: ".='cosh'"
@@ -400,8 +400,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "hyperbolický kosínus"]      # phrase('cosh' is an abbreviation of hyperbolic cosine)
-      else: [t: "hyperbolický kosínus"]      # phrase(the 'hyperbolic cosine' is a mathematical function)
+      then: [T: "hyperbolický kosínus"]      # phrase('cosh' is an abbreviation of hyperbolic cosine)
+      else: [T: "hyperbolický kosínus"]      # phrase(the 'hyperbolic cosine' is a mathematical function)
 - name: tanh
   tag: mi
   match: ".='tanh'"
@@ -409,8 +409,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "hyperbolický tangens"]      # phrase('tanch' is shorthand for hyperbolic tangent)
-      else: [t: "hyperbolický tangens"]      # phrase('hyperbolic tangent' is a mathematical function)
+      then: [T: "hyperbolický tangens"]      # phrase('tanch' is shorthand for hyperbolic tangent)
+      else: [T: "hyperbolický tangens"]      # phrase('hyperbolic tangent' is a mathematical function)
 - name: sech
   tag: mi
   match: ".='sech'"
@@ -436,8 +436,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "hyperbolický kotangens"]      # phrase('cotanch' is shorthand for hyperbolic cotangent)
-      else: [t: "hyperbolický kotangens"]      # phrase(the 'hyperbolic cotangent' is a mathematical function)
+      then: [T: "hyperbolický kotangens"]      # phrase('cotanch' is shorthand for hyperbolic cotangent)
+      else: [T: "hyperbolický kotangens"]      # phrase(the 'hyperbolic cotangent' is a mathematical function)
 - name: exponential
   tag: mi
   match: ".='exp'"
@@ -445,8 +445,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "exp"]      # phrase('exp' means exponential function)
-      else: [t: "exponenciála"]      # phrase('exponential' function)
+      then: [T: "exp"]      # phrase('exp' means exponential function)
+      else: [T: "exponenciála"]      # phrase('exponential' function)
 - name: covariance
   tag: mi
   match: ".='Cov'"
@@ -454,8 +454,8 @@
   - bookmark: "@id"
   - test:
       if: "$Verbosity='Terse'"
-      then: [t: "kovariancia"]      # phrase('Cov' is shorthand for the covariance function)
-      else: [t: "kovariancia"]      # phrase('covariance' function)
+      then: [T: "kovariancia"]      # phrase('Cov' is shorthand for the covariance function)
+      else: [T: "kovariancia"]      # phrase('covariance' function)
 
 -
   name: log    # handle log, principal Log, and ln (if in an mrow, 'intents' are used)
@@ -468,12 +468,12 @@
       then: [ot: ""]      # phrase('the' logarithm function is used in mathematics)
   - test:
     - if: ".= 'log'"
-      then: [t: "logaritmus"]      # phrase(the 'log' function is used in mathematics)
+      then: [T: "logaritmus"]      # phrase(the 'log' function is used in mathematics)
     - else_if: ".= 'Log'"
       then: [t: "hlavná hodnota logaritmu"]
     - else_if: "$Verbosity='Terse'"
       then: [spell: "'ln'"]
-      else: [t: "prirodzený logaritmus"]      # phrase(the 'natural log' function is used in mathematics)
+      else: [T: "prirodzený logaritmus"]      # phrase(the 'natural log' function is used in mathematics)
 
 
 - name: multi-line

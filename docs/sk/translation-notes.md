@@ -117,6 +117,9 @@ escaped text, without speech); useful for seeding item YAML from tests.
 - Invalid MathML in an item stops the generator with the item ID, because the
   MathML is copied into the HTML unchanged.
 - Approved texts are written into the YAML by hand (no write-back yet).
+- `--all` shows every item in full, approved ones too, instead of the collapsed
+  list at the end; used for the final check package of a topic
+  (`-o target/review/<topic>-final.html`).
 - Idea on hold, maybe never built: interactive review page with inline
   comments and per-item status, see `docs/sk/web-app.md`.
 
@@ -134,7 +137,42 @@ escaped text, without speech); useful for seeding item YAML from tests.
 
 Record each settled term here: English phrase, Slovak phrase, reason/source.
 
-(none yet)
+Glossary round 1 (`docs/sk/review/vocabulary.yaml`, replies 2026-11-16, decided
+2026-11-17). Items nobody commented on are approved as drafted; their words are
+now `T:` and all 58 items have `approved:` texts.
+
+- nu (ν): "ný", not "ní". eSpeak reads "ní" as "ňí"; the spelling is phonetic
+  on purpose.
+- Relations take the neuter gender (group consensus): "je menšie ako", "je väčšie
+  ako", "je menšie alebo rovné", "je väčšie alebo rovné", "je totožné s", "je
+  úmerné", "je rovnobežné s", "nie je rovnobežné s". For ≤ and ≥ the user chose
+  "menšie alebo rovné" over "menšie alebo sa rovná".
+- "je" before relations stays as it is (dropped only with Verbosity Terse).
+  A reviewer suggested dropping it in SimpleSpeak; revisit in the relations
+  (sets and logic) package.
+- Fences: ClearSpeak and the other styles say "ľavá/pravá zátvorka", "ľavá/pravá
+  hranatá zátvorka", "ľavá/pravá zložená zátvorka". SimpleSpeak and Verbosity Terse
+  use the NVDA `symbols.dic` words: "zátvorka" / "zatvoriť", "hranatá zátvorka" /
+  "hranatá zatvoriť", "zložená zátvorka" / "zložená zatvoriť".
+- Arrows: "šípka doľava/doprava/nahor/nadol" (direction adverbs, as in CLDR);
+  "dvojitá šípka doprava". The filled arrows U+2B05-2B07 in `unicode-full.yaml` are
+  "plná šípka doľava/nahor/nadol" (group proposal, still `t:`: not in a package).
+- Asterisk: "hviezda" (NVDA, RHVoice, eSpeak).
+- Percent sign on its own: "percent" (as after a number, like "stupňov"); the
+  plural forms come with the units topic.
+- Fraktur: the flag word "fraktúra" before the letter, like "veľké" ("fraktúra
+  veľké r"). Double-struck: "dvojito prečiarknuté" (reviewer term); for the italic
+  ⅆⅇⅈⅉ "dvojito prečiarknuté kurzívne d". The flag was also changed for ℂℕℚℝℤ
+  (as letters, not as set names) for consistency.
+- Function application: SimpleSpeak says no connector after named functions
+  (trig, hyperbolic, log, log with a base, exp, Cov, Re, Im): "sínus x",
+  "logaritmus so základom b; x". All reviewers asked for it; "z" was mentioned but
+  is risky. ClearSpeak still says "od" after multi-word names (functions package).
+- Script letters "písané", "koncová sigma", "polovica", number set names and the
+  remaining symbol names: approved as drafted.
+- ± (voc-012): "plus alebo mínus" (reviewer proposal), because "a plus mínus b"
+  can also mean a + (−b). Accepted although the user generally prefers short
+  readings.
 
 ## Work plan (each step is one review package)
 
@@ -201,7 +239,13 @@ report the same grammar errors in every package.
   imaginary part, trigonometric and hyperbolic names, exp, Cov, log/ln drafted;
   the rest of that file is still English.
 - Glossary package `docs/sk/review/vocabulary.yaml` (58 items) built and sent
-  to the group (2026-11-11); waiting for replies.
+  to the group (2026-11-11). Round 1 replies applied (2026-11-17), see
+  "Terminology decisions": all 58 items approved. The changed outputs are what
+  the reviewers asked for, so instead of a follow-up package a final check
+  package with every item (`--all`, `target/review/vocabulary-final.html`) goes
+  to the group; replies to it are handled like a normal round.
+- Question for the group: are the localization XML files of the Slovak Lambda
+  editor available (they may hold more readings)? The user is looking for them.
 - First upstream merge (2026-11-11, up to a4ae93ed): no conflicts, sk tests
   unchanged (173 pass / 427 fail, English goldens). Task for the units topic:
   upstream 33c3ed4f reworked units and currency (currency over a unit such as
@@ -254,3 +298,13 @@ report the same grammar errors in every package.
   (`SharedRules/default.yaml`); `unicode-full.yaml` (∼ "varies with", ⌊⌈ floor/ceiling);
   arcsin/arctg are spoken as letters; gcd/lcm are not recognised as "NSD"/"NSN"; Slovak
   "cotg" is not matched by the cot rule in `general.yaml`.
+- Without "od", SimpleSpeak puts a pause after multi-word function names
+  ("hyperbolický sínus, x", "prirodzený logaritmus, x") but not after one-word
+  names ("sínus x"). The pause is not in the rules; probably the automatic pause
+  length. The approved texts in voc-053/054 contain it; look at it in the
+  functions package.
+- The "od" skip for SimpleSpeak is in the U+2061 rule in `unicode.yaml`. Cov, Re, Im
+  and log with a base need their own tests there because canonicalization turns them
+  into `real-part` / `imaginary-part` / `msub` nodes and Cov is in no function list.
+- A YAML comment inside a multi-line double-quoted XPath string is part of the
+  string; a `"` in it ends the string and the rules file fails to parse.

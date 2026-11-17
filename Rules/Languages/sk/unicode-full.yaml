@@ -2149,9 +2149,9 @@
  - "⬂": [t: "south east white arrow"]              # 0x2b02
  - "⬃": [t: "south west white arrow"]              # 0x2b03
  - "⬄": [t: "left right white arrow"]              # 0x2b04
- - "⬅": [t: "left black arrow"]               # 0x2b05
- - "⬆": [t: "up black arrow"]                 # 0x2b06
- - "⬇": [t: "down black arrow"]               # 0x2b07
+ - "⬅": [t: "plná šípka doľava"]               # 0x2b05
+ - "⬆": [t: "plná šípka nahor"]                 # 0x2b06
+ - "⬇": [t: "plná šípka nadol"]               # 0x2b07
  - "⬈": [t: "north east black arrow"]              # 0x2b08
  - "⬉": [t: "north west black arrow"]              # 0x2b09
  - "⬊": [t: "south east black arrow"]              # 0x2b0a

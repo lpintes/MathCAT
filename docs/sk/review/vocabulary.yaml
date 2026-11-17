@@ -16,193 +16,366 @@ known_issues:
 items:
   # Letters
   - id: voc-001
+    approved:
+      ClearSpeak: "a x veľké a veľké x"
+      SimpleSpeak: "a x veľké a veľké x"
     note: Small and capital Latin letters. Capitals are marked with "veľké" (as in NVDA).
     mathml: <math><mi>a</mi><mspace width="1em"/><mi>x</mi><mspace width="1em"/><mi>A</mi><mspace width="1em"/><mi>X</mi></math>
   - id: voc-002
+    approved:
+      ClearSpeak: "alfa beta gama delta epsilon zéta éta théta iota kapa lambda mí"
+      SimpleSpeak: "alfa beta gama delta epsilon zéta éta théta iota kapa lambda mí"
     note: Small Greek letters, alpha to mu.
     mathml: <math><mi>α</mi><mspace width="1em"/><mi>β</mi><mspace width="1em"/><mi>γ</mi><mspace width="1em"/><mi>δ</mi><mspace width="1em"/><mi>ε</mi><mspace width="1em"/><mi>ζ</mi><mspace width="1em"/><mi>η</mi><mspace width="1em"/><mi>θ</mi><mspace width="1em"/><mi>ι</mi><mspace width="1em"/><mi>κ</mi><mspace width="1em"/><mi>λ</mi><mspace width="1em"/><mi>μ</mi></math>
   - id: voc-003
+    approved:
+      ClearSpeak: "ný ksí omikron pí ró sigma tau upsilon fí chí psí omega"
+      SimpleSpeak: "ný ksí omikron pí ró sigma tau upsilon fí chí psí omega"
     note: Small Greek letters, nu to omega.
     mathml: <math><mi>ν</mi><mspace width="1em"/><mi>ξ</mi><mspace width="1em"/><mi>ο</mi><mspace width="1em"/><mi>π</mi><mspace width="1em"/><mi>ρ</mi><mspace width="1em"/><mi>σ</mi><mspace width="1em"/><mi>τ</mi><mspace width="1em"/><mi>υ</mi><mspace width="1em"/><mi>φ</mi><mspace width="1em"/><mi>χ</mi><mspace width="1em"/><mi>ψ</mi><mspace width="1em"/><mi>ω</mi></math>
   - id: voc-004
+    approved:
+      ClearSpeak: "fí pí epsilon koncová sigma"
+      SimpleSpeak: "fí pí epsilon koncová sigma"
     note: Variant Greek letters (phi, pi, epsilon) and final sigma. The source SABP has the long form "písmeno sigma na konci slova" for the final sigma.
     mathml: <math><mi>ϕ</mi><mspace width="1em"/><mi>ϖ</mi><mspace width="1em"/><mi>ϵ</mi><mspace width="1em"/><mi>ς</mi></math>
   - id: voc-005
+    approved:
+      ClearSpeak: "veľké gama veľké delta veľké sigma veľké omega"
+      SimpleSpeak: "veľké gama veľké delta veľké sigma veľké omega"
     note: Capital Greek letters.
     mathml: <math><mi>Γ</mi><mspace width="1em"/><mi>Δ</mi><mspace width="1em"/><mi>Σ</mi><mspace width="1em"/><mi>Ω</mi></math>
   - id: voc-006
+    approved:
+      ClearSpeak: "prirodzené čísla celé čísla racionálne čísla reálne čísla komplexné čísla"
+      SimpleSpeak: "prirodzené čísla celé čísla racionálne čísla reálne čísla komplexné čísla"
     note: Letters for number sets, each on its own. MathCAT reads them as the name of the set.
     mathml: <math><mi>ℕ</mi><mspace width="1em"/><mi>ℤ</mi><mspace width="1em"/><mi>ℚ</mi><mspace width="1em"/><mi>ℝ</mi><mspace width="1em"/><mi>ℂ</mi></math>
   - id: voc-007
+    approved:
+      ClearSpeak: "kladné reálne čísla, záporné celé čísla"
+      SimpleSpeak: "kladné reálne čísla, záporné celé čísla"
     note: Positive and negative number sets (a plus or minus sign as superscript).
     mathml: <math><msup><mi>ℝ</mi><mo>+</mo></msup><mspace width="1em"/><msup><mi>ℤ</mi><mo>-</mo></msup></math>
   - id: voc-008
+    approved:
+      ClearSpeak: "písané veľké h písané veľké r písané l fraktúra veľké r"
+      SimpleSpeak: "písané veľké h písané veľké r písané l fraktúra veľké r"
     note: Script letters (H, R, l) and fraktur R. "písané" and "fraktúrové" are proposals without a source.
     mathml: <math><mi>ℋ</mi><mspace width="1em"/><mi>ℛ</mi><mspace width="1em"/><mi>ℓ</mi><mspace width="1em"/><mi>ℜ</mi></math>
   - id: voc-009
+    approved:
+      ClearSpeak: "dvojito prečiarknuté kurzívne d; dvojito prečiarknuté kurzívne e; dvojito prečiarknuté kurzívne i"
+      SimpleSpeak: "dvojito prečiarknuté kurzívne d; dvojito prečiarknuté kurzívne e; dvojito prečiarknuté kurzívne i"
     note: Double-struck italic d, e, i (used for the differential, Euler's number and the imaginary unit). Proposal "dvojité kurzívne" without a source.
     mathml: <math><mi>ⅆ</mi><mspace width="1em"/><mi>ⅇ</mi><mspace width="1em"/><mi>ⅈ</mi></math>
 
   # Arithmetic operators
   - id: voc-010
+    approved:
+      ClearSpeak: "a plus b"
+      SimpleSpeak: "a plus b"
     note: Plus.
     mathml: <math><mi>a</mi><mo>+</mo><mi>b</mi></math>
   - id: voc-011
+    approved:
+      ClearSpeak: "a mínus b"
+      SimpleSpeak: "a mínus b"
     note: Minus.
     mathml: <math><mi>a</mi><mo>-</mo><mi>b</mi></math>
   - id: voc-012
+    approved:
+      ClearSpeak: "a plus alebo mínus b"
+      SimpleSpeak: "a plus alebo mínus b"
     note: Plus or minus.
     mathml: <math><mi>a</mi><mo>±</mo><mi>b</mi></math>
   - id: voc-013
+    approved:
+      ClearSpeak: "a krát b"
+      SimpleSpeak: "a krát b"
     note: Multiplication cross.
     mathml: <math><mi>a</mi><mo>×</mo><mi>b</mi></math>
   - id: voc-014
+    approved:
+      ClearSpeak: "a krát b"
+      SimpleSpeak: "a bodka b"
     note: Multiplication dot. SimpleSpeak reads the dot itself, as in English.
     mathml: <math><mi>a</mi><mo>·</mo><mi>b</mi></math>
   - id: voc-015
+    approved:
+      ClearSpeak: "a hviezda, b"
+      SimpleSpeak: "a hviezda, b"
     note: Asterisk.
     mathml: <math><mi>a</mi><mo>*</mo><mi>b</mi></math>
   - id: voc-016
+    approved:
+      ClearSpeak: "a deleno b"
+      SimpleSpeak: "a deleno b"
     note: Division sign.
     mathml: <math><mi>a</mi><mo>÷</mo><mi>b</mi></math>
   - id: voc-017
+    approved:
+      ClearSpeak: "a deleno b"
+      SimpleSpeak: "a deleno b"
     note: Slash between letters.
     mathml: <math><mi>a</mi><mo>/</mo><mi>b</mi></math>
   - id: voc-018
+    approved:
+      ClearSpeak: "a dvojbodka b"
+      SimpleSpeak: "a dvojbodka b"
     note: Colon between letters.
     mathml: <math><mi>a</mi><mo>:</mo><mi>b</mi></math>
   - id: voc-019
+    approved:
+      ClearSpeak: "druhá odmocnina z"
+      SimpleSpeak: "druhá odmocnina z"
     note: Square root sign on its own (the full root comes in the roots package). The English "the" is dropped.
     mathml: <math><mo>√</mo></math>
   - id: voc-020
+    approved:
+      ClearSpeak: "n faktoriál"
+      SimpleSpeak: "n faktoriál"
     note: Factorial.
     mathml: <math><mi>n</mi><mo>!</mo></math>
 
   # Relations
   - id: voc-021
+    approved:
+      ClearSpeak: "a sa rovná b"
+      SimpleSpeak: "a sa rovná b"
     note: Equals. "sa rovná" in both verbosities.
     mathml: <math><mi>a</mi><mo>=</mo><mi>b</mi></math>
   - id: voc-022
+    approved:
+      ClearSpeak: "a sa nerovná b"
+      SimpleSpeak: "a sa nerovná b"
     note: Not equal.
     mathml: <math><mi>a</mi><mo>≠</mo><mi>b</mi></math>
   - id: voc-023
+    approved:
+      ClearSpeak: "a je menšie ako b"
+      SimpleSpeak: "a je menšie ako b"
     note: Less than. SABP uses the masculine "menší ako"; the alternative is the neuter "menšie ako". The same choice applies to voc-024 to voc-026.
     mathml: <math><mi>a</mi><mo>&lt;</mo><mi>b</mi></math>
   - id: voc-024
+    approved:
+      ClearSpeak: "a je väčšie ako b"
+      SimpleSpeak: "a je väčšie ako b"
     note: Greater than.
     mathml: <math><mi>a</mi><mo>&gt;</mo><mi>b</mi></math>
   - id: voc-025
+    approved:
+      ClearSpeak: "a je menšie alebo rovné b"
+      SimpleSpeak: "a je menšie alebo rovné b"
     note: Less than or equal.
     mathml: <math><mi>a</mi><mo>≤</mo><mi>b</mi></math>
   - id: voc-026
+    approved:
+      ClearSpeak: "a je väčšie alebo rovné b"
+      SimpleSpeak: "a je väčšie alebo rovné b"
     note: Greater than or equal.
     mathml: <math><mi>a</mi><mo>≥</mo><mi>b</mi></math>
   - id: voc-027
+    approved:
+      ClearSpeak: "a je totožné s b"
+      SimpleSpeak: "a je totožné s b"
     note: Identical to. "totožné" and "úmerné" (voc-028) are neuter, while voc-023 to voc-026 are masculine; one gender should be chosen for all relations.
     mathml: <math><mi>a</mi><mo>≡</mo><mi>b</mi></math>
   - id: voc-028
+    approved:
+      ClearSpeak: "a je úmerné b"
+      SimpleSpeak: "a je úmerné b"
     note: Proportional to.
     mathml: <math><mi>a</mi><mo>∝</mo><mi>b</mi></math>
   - id: voc-029
+    approved:
+      ClearSpeak: "p je rovnobežné s q"
+      SimpleSpeak: "p je rovnobežné s q"
     note: Parallel. "rovnobežná s" is feminine (priamka).
     mathml: <math><mi>p</mi><mo>∥</mo><mi>q</mi></math>
   - id: voc-030
+    approved:
+      ClearSpeak: "p nie je rovnobežné s q"
+      SimpleSpeak: "p nie je rovnobežné s q"
     note: Not parallel.
     mathml: <math><mi>p</mi><mo>∦</mo><mi>q</mi></math>
   - id: voc-031
+    approved:
+      ClearSpeak: "3 delí 6"
+      SimpleSpeak: "3 delí 6"
     note: Vertical bar as "divides". SABP has "delí".
     mathml: <math><mn>3</mn><mo>|</mo><mn>6</mn></math>
 
   # Sets
   - id: voc-032
+    approved:
+      ClearSpeak: "x je prvkom veľké a"
+      SimpleSpeak: "x je prvkom veľké a"
     note: Element of.
     mathml: <math><mi>x</mi><mo>∈</mo><mi>A</mi></math>
   - id: voc-033
+    approved:
+      ClearSpeak: "x nie je prvkom veľké a"
+      SimpleSpeak: "x nie je prvkom veľké a"
     note: Not an element of.
     mathml: <math><mi>x</mi><mo>∉</mo><mi>A</mi></math>
   - id: voc-034
+    approved:
+      ClearSpeak: "veľké a je podmnožinou veľké b"
+      SimpleSpeak: "veľké a je podmnožinou veľké b"
     note: Subset.
     mathml: <math><mi>A</mi><mo>⊂</mo><mi>B</mi></math>
   - id: voc-035
+    approved:
+      ClearSpeak: "veľké a je nadmnožinou veľké b"
+      SimpleSpeak: "veľké a je nadmnožinou veľké b"
     note: Superset.
     mathml: <math><mi>A</mi><mo>⊃</mo><mi>B</mi></math>
   - id: voc-036
+    approved:
+      ClearSpeak: "veľké a, je podmnožinou alebo sa rovná, veľké b"
+      SimpleSpeak: "veľké a, je podmnožinou alebo sa rovná, veľké b"
     note: Subset or equal.
     mathml: <math><mi>A</mi><mo>⊆</mo><mi>B</mi></math>
   - id: voc-037
+    approved:
+      ClearSpeak: "veľké a, je nadmnožinou alebo sa rovná, veľké b"
+      SimpleSpeak: "veľké a, je nadmnožinou alebo sa rovná, veľké b"
     note: Superset or equal.
     mathml: <math><mi>A</mi><mo>⊇</mo><mi>B</mi></math>
   - id: voc-038
+    approved:
+      ClearSpeak: "veľké a nie je podmnožinou, veľké b"
+      SimpleSpeak: "veľké a nie je podmnožinou, veľké b"
     note: Not a subset.
     mathml: <math><mi>A</mi><mo>⊄</mo><mi>B</mi></math>
   - id: voc-039
+    approved:
+      ClearSpeak: "veľké a nie je nadmnožinou, veľké b"
+      SimpleSpeak: "veľké a nie je nadmnožinou, veľké b"
     note: Not a superset.
     mathml: <math><mi>A</mi><mo>⊅</mo><mi>B</mi></math>
 
   # Fences
   - id: voc-040
+    approved:
+      ClearSpeak: "ľavá zátvorka, a plus b, pravá zátvorka; mínus c"
+      SimpleSpeak: "zátvorka a plus b zatvoriť; mínus c"
     note: Parentheses around a sum. ClearSpeak and SimpleSpeak use "otvorená/zatvorená zátvorka"; other verbosities use other words.
     mathml: <math><mo>(</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>)</mo><mo>-</mo><mi>c</mi></math>
   - id: voc-041
+    approved:
+      ClearSpeak: "ľavá hranatá zátvorka, pravá hranatá zátvorka"
+      SimpleSpeak: "hranatá zátvorka, hranatá zatvoriť"
     note: Square brackets on their own.
     mathml: <math><mo>[</mo><mspace width="1em"/><mo>]</mo></math>
 
   # Arrows and logic
   - id: voc-042
+    approved:
+      ClearSpeak: "šípka doľava, šípka nahor šípka nadol"
+      SimpleSpeak: "šípka doľava, šípka nahor šípka nadol"
     note: Arrows left, up, down.
     mathml: <math><mo>←</mo><mspace width="1em"/><mo>↑</mo><mspace width="1em"/><mo>↓</mo></math>
   - id: voc-043
+    approved:
+      ClearSpeak: "a šípka doprava b"
+      SimpleSpeak: "a šípka doprava b"
     note: Arrow to the right.
     mathml: <math><mi>a</mi><mo>→</mo><mi>b</mi></math>
   - id: voc-044
+    approved:
+      ClearSpeak: "a dvojitá šípka doprava b"
+      SimpleSpeak: "a dvojitá šípka doprava b"
     note: Double arrow to the right (implies).
     mathml: <math><mi>a</mi><mo>⇒</mo><mi>b</mi></math>
   - id: voc-045
+    approved:
+      ClearSpeak: "negácia p"
+      SimpleSpeak: "negácia p"
     note: Negation.
     mathml: <math><mo>¬</mo><mi>p</mi></math>
 
   # Other symbols
   - id: voc-046
+    approved:
+      ClearSpeak: "parciálna derivácia, laplacián z bodka bodka bodka"
+      SimpleSpeak: "parciálna derivácia, laplacián z bodka bodka bodka"
     note: Partial derivative sign, Laplace operator, ellipsis. "laplacián z" ends with "z" because it is followed by its argument.
     mathml: <math><mo>∂</mo><mspace width="1em"/><mo>∆</mo><mspace width="1em"/><mo>…</mo></math>
   - id: voc-047
+    approved:
+      ClearSpeak: "30 stupňov, 5 percent"
+      SimpleSpeak: "30 stupňov, 5 percent"
     note: Degree and percent. The plural forms (stupne, stupňov, percent) come in the units package.
     mathml: <math><mn>30</mn><mo>°</mo><mspace width="1em"/><mn>5</mn><mo>%</mo></math>
   - id: voc-048
+    approved:
+      ClearSpeak: "20 stupňov Celzia"
+      SimpleSpeak: "20 stupňov Celzia"
     note: Degree Celsius.
     mathml: <math><mn>20</mn><mo>℃</mo></math>
   - id: voc-049
+    approved:
+      ClearSpeak: "a čiarka, b, bodkočiarka c"
+      SimpleSpeak: "a čiarka, b, bodkočiarka c"
     note: Comma and semicolon. The English source had "comma" marked as verified; the Slovak "čiarka" is a new proposal.
     mathml: <math><mi>a</mi><mo>,</mo><mi>b</mi><mo>;</mo><mi>c</mi></math>
   - id: voc-050
+    approved:
+      ClearSpeak: "mriežka; ampersand zavináč, otáznik opačná lomka podčiarkovník"
+      SimpleSpeak: "mriežka; ampersand zavináč, otáznik opačná lomka podčiarkovník"
     note: Other ASCII characters spoken as words.
     mathml: <math><mo>#</mo><mspace width="1em"/><mo>&amp;</mo><mspace width="1em"/><mo>@</mo><mspace width="1em"/><mo>?</mo><mspace width="1em"/><mo>\</mo><mspace width="1em"/><mo>_</mo></math>
 
   # Function names
   - id: voc-051
+    approved:
+      ClearSpeak: "sínus x"
+      SimpleSpeak: "sínus x"
     note: Sine of x. Question for reviewers - the word between a function and its argument. ClearSpeak says nothing, SimpleSpeak says "od" (no source; alternatives "z" or nothing).
     mathml: <math><mi>sin</mi><mo>&#x2061;</mo><mi>x</mi></math>
   - id: voc-052
+    approved:
+      ClearSpeak: "kosínus x, tangens x, kotangens x, sekans x kosekans x"
+      SimpleSpeak: "kosínus x, tangens x, kotangens x, sekans x kosekans x"
     note: Other trigonometric functions. Slovak does not read abbreviations (cos, tg), so the full name is used in every verbosity.
     mathml: <math><mi>cos</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>tg</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>cot</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>sec</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>csc</mi><mo>&#x2061;</mo><mi>x</mi></math>
   - id: voc-053
+    approved:
+      ClearSpeak: "hyperbolický sínus od x; hyperbolický kosínus od x; hyperbolický tangens od x; hyperbolický kotangens od x"
+      SimpleSpeak: "hyperbolický sínus, x; hyperbolický kosínus, x; hyperbolický tangens, x; hyperbolický kotangens, x"
     note: Hyperbolic functions.
     mathml: <math><mi>sinh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>cosh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>tanh</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>coth</mi><mo>&#x2061;</mo><mi>x</mi></math>
   - id: voc-054
+    approved:
+      SimpleSpeak: "logaritmus x; prirodzený logaritmus, x; logaritmus so základom b; x"
     note: Logarithm, natural logarithm, logarithm with a base. Only SimpleSpeak here; ClearSpeak has its own logarithm rules (functions package). With a base, the word "od" before x is the same question as in voc-051.
     styles: [SimpleSpeak]
     mathml: <math><mi>log</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>ln</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><msub><mi>log</mi><mi>b</mi></msub><mo>&#x2061;</mo><mi>x</mi></math>
   - id: voc-055
+    approved:
+      ClearSpeak: "exponenciála od x; kovariancia od; ľavá zátvorka, veľké x čiarka, veľké y; pravá zátvorka"
+      SimpleSpeak: "exponenciála x; kovariancia; zátvorka, veľké x čiarka, veľké y; zatvoriť"
     note: Exponential function and covariance.
     mathml: <math><mi>exp</mi><mo>&#x2061;</mo><mi>x</mi><mspace width="1em"/><mi>Cov</mi><mo>&#x2061;</mo><mo>(</mo><mi>X</mi><mo>,</mo><mi>Y</mi><mo>)</mo></math>
   - id: voc-056
+    approved:
+      ClearSpeak: "reálna časť od z, imaginárna časť od z"
+      SimpleSpeak: "reálna časť z, imaginárna časť z"
     note: Real and imaginary part.
     mathml: <math><mi>Re</mi><mo>&#x2061;</mo><mi>z</mi><mspace width="1em"/><mi>Im</mi><mo>&#x2061;</mo><mi>z</mi></math>
 
   # Fraction words
   - id: voc-057
+    approved:
+      ClearSpeak: "1 polovica 1 tretina 1 štvrtina"
+      SimpleSpeak: "1 polovica 1 tretina 1 štvrtina"
     note: Fractions with small denominators, the singular nouns (polovica, tretina, štvrtina).
     mathml: <math><mfrac><mn>1</mn><mn>2</mn></mfrac><mspace width="1em"/><mfrac><mn>1</mn><mn>3</mn></mfrac><mspace width="1em"/><mfrac><mn>1</mn><mn>4</mn></mfrac></math>
   - id: voc-058
+    approved:
+      ClearSpeak: "3 polovice 2 tretiny 3 desatiny"
+      SimpleSpeak: "3 polovice 2 tretiny 3 desatiny"
     note: Plural fraction nouns. "polovica" (NVDA, standard) or "polovina" (Pohodová matematika)?
     mathml: <math><mfrac><mn>3</mn><mn>2</mn></mfrac><mspace width="1em"/><mfrac><mn>2</mn><mn>3</mn></mfrac><mspace width="1em"/><mfrac><mn>3</mn><mn>10</mn></mfrac></math>

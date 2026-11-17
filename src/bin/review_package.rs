@@ -1,7 +1,7 @@
 // *** Tool for translators: builds an HTML review package from a YAML file of review items ***
 //
 // Usage:
-//   cargo run --bin review-package -- docs/sk/review/fractions.yaml [-o out.html] [--deadline 2026-12-01]
+//   cargo run --bin review-package -- docs/sk/review/fractions.yaml [-o out.html] [--deadline 2026-12-01] [--all]
 //
 // Item file format (one file per topic):
 //
@@ -21,7 +21,8 @@
 //
 // Each item is spoken in the target language and in English, in each style. An item goes into
 // the package when some style has no approved text yet or its output differs from the approved
-// text. Approved, unchanged items are listed collapsed at the end.
+// text. Approved, unchanged items are listed collapsed at the end; with --all they are shown in
+// full like the others (final check of a topic).
 #![allow(clippy::needless_return)]
 
 use anyhow::{bail, Context, Result};
@@ -53,6 +54,9 @@ struct Options {
 
     #[arg(long, help = "Reply deadline shown in the package header")]
     deadline: Option<String>,
+
+    #[arg(long, help = "Show every item in full, approved ones too (final check of a topic)")]
+    all: bool,
 }
 
 struct Item {
@@ -262,6 +266,10 @@ fn build_html(file: &ItemFile, cli: &Options) -> (String, usize, usize) {
         let results = evaluate(item, &cli.language, &cli.compare_language);
         if results.iter().all(|r| r.status == Status::Approved) {
             n_approved += 1;
+            if cli.all {
+                write_item(&mut to_review, item, &results, &cli.language, &cli.compare_language);
+                continue;
+            }
             let texts: Vec<String> = results.iter().map(|r| format!("{}: {}", r.style, r.speech)).collect();
             let _ = writeln!(approved, "<li>{}: <span lang=\"{}\">{}</span></li>",
                              esc(&item.id), cli.language, esc(&texts.join("; ")));
@@ -293,7 +301,7 @@ fn build_html(file: &ItemFile, cli: &Options) -> (String, usize, usize) {
         let _ = writeln!(html, "</ul>");
     }
     html.push_str(&to_review);
-    if n_approved > 0 {
+    if n_approved > 0 && !cli.all {
         let _ = writeln!(html, "<details>\n<summary>Approved, unchanged items ({n_approved})</summary>\n<ul>");
         html.push_str(&approved);
         let _ = writeln!(html, "</ul>\n</details>");
