@@ -233,6 +233,33 @@ now `T:` and all 58 items have `approved:` texts.
   can also mean a + (−b). Accepted although the user generally prefers short
   readings.
 
+## Differences from Lambda 2015 (for reference only)
+
+Recorded 2026-11-19. Lambda 2015 (see `docs/sk/terminology-sources.md`) is one
+source among others, not an authority. These differences are for information:
+they may be cited when a reading is discussed, but they are not open questions,
+nothing has to be changed or asked because of them, and our decisions stay.
+
+- Arrows: Lambda "šípka hore" / "šípka dolu" (brief "hore", "dolu"); ours
+  "šípka nahor" / "šípka nadol".
+- ≤ and ≥: Lambda "je menšie ako alebo je rovné" / brief "menšie ako alebo
+  rovné"; ours "je menšie alebo sa rovná" (SimpleSpeak without "je").
+- ∥ and ∦: Lambda "je rovnobežka so" / "je nerovnobežka so" (brief
+  "rovnobežka", "nerovnobežka"); ours "rovnobežné s", ClearSpeak ∦ "nie je
+  rovnobežné s", SimpleSpeak ∦ "nerovnobežné s".
+- Greek letters: Lambda "zeta", "eta", "theta", "xí"; ours (SABP 2021)
+  "zéta", "éta", "théta", "ksí". Lambda also makes the capital agree in gender
+  ("veľká gama", "veľké pí"); ours always "veľké".
+- After functions and operators: Lambda says "zo" before the argument
+  (determinant, celá časť, log with base, sum, limit); ours says nothing
+  ("od" and "zo" are not wanted).
+- Fractions: Lambda simple fraction "zlomková čiara", compound fraction
+  "zložený zlomok čitateľ ... menovateľ ... koniec zlomku"; ours "lomeno",
+  "zlomok ... lomeno ... koniec zlomku". This one is already asked in the
+  fractions package (see "Fraction words"), the group's reply decides it.
+- Number sets: Lambda ℕ "množina prirodzených čísel" / brief "prirodzené
+  čísla"; ours "prirodzené čísla" in both styles (as Lambda's brief form).
+
 ## Work plan (each step is one review package)
 
 Revised 2026-11-10: packages are organised by topic, not by rules file. Each
@@ -305,8 +332,9 @@ report the same grammar errors in every package.
   the reviewers asked for, so instead of a follow-up package a final check
   package with every item (`--all`, `target/review/vocabulary-final.html`) goes
   to the group; replies to it are handled like a normal round.
-- Question for the group: are the localization XML files of the Slovak Lambda
-  editor available (they may hold more readings)? The user is looking for them.
+- Lambda editor localization found (2026-11-19, `C:\Lambda`, files dated
+  2015-12-07): added to `terminology-sources.md` as "Lambda 2015"; differences
+  from our decisions in "Differences from Lambda 2015 (for reference only)".
 - First upstream merge (2026-11-11, up to a4ae93ed): no conflicts, sk tests
   unchanged (173 pass / 427 fail, English goldens). Task for the units topic:
   upstream 33c3ed4f reworked units and currency (currency over a unit such as
