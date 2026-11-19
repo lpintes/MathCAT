@@ -11,15 +11,16 @@ schools for the blind. What exists:
 
 - authoritative Slovak names for individual symbols (the 2021 Slovak Braille
   rules from SABP and the NVDA Slovak symbol dictionary);
-- one Slovak description of spoken output for structures (fraction start,
-  fraction bar, end of fraction), from the Slovak localization of the Lambda
-  editor;
+- the Slovak localization of the Lambda editor: a 2009 description of its
+  spoken output for structures (fraction start, fraction bar, end of
+  fraction), and the spoken strings themselves in an installed 2015 version
+  (fractions, powers, relations, sets, sums, limits, integrals, derivatives);
 - school and university materials that state readings for powers, roots,
   fractions, derivatives and definite integrals.
 
 Spoken readings for limits, sums, absolute value, functions and indices
-(subscripts) have no explicit Slovak source. Those entries below are marked
-as unsourced suggestions.
+(subscripts) have no explicit Slovak source apart from Lambda. Entries with
+no source at all are marked as unsourced suggestions.
 
 ## 1. Sources
 
@@ -65,6 +66,27 @@ as unsourced suggestions.
   - Trust: medium. It is a student work, but it is the only Slovak source
     found that describes spoken structural markers tested with blind
     students.
+- Lambda 2015, the Slovak localization of the Lambda math editor as
+  installed by the user (`C:\Lambda`, files dated 2015-12-07). The spoken
+  strings are in `LambdaCode.xml`, block `<lang id="sk">`. Each element has a
+  `name` and, for most structures, a verbose form (`open`, `sep`, `close`)
+  and a brief form (`openb`, `sepb`, `closeb`). This is close to the
+  ClearSpeak versus SimpleSpeak/Terse split. Elements without `open` are
+  probably spoken by their `name`; that is inferred from the English block,
+  not checked in the running program. `Lang/sk/LambdaMenu.xml` holds only the
+  menu captions (names of the insert commands), and `Lang/sk/Messages.dat`
+  holds user interface messages, not readings. The files come with the
+  program and are not public; only single readings are quoted here.
+  - What it covers: about 350 elements: letters, operators, relations, sets,
+    logic, fractions, powers, roots, sums, products, limits, derivatives,
+    integrals, matrices, arrows, functions, statistics.
+  - Trust: medium. Slovak blind students used these strings with a real
+    program, which counts for a lot. Who wrote this version and on what basis
+    is unknown. It differs from the 2009 description in Horňanský 2009 (see
+    Fractions below), so it is not certain that these are Horňanský's files.
+    Several strings follow the English ones word for word ("je nerovnobežka
+    so", "je dotyčnica"), and about eight are double-encoded ("zlomkovĂˇ
+    čiara" for "zlomková čiara").
 - vypocitat.sk, "Mocniny a odmocniny (kalkulačka)" (powers and roots
   calculator).
   URL: https://vypocitat.sk/mocniny-a-odmocniny-kalkulacka/
@@ -158,7 +180,8 @@ as unsourced suggestions.
   - Lambda editor localization files: one or two XML files with the Slovak
     readings that Martin Horňanský made for his thesis (see Horňanský 2009
     above). A reviewer says they paid attention to the language side. The
-    files are not public; ask the review group for them.
+    files are not public. Found on 2026-11-19 in the user's installed copy of
+    Lambda; see "Lambda 2015" above.
     - Trust: medium; the most direct prior Slovak work on spoken math.
   - Slovak Wikipedia, "Hyperbolická funkcia", confirms the hyperbolic
     function names.
@@ -189,6 +212,18 @@ marks an entry that no source states.
   zlomku" at the end. Example: "Zložený zlomok a plus b Zlomková čiara a
   mínus b Koniec zlomku." (Horňanský 2009, table 4.2, Lambda Slovak voice
   output)
+- Compound fraction in Lambda 2015: verbose "čitateľ ... menovateľ ...
+  koniec zlomku", brief "čitateľ ... menovateľ ..." (no end word). This
+  differs from the 2009 table: "menovateľ" instead of "zlomková čiara", and
+  no "zložený zlomok" at the start. The English block has "the fraction
+  numerator ... denominator ... end fraction", so the Slovak strings may be a
+  translation of it. (Lambda 2015)
+- Simple fraction a/b in Lambda 2015: the bar element is named "zlomková
+  čiara" and has no other spoken string, so a/b is probably "a zlomková čiara
+  b". (Lambda 2015)
+- For comparison, the Czech block of the same file has "zlomek ... lomeno
+  ... konec zlomku". The Slovak block does not use "lomeno". (Lambda 2015,
+  Czech)
 - Simple numeric fraction 1/2: jedna polovina; then dve, tri, štyri poloviny;
   päť, šesť ... polovín (Pohodová matematika)
 - Other denominators: tretiny, štvrtiny, pätiny ... stotiny (Pohodová
@@ -220,6 +255,9 @@ marks an entry that no source states.
   škola 2016)
 - Grouped power, Slovak form "to celé na ...": unsourced suggestion, by
   analogy with the Czech "to celé".
+- Simple power: "umocnené na" (verbose and brief); power with a compound
+  exponent: "umocnené na ... koniec mocniny"; superscript as such: "horný
+  index" (Lambda 2015)
 
 ### Roots
 
@@ -233,6 +271,9 @@ marks an entry that no source states.
   odmocnenia (the root sign) (ZŠ Skýcov worksheet)
 - End-of-root marker exists as a concept, "koniec odmocniny" (Horňanský
   2009). The spoken string itself is not given.
+- Lambda 2015 has only names for roots: "jednoduchá odmocnina" (simple
+  square root) and "zložená odmocnina" (compound root), with no start or end
+  strings. (Lambda 2015)
 
 ### Indices (subscripts and superscripts)
 
@@ -244,6 +285,9 @@ marks an entry that no source states.
   extracted text).
 - Spoken subscript x₁ as "x jedna" or "x index jedna": unsourced
   suggestion.
+- Index elements: "dolný index", "horný index", "ľavý dolný index", "ľavý
+  horný index"; under and over scripts: "podtext", "nadtext"; primes:
+  "apostrof", "dvojitý apostrof", "trojitý apostrof" (Lambda 2015)
 
 ### Absolute value
 
@@ -253,11 +297,21 @@ marks an entry that no source states.
   suggestion. The definition pages (vypocitat.sk, encyklopediapoznania.sk)
   name the concept "absolútna hodnota čísla" but give no reading of the
   notation.
+- |x|: verbose "absolútna hodnota", brief "začiatok absolútnej hodnoty" (the
+  brief form is the longer one, which looks swapped) (Lambda 2015)
 
 ### Functions
 
 - Sinusoid ∿: sínusovka; composition ∘: operátor krúžok (NVDA)
 - f(x) as "f od x" or "f z x": unsourced suggestion. No source found.
+- Lambda uses "zo" before the argument of several operators: "determinant
+  zo", "celá časť zo", "logaritmus so základom ... zo", and "zo" after sums,
+  products and limits (below). It never uses "od" for function application.
+  (Lambda 2015)
+- Function names: sínus, kosínus, tangens, kotangens, sekans, kosekans,
+  arkussínus ... arkuskosekans, "hyperbolický sínus" and so on; "logaritmus"
+  (common log), "prirodzený logaritmus", "zložená funkcia" for ∘. (Lambda
+  2015)
 
 ### Limits
 
@@ -271,6 +325,8 @@ marks an entry that no source states.
   form)
 - lim over x→a as "limita pre x idúce k a" or "limita pre x blížiace sa k a":
   unsourced suggestion. No source states a reading of the lim notation.
+- Limit in Lambda: "limita ... ide do ... zo" (verbose), "limita" (brief);
+  also "dolná limita", "horná limita" (Lambda 2015)
 
 ### Derivatives
 
@@ -283,6 +339,9 @@ marks an entry that no source states.
   Velichová, search snippet only)
 - ∂: parciálna derivácia; ∇: nabla (NVDA)
 - f′(x) as "f s čiarkou od x" or "f čiarka x": unsourced suggestion.
+- Derivative with respect to x: verbose "derivácia ... podľa x", brief
+  "derivácia ... d x"; partial: "parciálna derivácia ... podľa x"; "n-tá
+  derivácia"; differential: verbose "podľa", brief "diferenciál" (Lambda 2015)
 
 ### Integrals
 
@@ -293,6 +352,9 @@ marks an entry that no source states.
   ∯ plošný integrál; ∰ objemový integrál (NVDA)
 - ∫ from a to b of f(x) dx, spoken as "integrál od a po b z f od x dx" or "...
   podľa x": unsourced suggestion. Only the "od a po b" part is sourced.
+- Definite integral in Lambda: "integrál od ... po ... koniec integrálu"
+  (verbose), "integrál od" (brief); "neurčitý integrál"; "krivkový integrál
+  ... po krivke"; "integrál po uzavretej krivke okolo gama" (Lambda 2015)
 
 ### Sums and products
 
@@ -305,6 +367,12 @@ marks an entry that no source states.
   example)
 - ∑ for i from 1 to n, spoken as "suma pre i od 1 po n" or "súčet pre i od
   1 po n": unsourced suggestion.
+- Sum in Lambda: "suma ... pre ... zo" (verbose; the parts are the lower
+  limit, the upper limit and the summand), "suma" (brief); product "súčin ...
+  pre ... zo" (Lambda 2015). Note: "pre" stands where English has "to",
+  between the lower and upper limits.
+- Matrix: "matica ... koniec matice"; separators "oddeľovač stĺpcov",
+  "oddeľovač riadkov" (Lambda 2015)
 
 ### Operators
 
@@ -322,6 +390,11 @@ marks an entry that no source states.
   dvestošestnásť" (SABP 2021)
 - %: percento; ‰: promile; °: stupeň; ℃: stupeň Celzia (SABP 2021). NVDA
   reads ° as "stupňov".
+- Lambda 2015: + plus, − mínus, times "krát", ÷ "deleno", ± and ∓
+  "plus/mínus" and "mínus/plus" (spoken form of the slash unclear), %
+  "percent", ‰ "promile", ! "faktoriál", degrees "stupne", thousands
+  separator "tisíc", decimal comma "desatinná čiarka", repeating decimal
+  "opakujúce sa nuly" (Lambda 2015)
 
 ### Relations
 
@@ -337,6 +410,22 @@ marks an entry that no source states.
 - ∥: rovnobežka; ⊥: kolmica; ∠: uhol; ∟: pravý uhol (NVDA)
 - ⇒: dvojitá šípka vpravo; → šípka vpravo (NVDA, character names, not
   "implikuje")
+- Lambda 2015, verbose and brief forms: < "je menšie ako" / "menšie ako"; >
+  "je väčšie ako" / "väčšie ako"; ≤ "je menšie ako alebo je rovné" / "menšie
+  ako alebo rovné"; ≥ the same with "väčšie"; ≪ "je oveľa menšie ako" /
+  "oveľa menšie ako"; ≫ likewise; = "rovná sa"; ≠ "nerovná sa"; ≈ "sa
+  približne rovná"; ≅ "je kongruentné" / "kongruentné"; ≡ "je ekvivalentné" /
+  "ekvivalentné"; ∝ "je úmerné" / "úmerné"; ≺ "predchádza", ≻ "nasleduje";
+  ∣ "deliteľ" (Lambda 2015). The brief forms drop "je", as our SimpleSpeak
+  does.
+- Geometry in Lambda: ∥ "je rovnobežka so" / "rovnobežka"; ∦ "je
+  nerovnobežka so" / "nerovnobežka"; ⊥ "je kolmica na" / "kolmica"; "je
+  dotyčnica" / "dotyčnica"; ∠ "uhol"; "vektor"; "skalárny súčin"; "vektorový
+  súčin" (Lambda 2015). These follow the English strings closely.
+- Arrows in Lambda: "šípka doľava", "šípka doprava", "šípka hore", "šípka
+  dolu" (brief: "doľava", "doprava", "hore", "dolu"); "obojstranná šípka";
+  ⇒ "implikuje"; ⇔ "je logicky ekvivalentné" / "logicky ekvivalentné"
+  (Lambda 2015)
 
 ### Sets and logic
 
@@ -353,6 +442,22 @@ marks an entry that no source states.
 - ∀: pre všetky; ∃: existuje; ∄: neexistuje (NVDA)
 - ∧: logické a; ∨: logické alebo (NVDA)
 - ∴: preto; ∵: pretože; ∎: koniec dôkazu (NVDA)
+- Lambda 2015, verbose and brief forms: ∈ "je prvok množiny" / "je z
+  množiny"; ∉ "nie je prvok množiny" / "nie je z množiny"; ⊆ "je obsiahnuté
+  alebo sa rovná"; ⊂ "je obsiahnutá" (sic, feminine); ⊇ "obsahuje alebo sa
+  rovná"; ⊃ "obsahuje"; ∪ "zjednotenie"; ∩ "prienik"; ∖ "mínus"; complement
+  "doplnok"; "symetrická diferencia"; "Kartézsky súčin"; "potenčná množina";
+  "kardinalita"; ∅ "prázdna množina". Indexed union and intersection:
+  "zjednotenie ... do ... množiny", brief closing "zo". (Lambda 2015)
+- Number sets in Lambda: ℕ "množina prirodzených čísel" / "prirodzené
+  čísla", and the same pattern for ℤ, ℚ, ℝ, ℂ (Lambda 2015)
+- Logic in Lambda: "logické a", "logické alebo", "negácia", "pre všetky",
+  "existuje", "neexistuje", "existuje práve jedno", "vylučujúca disjunkcia",
+  "pravda", "nepravda", "spor", "tautológia" (Lambda 2015)
+- Brackets in Lambda: verbose "ľavá zátvorka ... pravá zátvorka", brief
+  "zátvorka"; likewise "ľavá/pravá hranatá zátvorka" and "ľavá/pravá zložená
+  zátvorka"; "uhlové zátvorky"; | "zvislá čiara"; ‖ "dvojitá čiara" (Lambda
+  2015)
 
 ### Greek letters
 
@@ -366,3 +471,9 @@ From SABP 2021 (the lowercase table):
 Capital letters are introduced with the prefix for "veľké grécke písmeno"
 (capital Greek letter). Speaking capitals as "veľké" plus the name (for
 example "veľké sigma") is an unsourced suggestion.
+
+Lambda 2015 writes several names without the long vowels: "zeta", "eta",
+"theta" (with "th"), and "xí" for ξ; the others match SABP. Capitals agree
+in gender with the name: "veľká gama", "veľká delta", "veľká sigma", "veľká
+omega", but "veľké pí", "veľké fí", "veľké psí", "veľký omikron". Capital
+Latin letters are "veľké b" and so on. (Lambda 2015)
